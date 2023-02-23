@@ -1,0 +1,113 @@
+// A file comment:
+// (-- api-linter: core::0192::has-comments=disabled --)
+//
+// The above comment will disable the rule
+// `core::0192::has-comments` for the entire file.
+
+syntax = "proto3";
+
+package com.subscriptionmanager;
+
+import "google/api/field_behavior.proto";
+
+option java_multiple_files = true;
+option java_package = "com.subscription.proto";
+
+message News{
+  string id = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+  string genre_uid = 2 [(google.api.field_behavior) = REQUIRED];
+  string title = 3 [(google.api.field_behavior) = REQUIRED];
+  string description = 4 [(google.api.field_behavior) = REQUIRED];
+}
+
+message CreateNewsRequest{
+  News news = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message Genre{
+  string id = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+  string name = 3 [(google.api.field_behavior) = REQUIRED];
+}
+
+message CreateGenreRequest{
+  Genre genre = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message Subscription{
+  string id = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+  string name = 2 [(google.api.field_behavior) = REQUIRED];
+  uint32 price = 3 [(google.api.field_behavior) = REQUIRED];
+  uint32 validity = 4 [(google.api.field_behavior) = REQUIRED];
+}
+
+message CreateSubscriptionRequest{
+  Subscription subscription = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message ListSubscriptionRequest{
+  string user_uid = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message ListSubscriptionResponse{
+  repeated Subscription subscriptions = 1;
+}
+
+message AddSubscriptionRequest{
+  string user_uid = 1 [(google.api.field_behavior) = REQUIRED];
+  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+message AddSubscriptionResponse{
+  bool added = 1;
+}
+
+message DeleteSubscriptionRequest{
+  string user_uid = 1 [(google.api.field_behavior) = REQUIRED];
+  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+message DeleteSubscriptionResponse{
+  bool deleted = 1;
+}
+
+message RenewSubscriptionRequest{
+  string user_uid = 1 [(google.api.field_behavior) = REQUIRED];
+  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+message RenewSubscriptionResponse{
+  bool renewed = 1;
+}
+
+message User{
+
+  enum Role {
+    ROLE_UNSPECIFIED = 0;
+    ROLE_USER = 1;
+    ROLE_WRITER = 2;
+  }
+
+  string id = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+  string name = 2 [(google.api.field_behavior) = REQUIRED];
+  string email_id = 3 [(google.api.field_behavior) = REQUIRED];
+  string password = 4 [(google.api.field_behavior) = REQUIRED];
+  Role role = 5 [(google.api.field_behavior) = REQUIRED];
+}
+
+message CreateUserRequest{
+  User user = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message Newsletter {
+  repeated string news = 1;
+}
+
+message NewsletterMailInfo {
+  Newsletter newsletter = 1;
+  repeated string emailId = 2;
+}
+
+message Empty{
+
+}

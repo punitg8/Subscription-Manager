@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.subscriptionmanager;
+
+import "message.proto";
+option java_package = "com.subscription.proto";
+
+option java_multiple_files = true;
+
+service AuthenticationService{
+  rpc createUser(CreateUserRequest) returns (User){};
+}
+
+service NewsService{
+  rpc createNews(CreateNewsRequest) returns (News){};
+}
+
+service GenreService{
+  rpc createGenre(CreateGenreRequest) returns (Genre){};
+}
+
+service SubscriptionService{
+  rpc createSubscription(CreateSubscriptionRequest) returns (Subscription){};
+}
+
+service UserService{
+  rpc ListSubscription(ListSubscriptionRequest) returns (ListSubscriptionResponse){};
+  rpc AddSubscription(AddSubscriptionRequest) returns (AddSubscriptionResponse){};
+  rpc RenewSubscription(RenewSubscriptionRequest) returns (RenewSubscriptionResponse){};
+  rpc DeleteSubscription(DeleteSubscriptionRequest) returns (DeleteSubscriptionResponse){};
+}
+
+service NewsletterService{
+  rpc sendNewsletter(Empty) returns (Empty);
+}
