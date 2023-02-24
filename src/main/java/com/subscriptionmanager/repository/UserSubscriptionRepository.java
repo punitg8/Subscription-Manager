@@ -1,9 +1,10 @@
 package com.subscriptionmanager.repository;
 
-import java.util.List;
+
 import com.subscriptionmanager.model.Subscription;
 import com.subscriptionmanager.model.User;
 import com.subscriptionmanager.model.UserSubscription;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
