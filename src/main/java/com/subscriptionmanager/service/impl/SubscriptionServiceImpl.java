@@ -18,8 +18,8 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
 
   @Override
-  public Subscription createSubscription(CreateSubscriptionRequest request) {
-    Subscription newSubscription = request.getSubscription();
+  public Subscription createSubscription(final CreateSubscriptionRequest request) {
+    final Subscription newSubscription = request.getSubscription();
 
     com.subscriptionmanager.model.Subscription subscription =
         com.subscriptionmanager.model.Subscription.builder()

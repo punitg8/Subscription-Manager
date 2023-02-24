@@ -37,7 +37,7 @@ public class GenreController extends GenreServiceGrpc.GenreServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception){
+    } catch (Exception exception) {
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());

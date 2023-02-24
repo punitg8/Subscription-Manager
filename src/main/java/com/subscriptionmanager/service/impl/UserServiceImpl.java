@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService {
   private final UserSubscriptionRepository userSubscriptionRepository;
 
   @Override
-  public ListSubscriptionResponse listSubscription(ListSubscriptionRequest request) {
-    User user = findUserById(request.getUserUid());
+  public ListSubscriptionResponse listSubscription(final ListSubscriptionRequest request) {
+    final User user = findUserById(request.getUserUid());
 
     return ListSubscriptionResponse.newBuilder()
         .addAllSubscriptions(
@@ -54,10 +54,11 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public AddSubscriptionResponse addSubscription(AddSubscriptionRequest request) {
-    User user = findUserById(request.getUserUid());
+  public AddSubscriptionResponse addSubscription(final AddSubscriptionRequest request) {
+    final User user = findUserById(request.getUserUid());
 
-    Subscription subscription = subscriptionRepositoryService.findById(request.getSubscriptionUid());
+    final Subscription subscription =
+        subscriptionRepositoryService.findById(request.getSubscriptionUid());
 
     if (userSubscriptionRepository.existsByUserAndSubscription(user, subscription)) {
       throw InvalidArgumentException.builder()
@@ -66,7 +67,7 @@ public class UserServiceImpl implements UserService {
           .build();
     }
 
-    UserSubscription userSubscription = UserSubscription.builder()
+    final UserSubscription userSubscription = UserSubscription.builder()
         .user(user)
         .subscription(subscription)
         .validitiyDate(Date.valueOf(LocalDate.now().plusDays(subscription.getValidity())))
@@ -80,12 +81,13 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public RenewSubscriptionResponse renewSubscription(RenewSubscriptionRequest request) {
-    User user = findUserById(request.getUserUid());
+  public RenewSubscriptionResponse renewSubscription(final RenewSubscriptionRequest request) {
+    final User user = findUserById(request.getUserUid());
 
-    Subscription subscription = subscriptionRepositoryService.findById(request.getSubscriptionUid());
+    final Subscription subscription =
+        subscriptionRepositoryService.findById(request.getSubscriptionUid());
 
-    UserSubscription userSubscription = userSubscriptionRepository
+    final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
         .orElseThrow(() -> InvalidArgumentException.builder()
             .violationMessage("Subscription not present")
@@ -108,12 +110,13 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public DeleteSubscriptionResponse deleteSubscription(DeleteSubscriptionRequest request) {
-    User user = findUserById(request.getUserUid());
+  public DeleteSubscriptionResponse deleteSubscription(final DeleteSubscriptionRequest request) {
+    final User user = findUserById(request.getUserUid());
 
-    Subscription subscription = subscriptionRepositoryService.findById(request.getSubscriptionUid());
+    final Subscription subscription =
+        subscriptionRepositoryService.findById(request.getSubscriptionUid());
 
-    UserSubscription userSubscription = userSubscriptionRepository
+    final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
         .orElseThrow(() -> InvalidArgumentException.builder()
             .violationMessage("Subscription not present")
@@ -128,7 +131,7 @@ public class UserServiceImpl implements UserService {
         .build();
   }
 
-  public User findUserById(String id) {
+  public User findUserById(final String id) {
     return userRepository.findById(id)
         .orElseThrow(
             () -> ResourceNotFoundException.builder()

@@ -7,7 +7,6 @@ import com.subscriptionmanager.service.GenreRepositoryService;
 import com.subscriptionmanager.service.GenreService;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
 import com.subscriptionmanager.validations.ValidationService;
-import com.subscriptionmanager.validations.impl.ValidationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

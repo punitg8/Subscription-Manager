@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,9 @@ import org.hibernate.annotations.Where;
 @Table(name = "user")
 public class User extends Audit implements Serializable {
 
+  @Serial
+  private static final long serialVersionUID = 101;
+
   @NotBlank
   @Column(name = "name")
   private String name;
@@ -46,7 +50,7 @@ public class User extends Audit implements Serializable {
   @Column(name = "role", nullable = false, length = 20)
   private Role role;
 
-  @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
   private Set<UserSubscription> userSubscriptions;
 
 }

@@ -19,10 +19,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
   @Override
-  public com.subscription.proto.User createUser(CreateUserRequest request) {
-    com.subscription.proto.User newUser = request.getUser();
+  public com.subscription.proto.User createUser(final CreateUserRequest request) {
+    final com.subscription.proto.User newUser = request.getUser();
 
-    User user = com.subscriptionmanager.model.User.builder()
+    User user = User.builder()
         .name(newUser.getName())
         .emailId(newUser.getEmailId())
         .password(newUser.getPassword())

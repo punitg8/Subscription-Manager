@@ -55,8 +55,10 @@ pmd {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//Lombok
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 	//Validation
 	implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
 	implementation 'jakarta.el:jakarta.el-api:5.0.1'
@@ -80,8 +82,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-cache:3.0.2'
 	//Kafka
 	implementation 'org.springframework.kafka:spring-kafka:3.0.2'
+	testImplementation 'org.springframework.kafka:spring-kafka-test:3.0.3'
 	//Send Grid
 	implementation 'com.sendgrid:sendgrid-java:4.9.3'
+	//Mockito
+	testImplementation 'org.mockito:mockito-inline:4.1.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:4.1.0'
 	compileOnly 'jakarta.annotation:jakarta.annotation-api:1.3.5'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

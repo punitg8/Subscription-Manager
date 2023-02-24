@@ -7,7 +7,7 @@ import com.subscriptionmanager.model.UserSubscription;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserSubscriptionRepository extends JpaRepository<UserSubscription,String> {
+public interface UserSubscriptionRepository extends JpaRepository<UserSubscription, String> {
 
   boolean existsByUserAndSubscription(User user, Subscription subscription);
 
@@ -16,4 +16,5 @@ public interface UserSubscriptionRepository extends JpaRepository<UserSubscripti
   List<UserSubscription> findByUser(User user);
 
   List<UserSubscription> findBySubscription(Subscription subscription);
+
 }

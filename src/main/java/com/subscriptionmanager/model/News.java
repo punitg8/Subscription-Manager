@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,9 @@ import org.hibernate.annotations.Where;
 @Entity
 @Table(name = "news")
 public class News extends Audit implements Serializable {
+
+  @Serial
+  private static final long serialVersionUID = 101;
 
   @NotBlank
   @Column(name = "title")

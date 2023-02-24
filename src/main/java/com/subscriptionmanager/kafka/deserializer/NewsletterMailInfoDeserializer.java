@@ -9,11 +9,11 @@ import org.apache.kafka.common.serialization.Deserializer;
 public class NewsletterMailInfoDeserializer implements Deserializer<NewsletterMailInfo> {
 
   @Override
-  public NewsletterMailInfo deserialize(String topic, byte[] data) {
+  public NewsletterMailInfo deserialize(final String topic, final byte[] data) {
     NewsletterMailInfo newsletterMailInfo = null;
-    try{
+    try {
       newsletterMailInfo = NewsletterMailInfo.parseFrom(data);
-    }catch (InvalidProtocolBufferException exception){
+    } catch (InvalidProtocolBufferException exception) {
       log.error(exception.getMessage());
     }
     return newsletterMailInfo;

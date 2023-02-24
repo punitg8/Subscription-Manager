@@ -7,9 +7,7 @@ import com.subscriptionmanager.model.News;
 import com.subscriptionmanager.model.Subscription;
 import com.subscriptionmanager.model.User;
 import com.subscriptionmanager.model.UserSubscription;
-import com.subscriptionmanager.repository.GenreRepository;
 import com.subscriptionmanager.repository.NewsRepository;
-import com.subscriptionmanager.repository.SubscriptionRepository;
 import com.subscriptionmanager.repository.UserSubscriptionRepository;
 import com.subscriptionmanager.service.GenreRepositoryService;
 import com.subscriptionmanager.service.NewsletterService;
@@ -40,11 +38,8 @@ public class NewsletterServiceImpl implements NewsletterService {
   @Override
   @Scheduled(cron = "0 0 9 ? * SUN")
   public void generateNewsletterMailInfo() {
-    List<Subscription> subscriptionList = subscriptionRepositoryService.findAll();
+    final List<Subscription> subscriptionList = subscriptionRepositoryService.findAll();
     subscriptionList.stream().forEach(subscription -> {
-      log.info(subscription.getName());
-      log.info(generateEmailId(subscription));
-      log.info(generateNewsletter(subscription));
       newsletterMailInfoProducer.sendMessage(
           NewsletterMailInfo.newBuilder()
               .addAllEmailId(generateEmailId(subscription))
@@ -54,7 +49,7 @@ public class NewsletterServiceImpl implements NewsletterService {
     });
   }
 
-  private List<String> generateEmailId(Subscription subscription) {
+  private List<String> generateEmailId(final Subscription subscription) {
     return userSubscriptionRepository.findBySubscription(subscription)
         .stream()
         .map(UserSubscription::getUser)
@@ -62,14 +57,14 @@ public class NewsletterServiceImpl implements NewsletterService {
         .collect(Collectors.toList());
   }
 
-  private Newsletter generateNewsletter(Subscription subscription) {
-      return Newsletter.newBuilder()
-          .addAllNews(generateNews(subscription))
-          .build();
+  private Newsletter generateNewsletter(final Subscription subscription) {
+    return Newsletter.newBuilder()
+        .addAllNews(generateNews(subscription))
+        .build();
   }
 
-  private List<String> generateNews(Subscription subscription) {
-    List<News> newsList = new ArrayList<>();
+  private List<String> generateNews(final Subscription subscription) {
+    final List<News> newsList = new ArrayList<>();
 
     genreRepositoryService.findBySubscription(subscription)
         .forEach(genre -> newsList.addAll(newsRepository.findByGenre(genre)));
@@ -78,4 +73,5 @@ public class NewsletterServiceImpl implements NewsletterService {
         .map(news -> news.getTitle() + "\n" + news.getDescription())
         .collect(Collectors.toList());
   }
+
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,9 @@ import org.hibernate.annotations.Where;
 @Entity
 @Table(name = "subscription")
 public class Subscription extends Audit implements Serializable {
+
+  @Serial
+  private static final long serialVersionUID = 101;
 
   @NotBlank
   @Column(name = "name", unique = true)

@@ -2,6 +2,6 @@ package com.subscriptionmanager.service;
 
 public interface SendGridMailService {
 
-  void sendMail(String from,String to,String subject,String body);
+  void sendMail(String from, String to, String subject, String body);
 
 }

@@ -17,7 +17,8 @@ public class NewsletterMailInfoProducerImpl implements NewsletterMailInfoProduce
   private String topic;
 
   @Override
-  public void sendMessage(NewsletterMailInfo info) {
+  public void sendMessage(final NewsletterMailInfo info) {
     kafkaTemplate.send(topic, info);
   }
+
 }

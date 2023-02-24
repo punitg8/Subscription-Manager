@@ -17,19 +17,19 @@ public class SubscriptionController extends SubscriptionServiceGrpc.Subscription
   private final SubscriptionService subscriptionService;
 
   @Override
-  public void createSubscription(CreateSubscriptionRequest request,
-                                 StreamObserver<Subscription> responseObserver) {
-    try{
+  public void createSubscription(final CreateSubscriptionRequest request,
+                                 final StreamObserver<Subscription> responseObserver) {
+    try {
 
       responseObserver.onNext(subscriptionService.createSubscription(request));
       responseObserver.onCompleted();
 
-    }catch (InvalidArgumentException exception){
+    } catch (InvalidArgumentException exception) {
       responseObserver.onError(Status.INVALID_ARGUMENT
           .withDescription(exception.getMessage())
           .asRuntimeException()
       );
-    } catch (Exception exception){
+    } catch (Exception exception) {
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());

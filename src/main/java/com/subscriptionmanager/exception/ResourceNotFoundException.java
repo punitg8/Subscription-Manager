@@ -1,12 +1,15 @@
 package com.subscriptionmanager.exception;
 
 import com.subscriptionmanager.enums.ExceptionCode;
+import java.io.Serial;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 public class ResourceNotFoundException extends BaseException {
 
+  @Serial
+  private static final long serialVersionUID = 101;
   private final String resourceName;
   private final String fieldName;
   private final String fieldValue;

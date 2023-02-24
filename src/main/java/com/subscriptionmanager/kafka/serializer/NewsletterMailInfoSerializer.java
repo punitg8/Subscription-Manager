@@ -6,7 +6,7 @@ import org.apache.kafka.common.serialization.Serializer;
 public class NewsletterMailInfoSerializer implements Serializer<NewsletterMailInfo> {
 
   @Override
-  public byte[] serialize(String topic, NewsletterMailInfo data) {
+  public byte[] serialize(final String topic, final NewsletterMailInfo data) {
     return data.toByteArray();
   }
 

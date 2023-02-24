@@ -10,6 +10,7 @@ import com.subscription.proto.RenewSubscriptionRequest;
 import com.subscription.proto.RenewSubscriptionResponse;
 
 public interface UserService {
+
   ListSubscriptionResponse listSubscription(ListSubscriptionRequest request);
 
   AddSubscriptionResponse addSubscription(AddSubscriptionRequest request);
@@ -17,4 +18,5 @@ public interface UserService {
   RenewSubscriptionResponse renewSubscription(RenewSubscriptionRequest request);
 
   DeleteSubscriptionResponse deleteSubscription(DeleteSubscriptionRequest request);
+
 }

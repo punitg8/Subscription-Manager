@@ -12,7 +12,6 @@ import com.subscription.proto.UserServiceGrpc;
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.service.UserService;
-import com.subscriptionmanager.service.impl.UserServiceImpl;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +24,9 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   private final UserService userService;
 
   @Override
-  public void listSubscription(ListSubscriptionRequest request,
-                               StreamObserver<ListSubscriptionResponse> responseObserver) {
-    try{
+  public void listSubscription(final ListSubscriptionRequest request,
+                               final StreamObserver<ListSubscriptionResponse> responseObserver) {
+    try {
 
       responseObserver.onNext(userService.listSubscription(request));
       responseObserver.onCompleted();
@@ -44,8 +43,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception){
-      exception.printStackTrace();
+    } catch (Exception exception) {
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());
@@ -53,9 +51,9 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void addSubscription(AddSubscriptionRequest request,
-                              StreamObserver<AddSubscriptionResponse> responseObserver) {
-    try{
+  public void addSubscription(final AddSubscriptionRequest request,
+                              final StreamObserver<AddSubscriptionResponse> responseObserver) {
+    try {
 
       responseObserver.onNext(userService.addSubscription(request));
       responseObserver.onCompleted();
@@ -72,7 +70,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception){
+    } catch (Exception exception) {
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());
@@ -80,9 +78,9 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void renewSubscription(RenewSubscriptionRequest request,
-                                StreamObserver<RenewSubscriptionResponse> responseObserver) {
-    try{
+  public void renewSubscription(final RenewSubscriptionRequest request,
+                                final StreamObserver<RenewSubscriptionResponse> responseObserver) {
+    try {
 
       responseObserver.onNext(userService.renewSubscription(request));
       responseObserver.onCompleted();
@@ -99,7 +97,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception){
+    } catch (Exception exception) {
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());
@@ -107,9 +105,9 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void deleteSubscription(DeleteSubscriptionRequest request,
-                                 StreamObserver<DeleteSubscriptionResponse> responseObserver) {
-    try{
+  public void deleteSubscription(final DeleteSubscriptionRequest request,
+                                 final StreamObserver<DeleteSubscriptionResponse> responseObserver) {
+    try {
 
       responseObserver.onNext(userService.deleteSubscription(request));
       responseObserver.onCompleted();
@@ -126,8 +124,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception){
-      exception.printStackTrace();
+    } catch (Exception exception) {
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());

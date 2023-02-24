@@ -7,6 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Date;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,9 @@ import org.hibernate.annotations.Where;
 @Entity
 @Table(name = "user_subscription")
 public class UserSubscription extends Audit implements Serializable {
+
+  @Serial
+  private static final long serialVersionUID = 101;
 
   @NotNull
   @Column(name = "validity_date", nullable = false)

@@ -18,8 +18,8 @@ public class NewsletterMailInfoConsumerImpl implements NewsletterMailInfoConsume
   @Override
   @KafkaListener(topics = "${spring.kafka.topic.name}",
       groupId = "${spring.kafka.consumer.group-id}")
-  public void recieveMessage(NewsletterMailInfo info){
-    log.info(info.toString());
+  public void recieveMessage(final NewsletterMailInfo info) {
+    log.info("here" + " " + info.toString());
     emailService.sendNewsletterEmail(info);
   }
 

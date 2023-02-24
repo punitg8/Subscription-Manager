@@ -17,11 +17,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class SubscriptionRepositoryServiceImpl implements SubscriptionRepositoryService {
+
   private final SubscriptionRepository subscriptionRepository;
 
   @Override
-  @Cacheable(key="#id", value = SUBSCRIPTION_CACHE)
-  public Subscription findById(String id) {
+  @Cacheable(key = "#id", value = SUBSCRIPTION_CACHE)
+  public Subscription findById(final String id) {
     log.info("DB hit");
     return subscriptionRepository.findById(id)
         .orElseThrow(
@@ -34,13 +35,14 @@ public class SubscriptionRepositoryServiceImpl implements SubscriptionRepository
   }
 
   @Override
-  @CachePut(key="#subscription.getId()", value = SUBSCRIPTION_CACHE)
-  public Subscription save(Subscription subscription){
+  @CachePut(key = "#subscription.getId()", value = SUBSCRIPTION_CACHE)
+  public Subscription save(final Subscription subscription) {
     return subscriptionRepository.save(subscription);
   }
 
   @Override
-  public List<Subscription> findAll(){
+  public List<Subscription> findAll() {
     return subscriptionRepository.findAll();
   }
+
 }

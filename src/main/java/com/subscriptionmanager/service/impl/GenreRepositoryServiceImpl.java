@@ -18,11 +18,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class GenreRepositoryServiceImpl implements GenreRepositoryService {
+
   private final GenreRepository genreRepository;
 
   @Override
-  @Cacheable(key="#id", value = GENRE_CACHE)
-  public Genre findById(String id) {
+  @Cacheable(key = "#id", value = GENRE_CACHE)
+  public Genre findById(final String id) {
     log.info("DB hit");
     return genreRepository.findById(id)
         .orElseThrow(
@@ -35,14 +36,15 @@ public class GenreRepositoryServiceImpl implements GenreRepositoryService {
   }
 
   @Override
-  @CachePut(key="#genre.getId()", value = GENRE_CACHE)
-  public Genre save(Genre genre){
+  @CachePut(key = "#genre.getId()", value = GENRE_CACHE)
+  public Genre save(final Genre genre) {
     return genreRepository.save(genre);
   }
 
   @Override
-  @CachePut(key="#subscription.getId()", value = GENRE_CACHE)
-  public List<Genre> findBySubscription(Subscription subscription){
+  @CachePut(key = "#subscription.getId()", value = GENRE_CACHE)
+  public List<Genre> findBySubscription(final Subscription subscription) {
     return genreRepository.findBySubscription(subscription);
   }
+
 }

@@ -9,6 +9,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,9 @@ import org.hibernate.annotations.Where;
 @Table(name = "genre")
 public class Genre extends Audit implements Serializable {
 
+  @Serial
+  private static final long serialVersionUID = 101;
+
   @NotBlank
   @Column(name = "name")
   private String name;
@@ -39,7 +43,6 @@ public class Genre extends Audit implements Serializable {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "subscription_id", referencedColumnName = "id")
   private Subscription subscription;
-
 
 
 }
