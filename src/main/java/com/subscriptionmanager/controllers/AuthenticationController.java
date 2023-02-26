@@ -1,10 +1,10 @@
 package com.subscriptionmanager.controllers;
 
-import com.subscription.proto.AuthenticationServiceGrpc;
-import com.subscription.proto.CreateUserRequest;
-import com.subscription.proto.User;
+import com.subscription.v1.proto.AuthenticationServiceGrpc;
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.service.AuthenticationService;
+import com.subscriptionmanager.v1.proto.CreateUserRequest;
+import com.subscriptionmanager.v1.proto.User;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;

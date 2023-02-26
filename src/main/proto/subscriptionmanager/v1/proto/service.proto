@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+package subscriptionmanager.v1.proto;
+
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "google/api/resource.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "subscriptionmanager/v1/proto/message.proto";
+
+option java_package = "com.subscription.v1.proto";
+
+option java_multiple_files = true;
+
+service AuthenticationService{
+  rpc createUser(CreateUserRequest) returns (User){
+    option(google.api.http) = {
+      post: "v1/users"
+      body: "user"
+    };
+    option (google.api.method_signature) = "user";
+  };
+}
+
+service NewsService{
+  rpc createNews(CreateNewsRequest) returns (News){
+    option (google.api.http) = {
+      post: "/v1/{parent=genres/*}/news"
+      body: "news"
+    };
+    option (google.api.method_signature) = "parent,news";
+  };
+}
+
+service GenreService{
+  rpc createGenre(CreateGenreRequest) returns (Genre){
+    option (google.api.http) = {
+      post: "/v1/{parent=subscriptions/*}/genres"
+      body: "genre"
+    };
+    option (google.api.method_signature) = "parent,genre";
+  };
+}
+
+service SubscriptionService{
+  rpc createSubscription(CreateSubscriptionRequest) returns (Subscription){
+    option(google.api.http) = {
+      post: "v1/subscriptions"
+      body: "subscription"
+    };
+    option (google.api.method_signature) = "subscription";
+  };
+}
+
+service UserService{
+  rpc ListSubscription(ListSubscriptionsRequest) returns (ListSubscriptionsResponse){
+    option(google.api.http) = {
+      get: "v1/{parent=users/*}/subscriptions"
+    };
+    option (google.api.method_signature) = "parent";
+  };
+
+  rpc AddSubscription(AddSubscriptionRequest) returns (AddSubscriptionResponse){
+    option(google.api.http) = {
+      post: "v1/{parent=users/*}/subscriptions"
+      body: "subscription_id"
+    };
+    option (google.api.method_signature) = "parent,subscription_id";
+  };
+
+  rpc RenewSubscription(RenewSubscriptionRequest) returns (RenewSubscriptionResponse){
+    option(google.api.http) = {
+      post: "v1/{parent=users/*}/subscriptions"
+      body: "subscription_id"
+    };
+    option (google.api.method_signature) = "parent,subscription_id";
+  };
+
+  rpc RemoveSubscription(RemoveSubscriptionRequest) returns (RemoveSubscriptionResponse){
+    option(google.api.http) = {
+      post: "v1/{parent=users/*}/subscriptions"
+      body: "subscription_id"
+    };
+    option (google.api.method_signature) = "parent,subscription_id";
+  };
+
+}

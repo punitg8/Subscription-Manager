@@ -1,6 +1,5 @@
 package com.subscriptionmanager.kafka.consumers.impl;
 
-import com.subscription.proto.NewsletterMailInfo;
 import com.subscriptionmanager.kafka.consumers.NewsletterMailInfoConsumer;
 import com.subscriptionmanager.service.EmailService;
 import lombok.RequiredArgsConstructor;

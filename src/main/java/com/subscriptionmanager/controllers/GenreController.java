@@ -1,11 +1,11 @@
 package com.subscriptionmanager.controllers;
 
-import com.subscription.proto.CreateGenreRequest;
-import com.subscription.proto.Genre;
-import com.subscription.proto.GenreServiceGrpc;
+import com.subscription.v1.proto.GenreServiceGrpc;
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.service.GenreService;
+import com.subscriptionmanager.v1.proto.CreateGenreRequest;
+import com.subscriptionmanager.v1.proto.Genre;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;

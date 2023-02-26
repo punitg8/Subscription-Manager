@@ -1,17 +1,17 @@
 package com.subscriptionmanager.controllers;
 
-import com.subscription.proto.AddSubscriptionRequest;
-import com.subscription.proto.AddSubscriptionResponse;
-import com.subscription.proto.DeleteSubscriptionRequest;
-import com.subscription.proto.DeleteSubscriptionResponse;
-import com.subscription.proto.ListSubscriptionRequest;
-import com.subscription.proto.ListSubscriptionResponse;
-import com.subscription.proto.RenewSubscriptionRequest;
-import com.subscription.proto.RenewSubscriptionResponse;
-import com.subscription.proto.UserServiceGrpc;
+import com.subscription.v1.proto.UserServiceGrpc;
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.service.UserService;
+import com.subscriptionmanager.v1.proto.AddSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.AddSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.ListSubscriptionsRequest;
+import com.subscriptionmanager.v1.proto.ListSubscriptionsResponse;
+import com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.RenewSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +24,8 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   private final UserService userService;
 
   @Override
-  public void listSubscription(final ListSubscriptionRequest request,
-                               final StreamObserver<ListSubscriptionResponse> responseObserver) {
+  public void listSubscription(final ListSubscriptionsRequest request,
+                               final StreamObserver<ListSubscriptionsResponse> responseObserver) {
     try {
 
       responseObserver.onNext(userService.listSubscription(request));
@@ -105,8 +105,8 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void deleteSubscription(final DeleteSubscriptionRequest request,
-                                 final StreamObserver<DeleteSubscriptionResponse> responseObserver) {
+  public void removeSubscription(final RemoveSubscriptionRequest request,
+                                 final StreamObserver<RemoveSubscriptionResponse> responseObserver) {
     try {
 
       responseObserver.onNext(userService.deleteSubscription(request));

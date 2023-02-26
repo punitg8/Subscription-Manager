@@ -1,11 +1,11 @@
 package com.subscriptionmanager.controllers;
 
-import com.subscription.proto.CreateNewsRequest;
-import com.subscription.proto.News;
-import com.subscription.proto.NewsServiceGrpc;
+import com.subscription.v1.proto.NewsServiceGrpc;
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.service.NewsService;
+import com.subscriptionmanager.v1.proto.CreateNewsRequest;
+import com.subscriptionmanager.v1.proto.News;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;

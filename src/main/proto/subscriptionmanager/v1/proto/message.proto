@@ -1,0 +1,191 @@
+syntax = "proto3";
+
+package subscriptionmanager.v1.proto;
+
+import "google/api/field_behavior.proto";
+
+option java_multiple_files = true;
+option java_package = "com.subscriptionmanager.v1.proto";
+option java_outer_classname = "MessageProto";
+
+//A representation of a user
+message User{
+
+  //Possible roles a user can have
+  enum Role {
+    //Default value, this value is unused
+    ROLE_UNSPECIFIED = 0;
+
+    //Normal user which controls its subscriptions
+    ROLE_USER = 1;
+
+    //Writer which publish news to different newsletter
+    ROLE_WRITER = 2;
+  }
+
+  //The unique identification id of the user
+  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  //The name of the user which would be displayed
+  string display_name = 2 [(google.api.field_behavior) = REQUIRED];
+
+  //The email id of the user
+  string email_id = 3 [(google.api.field_behavior) = REQUIRED];
+
+  //The password of the user
+  string password = 4 [(google.api.field_behavior) = REQUIRED];
+
+  //The role of the user
+  Role role = 5 [(google.api.field_behavior) = REQUIRED];
+}
+
+// (-- api-linter: core::0133::request-parent-required=disabled
+//     aip.dev/not-precedent: We need to do this because its a top level resource. --)
+
+//Request to create new user
+message CreateUserRequest{
+  //The user to create
+  User user = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+//A representation of news
+message News{
+  //The unique identification id of a news
+  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  //The title of the news
+  string title = 2 [(google.api.field_behavior) = REQUIRED];
+
+  //The description of the news
+  string description = 3 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Request to create new news
+message CreateNewsRequest{
+  // The parent resource where this news will be created.
+  // Format: genres/{genre}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  //The news to create
+  News news = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+//A representation of a genre
+message Genre{
+
+  //The unique identification id of the genre
+  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  //The name of the genre which would be displayed
+  string display_name = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Request to create new genre
+message CreateGenreRequest{
+  // The parent resource where this genre will be created.
+  // Format: subscriptions/{subscription}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  //The genre to create
+  Genre genre = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+//A representation of the subscription
+message Subscription{
+  //The unique identification id of the subscription
+  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  //The name of the subscription which would be displayed
+  string display_name = 2 [(google.api.field_behavior) = REQUIRED];
+
+  //The price of the subscription
+  int32 price = 3 [(google.api.field_behavior) = REQUIRED];
+
+  //The validity of the subscription in no of days
+  int32 validity = 4 [(google.api.field_behavior) = REQUIRED];
+}
+
+// (-- api-linter: core::0133::request-parent-required=disabled
+//     aip.dev/not-precedent: We need to do this because reasons. --)
+
+//Request to create new subscription
+message CreateSubscriptionRequest{
+  //The subscription to create
+  Subscription subscription = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Request to list subscription
+message ListSubscriptionsRequest{
+  // The parent, which owns this collection of subscription.
+  // Format: users/{user}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Response to listing subscription
+message ListSubscriptionsResponse{
+  // The subscriptions from the specified user.
+  repeated Subscription subscription = 1;
+}
+
+//Request to add subscription to user
+message AddSubscriptionRequest{
+  // The parent, which owns this collection of subscription.
+  // Format: users/{user}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  //The id of subscription which needs to be added
+  string subscription_id = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Response of adding new subscription to user
+message AddSubscriptionResponse{
+  // The subscriptions from the specified user.
+  repeated Subscription subscriptions = 1;
+}
+
+//Request for removal of subscription of user
+message RemoveSubscriptionRequest{
+  // The parent, which owns this collection of subscription.
+  // Format: users/{user}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  //The id of subscription which needs to be removed
+  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Response of adding new subscription
+message RemoveSubscriptionResponse{
+  // The subscriptions from the specified user.
+  repeated Subscription subscriptions = 1;
+}
+
+//Request to renew subscription of user
+message RenewSubscriptionRequest{
+  // The parent, which owns this collection of subscription.
+  // Format: users/{user}
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  //The id of subscription which needs to be renewed
+  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+//Response of renewing subscription
+message RenewSubscriptionResponse{
+  // The subscriptions from the specified user.
+  repeated Subscription subscriptions = 1;
+}
+
+//A representation of the newsletter
+message Newsletter {
+  // The news from the specified subscription.
+  repeated string news = 1;
+}
+
+//Newsletter info which would be transported through kafka
+message NewsletterMailInfo {
+  // The newsletter for a particular subscription.
+  Newsletter newsletter = 1;
+
+  // The list of email id which will receive the newsletter
+  repeated string email_id = 2;
+}
