@@ -1,5 +1,7 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Newsletter.NEWS_LIMIT;
+
 import com.subscriptionmanager.kafka.producers.NewsletterMailInfoProducer;
 import com.subscriptionmanager.model.News;
 import com.subscriptionmanager.model.Subscription;
@@ -69,11 +71,10 @@ public class NewsletterServiceImpl implements NewsletterService {
 
     genreRepositoryService.findBySubscription(subscription)
         .forEach(genre ->
-            newsList.addAll(newsRepository.findByGenreOrderByCreateDateTimeDesc(genre, PageRequest.of(0,2))));
+            newsList.addAll(newsRepository.findByGenreOrderByCreateDateTimeDesc(genre, PageRequest.of(0,NEWS_LIMIT))));
 
     return newsList.stream()
         .map(news -> news.getTitle() + "\n" + news.getDescription())
         .collect(Collectors.toList());
   }
-
 }
