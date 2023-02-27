@@ -3,7 +3,7 @@ grpc:
   port: 9000
 
 sendgrid:
-  api-key: sorry
+  api-key: enter the key
 
 admin:
   emailId: punitgurnani8@gmail.com
