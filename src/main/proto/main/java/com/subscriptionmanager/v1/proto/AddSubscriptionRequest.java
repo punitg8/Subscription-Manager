@@ -21,7 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private AddSubscriptionRequest() {
     parent_ = "";
-    subscriptionId_ = "";
+    name_ = "";
   }
 
   @java.lang.Override
@@ -97,26 +97,26 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SUBSCRIPTION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object subscriptionId_;
+  public static final int NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object name_;
   /**
    * <pre>
    *The id of subscription which needs to be added
    * </pre>
    *
-   * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The subscriptionId.
+   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The name.
    */
   @java.lang.Override
-  public java.lang.String getSubscriptionId() {
-    java.lang.Object ref = subscriptionId_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      subscriptionId_ = s;
+      name_ = s;
       return s;
     }
   }
@@ -125,18 +125,18 @@ private static final long serialVersionUID = 0L;
    *The id of subscription which needs to be added
    * </pre>
    *
-   * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for subscriptionId.
+   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bytes for name.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getSubscriptionIdBytes() {
-    java.lang.Object ref = subscriptionId_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      subscriptionId_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -160,8 +160,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, parent_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subscriptionId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, subscriptionId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -175,8 +175,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, parent_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subscriptionId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, subscriptionId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -195,8 +195,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getParent()
         .equals(other.getParent())) return false;
-    if (!getSubscriptionId()
-        .equals(other.getSubscriptionId())) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -210,8 +210,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PARENT_FIELD_NUMBER;
     hash = (53 * hash) + getParent().hashCode();
-    hash = (37 * hash) + SUBSCRIPTION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getSubscriptionId().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -346,7 +346,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       parent_ = "";
 
-      subscriptionId_ = "";
+      name_ = "";
 
       return this;
     }
@@ -375,7 +375,7 @@ private static final long serialVersionUID = 0L;
     public com.subscriptionmanager.v1.proto.AddSubscriptionRequest buildPartial() {
       com.subscriptionmanager.v1.proto.AddSubscriptionRequest result = new com.subscriptionmanager.v1.proto.AddSubscriptionRequest(this);
       result.parent_ = parent_;
-      result.subscriptionId_ = subscriptionId_;
+      result.name_ = name_;
       onBuilt();
       return result;
     }
@@ -428,8 +428,8 @@ private static final long serialVersionUID = 0L;
         parent_ = other.parent_;
         onChanged();
       }
-      if (!other.getSubscriptionId().isEmpty()) {
-        subscriptionId_ = other.subscriptionId_;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -464,7 +464,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              subscriptionId_ = input.readStringRequireUtf8();
+              name_ = input.readStringRequireUtf8();
 
               break;
             } // case 18
@@ -585,22 +585,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object subscriptionId_ = "";
+    private java.lang.Object name_ = "";
     /**
      * <pre>
      *The id of subscription which needs to be added
      * </pre>
      *
-     * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The subscriptionId.
+     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The name.
      */
-    public java.lang.String getSubscriptionId() {
-      java.lang.Object ref = subscriptionId_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        subscriptionId_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -611,17 +611,17 @@ private static final long serialVersionUID = 0L;
      *The id of subscription which needs to be added
      * </pre>
      *
-     * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for subscriptionId.
+     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
-        getSubscriptionIdBytes() {
-      java.lang.Object ref = subscriptionId_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        subscriptionId_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -632,17 +632,17 @@ private static final long serialVersionUID = 0L;
      *The id of subscription which needs to be added
      * </pre>
      *
-     * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The subscriptionId to set.
+     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The name to set.
      * @return This builder for chaining.
      */
-    public Builder setSubscriptionId(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      subscriptionId_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
@@ -651,12 +651,12 @@ private static final long serialVersionUID = 0L;
      *The id of subscription which needs to be added
      * </pre>
      *
-     * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
-    public Builder clearSubscriptionId() {
+    public Builder clearName() {
       
-      subscriptionId_ = getDefaultInstance().getSubscriptionId();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
@@ -665,18 +665,18 @@ private static final long serialVersionUID = 0L;
      *The id of subscription which needs to be added
      * </pre>
      *
-     * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for subscriptionId to set.
+     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
-    public Builder setSubscriptionIdBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      subscriptionId_ = value;
+      name_ = value;
       onChanged();
       return this;
     }

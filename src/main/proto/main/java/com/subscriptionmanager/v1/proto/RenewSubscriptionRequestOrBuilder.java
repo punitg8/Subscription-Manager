@@ -34,18 +34,18 @@ public interface RenewSubscriptionRequestOrBuilder extends
    *The id of subscription which needs to be renewed
    * </pre>
    *
-   * <code>string subscription_uid = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The subscriptionUid.
+   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The name.
    */
-  java.lang.String getSubscriptionUid();
+  java.lang.String getName();
   /**
    * <pre>
    *The id of subscription which needs to be renewed
    * </pre>
    *
-   * <code>string subscription_uid = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for subscriptionUid.
+   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
-      getSubscriptionUidBytes();
+      getNameBytes();
 }

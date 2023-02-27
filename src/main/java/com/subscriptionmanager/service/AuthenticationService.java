@@ -1,7 +1,8 @@
 package com.subscriptionmanager.service;
 
-import com.subscription.proto.CreateUserRequest;
-import com.subscription.proto.User;
+
+import com.subscriptionmanager.v1.proto.CreateUserRequest;
+import com.subscriptionmanager.v1.proto.User;
 
 public interface AuthenticationService {
 

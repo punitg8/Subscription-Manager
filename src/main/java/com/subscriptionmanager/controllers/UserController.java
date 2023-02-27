@@ -15,8 +15,10 @@ import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.lognet.springboot.grpc.GRpcService;
 
+@Log4j2
 @RequiredArgsConstructor
 @GRpcService
 public class UserController extends UserServiceGrpc.UserServiceImplBase {
@@ -24,26 +26,32 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   private final UserService userService;
 
   @Override
-  public void listSubscription(final ListSubscriptionsRequest request,
+  public void listSubscriptions(final ListSubscriptionsRequest request,
                                final StreamObserver<ListSubscriptionsResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.listSubscription(request));
+      responseObserver.onNext(userService.listSubscriptions(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.NOT_FOUND
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (InvalidArgumentException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.INVALID_ARGUMENT
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (Exception exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());
@@ -59,18 +67,24 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.NOT_FOUND
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (InvalidArgumentException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.INVALID_ARGUMENT
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (Exception exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());
@@ -86,18 +100,24 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.NOT_FOUND
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (InvalidArgumentException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.INVALID_ARGUMENT
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (Exception exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());
@@ -109,22 +129,28 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
                                  final StreamObserver<RemoveSubscriptionResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.deleteSubscription(request));
+      responseObserver.onNext(userService.removeSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.NOT_FOUND
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (InvalidArgumentException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(
           Status.INVALID_ARGUMENT
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
     } catch (Exception exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());

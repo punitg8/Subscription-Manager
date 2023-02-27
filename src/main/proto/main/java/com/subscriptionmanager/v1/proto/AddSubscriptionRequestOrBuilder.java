@@ -34,18 +34,18 @@ public interface AddSubscriptionRequestOrBuilder extends
    *The id of subscription which needs to be added
    * </pre>
    *
-   * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The subscriptionId.
+   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The name.
    */
-  java.lang.String getSubscriptionId();
+  java.lang.String getName();
   /**
    * <pre>
    *The id of subscription which needs to be added
    * </pre>
    *
-   * <code>string subscription_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for subscriptionId.
+   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
-      getSubscriptionIdBytes();
+      getNameBytes();
 }

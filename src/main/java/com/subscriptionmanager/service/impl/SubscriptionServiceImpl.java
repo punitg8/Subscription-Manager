@@ -1,9 +1,9 @@
 package com.subscriptionmanager.service.impl;
 
-import com.subscription.proto.CreateSubscriptionRequest;
-import com.subscription.proto.Subscription;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
 import com.subscriptionmanager.service.SubscriptionService;
+import com.subscriptionmanager.v1.proto.CreateSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.Subscription;
 import com.subscriptionmanager.validations.ValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     com.subscriptionmanager.model.Subscription subscription =
         com.subscriptionmanager.model.Subscription.builder()
-            .name(newSubscription.getName())
+            .name(newSubscription.getDisplayName())
             .price(newSubscription.getPrice())
             .validity(newSubscription.getValidity())
             .build();
@@ -33,8 +33,8 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     subscription = subscriptionRepositoryService.save(subscription);
 
     return Subscription.newBuilder()
-        .setId(subscription.getId())
-        .setName(subscription.getName())
+        .setName(subscription.getId())
+        .setDisplayName(subscription.getName())
         .setPrice(subscription.getPrice())
         .setValidity(subscription.getValidity())
         .build();

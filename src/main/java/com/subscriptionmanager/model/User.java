@@ -50,7 +50,7 @@ public class User extends Audit implements Serializable {
   @Column(name = "role", nullable = false, length = 20)
   private Role role;
 
-  @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
   private Set<UserSubscription> userSubscriptions;
 
 }

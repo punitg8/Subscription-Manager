@@ -3,6 +3,7 @@ syntax = "proto3";
 package subscriptionmanager.v1.proto;
 
 import "google/api/field_behavior.proto";
+import "google/type/date.proto";
 
 option java_multiple_files = true;
 option java_package = "com.subscriptionmanager.v1.proto";
@@ -53,11 +54,14 @@ message News{
   //The unique identification id of a news
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
+  // The parent resource where this genre will be created.
+  string parent = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
+
   //The title of the news
-  string title = 2 [(google.api.field_behavior) = REQUIRED];
+  string title = 3 [(google.api.field_behavior) = REQUIRED];
 
   //The description of the news
-  string description = 3 [(google.api.field_behavior) = REQUIRED];
+  string description = 4 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Request to create new news
@@ -76,8 +80,11 @@ message Genre{
   //The unique identification id of the genre
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
+  // The parent resource where this genre will be created.
+  string parent = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
+
   //The name of the genre which would be displayed
-  string display_name = 2 [(google.api.field_behavior) = REQUIRED];
+  string display_name = 3 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Request to create new genre
@@ -119,12 +126,29 @@ message ListSubscriptionsRequest{
   // The parent, which owns this collection of subscription.
   // Format: users/{user}
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The maximum number of subscription to return. The service may return fewer than
+  // this value.
+  // If unspecified, at most 50 books will be returned.
+  // The maximum value is 1000; values above 1000 will be coerced to 1000.
+  int32 page_size = 2;
+
+  // A page token, received from a previous `ListSubscriptions` call.
+  // Provide this to retrieve the subsequent page.
+  //
+  // When paginating, all other parameters provided to `ListSubscriptions` must match
+  // the call that provided the page token.
+  string page_token = 3;
 }
 
 //Response to listing subscription
 message ListSubscriptionsResponse{
   // The subscriptions from the specified user.
   repeated Subscription subscription = 1;
+
+  // A token that can be sent as `page_token` to retrieve the next page.
+  // If this field is omitted, there are no subsequent pages.
+  string next_page_token = 2;
 }
 
 //Request to add subscription to user
@@ -134,13 +158,16 @@ message AddSubscriptionRequest{
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
 
   //The id of subscription which needs to be added
-  string subscription_id = 2 [(google.api.field_behavior) = REQUIRED];
+  string name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Response of adding new subscription to user
 message AddSubscriptionResponse{
   // The subscriptions from the specified user.
-  repeated Subscription subscriptions = 1;
+  Subscription subscription = 1;
+
+  //expiry date
+  google.type.Date expiry_date = 2;
 }
 
 //Request for removal of subscription of user
@@ -150,13 +177,13 @@ message RemoveSubscriptionRequest{
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
 
   //The id of subscription which needs to be removed
-  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+  string name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Response of adding new subscription
 message RemoveSubscriptionResponse{
   // The subscriptions from the specified user.
-  repeated Subscription subscriptions = 1;
+  Subscription subscription = 1;
 }
 
 //Request to renew subscription of user
@@ -166,26 +193,29 @@ message RenewSubscriptionRequest{
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
 
   //The id of subscription which needs to be renewed
-  string subscription_uid = 2 [(google.api.field_behavior) = REQUIRED];
+  string name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Response of renewing subscription
 message RenewSubscriptionResponse{
   // The subscriptions from the specified user.
-  repeated Subscription subscriptions = 1;
+  Subscription subscription = 1;
+
+  //expiry date
+  google.type.Date expiry_date = 2;
 }
 
 //A representation of the newsletter
 message Newsletter {
   // The news from the specified subscription.
-  repeated string news = 1;
+  repeated string news = 1 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Newsletter info which would be transported through kafka
 message NewsletterMailInfo {
   // The newsletter for a particular subscription.
-  Newsletter newsletter = 1;
+  Newsletter newsletter = 1 [(google.api.field_behavior) = REQUIRED];
 
   // The list of email id which will receive the newsletter
-  repeated string email_id = 2;
+  repeated string email_id = 2 [(google.api.field_behavior) = REQUIRED];
 }

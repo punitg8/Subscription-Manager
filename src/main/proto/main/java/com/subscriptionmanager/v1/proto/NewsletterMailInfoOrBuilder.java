@@ -12,7 +12,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The newsletter for a particular subscription.
    * </pre>
    *
-   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the newsletter field is set.
    */
   boolean hasNewsletter();
@@ -21,7 +21,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The newsletter for a particular subscription.
    * </pre>
    *
-   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The newsletter.
    */
   com.subscriptionmanager.v1.proto.Newsletter getNewsletter();
@@ -30,7 +30,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The newsletter for a particular subscription.
    * </pre>
    *
-   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   com.subscriptionmanager.v1.proto.NewsletterOrBuilder getNewsletterOrBuilder();
 
@@ -39,7 +39,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return A list containing the emailId.
    */
   java.util.List<java.lang.String>
@@ -49,7 +49,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The count of emailId.
    */
   int getEmailIdCount();
@@ -58,7 +58,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the element to return.
    * @return The emailId at the given index.
    */
@@ -68,7 +68,7 @@ public interface NewsletterMailInfoOrBuilder extends
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the value to return.
    * @return The bytes of the emailId at the given index.
    */

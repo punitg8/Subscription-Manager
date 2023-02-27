@@ -1,7 +1,7 @@
 package com.subscriptionmanager.service;
 
-import com.subscription.proto.CreateGenreRequest;
-import com.subscription.proto.Genre;
+import com.subscriptionmanager.v1.proto.CreateGenreRequest;
+import com.subscriptionmanager.v1.proto.Genre;
 
 public interface GenreService {
 

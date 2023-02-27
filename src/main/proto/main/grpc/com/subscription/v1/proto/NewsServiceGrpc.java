@@ -3,6 +3,9 @@ package com.subscription.v1.proto;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ *Service for news related functionalities
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -91,10 +94,16 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for news related functionalities
+   * </pre>
    */
   public static abstract class NewsServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Request for creation of new news
+     * </pre>
      */
     public void createNews(com.subscriptionmanager.v1.proto.CreateNewsRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.News> responseObserver) {
@@ -115,6 +124,9 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for news related functionalities
+   * </pre>
    */
   public static final class NewsServiceStub extends io.grpc.stub.AbstractAsyncStub<NewsServiceStub> {
     private NewsServiceStub(
@@ -129,6 +141,9 @@ public final class NewsServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new news
+     * </pre>
      */
     public void createNews(com.subscriptionmanager.v1.proto.CreateNewsRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.News> responseObserver) {
@@ -138,6 +153,9 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for news related functionalities
+   * </pre>
    */
   public static final class NewsServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<NewsServiceBlockingStub> {
     private NewsServiceBlockingStub(
@@ -152,6 +170,9 @@ public final class NewsServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new news
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.News createNews(com.subscriptionmanager.v1.proto.CreateNewsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -160,6 +181,9 @@ public final class NewsServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for news related functionalities
+   * </pre>
    */
   public static final class NewsServiceFutureStub extends io.grpc.stub.AbstractFutureStub<NewsServiceFutureStub> {
     private NewsServiceFutureStub(
@@ -174,6 +198,9 @@ public final class NewsServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new news
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.News> createNews(
         com.subscriptionmanager.v1.proto.CreateNewsRequest request) {
@@ -227,7 +254,7 @@ public final class NewsServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.subscription.v1.proto.Service.getDescriptor();
+      return com.subscription.v1.proto.ServiceProto.getDescriptor();
     }
 
     @java.lang.Override

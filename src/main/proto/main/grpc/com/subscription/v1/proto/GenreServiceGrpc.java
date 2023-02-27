@@ -3,6 +3,9 @@ package com.subscription.v1.proto;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ *Service for genre related functionalities
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -91,10 +94,16 @@ public final class GenreServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for genre related functionalities
+   * </pre>
    */
   public static abstract class GenreServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Request for creation of new genre
+     * </pre>
      */
     public void createGenre(com.subscriptionmanager.v1.proto.CreateGenreRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.Genre> responseObserver) {
@@ -115,6 +124,9 @@ public final class GenreServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for genre related functionalities
+   * </pre>
    */
   public static final class GenreServiceStub extends io.grpc.stub.AbstractAsyncStub<GenreServiceStub> {
     private GenreServiceStub(
@@ -129,6 +141,9 @@ public final class GenreServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new genre
+     * </pre>
      */
     public void createGenre(com.subscriptionmanager.v1.proto.CreateGenreRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.Genre> responseObserver) {
@@ -138,6 +153,9 @@ public final class GenreServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for genre related functionalities
+   * </pre>
    */
   public static final class GenreServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<GenreServiceBlockingStub> {
     private GenreServiceBlockingStub(
@@ -152,6 +170,9 @@ public final class GenreServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new genre
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.Genre createGenre(com.subscriptionmanager.v1.proto.CreateGenreRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -160,6 +181,9 @@ public final class GenreServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for genre related functionalities
+   * </pre>
    */
   public static final class GenreServiceFutureStub extends io.grpc.stub.AbstractFutureStub<GenreServiceFutureStub> {
     private GenreServiceFutureStub(
@@ -174,6 +198,9 @@ public final class GenreServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new genre
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.Genre> createGenre(
         com.subscriptionmanager.v1.proto.CreateGenreRequest request) {
@@ -227,7 +254,7 @@ public final class GenreServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.subscription.v1.proto.Service.getDescriptor();
+      return com.subscription.v1.proto.ServiceProto.getDescriptor();
     }
 
     @java.lang.Override

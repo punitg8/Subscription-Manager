@@ -12,42 +12,52 @@ public interface AddSubscriptionResponseOrBuilder extends
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+   * @return Whether the subscription field is set.
    */
-  java.util.List<com.subscriptionmanager.v1.proto.Subscription> 
-      getSubscriptionsList();
+  boolean hasSubscription();
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+   * @return The subscription.
    */
-  com.subscriptionmanager.v1.proto.Subscription getSubscriptions(int index);
+  com.subscriptionmanager.v1.proto.Subscription getSubscription();
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
    */
-  int getSubscriptionsCount();
+  com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionOrBuilder();
+
   /**
    * <pre>
-   * The subscriptions from the specified user.
+   *expiry date
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.google.type.Date expiry_date = 2;</code>
+   * @return Whether the expiryDate field is set.
    */
-  java.util.List<? extends com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> 
-      getSubscriptionsOrBuilderList();
+  boolean hasExpiryDate();
   /**
    * <pre>
-   * The subscriptions from the specified user.
+   *expiry date
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.google.type.Date expiry_date = 2;</code>
+   * @return The expiryDate.
    */
-  com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionsOrBuilder(
-      int index);
+  com.google.type.Date getExpiryDate();
+  /**
+   * <pre>
+   *expiry date
+   * </pre>
+   *
+   * <code>.google.type.Date expiry_date = 2;</code>
+   */
+  com.google.type.DateOrBuilder getExpiryDateOrBuilder();
 }

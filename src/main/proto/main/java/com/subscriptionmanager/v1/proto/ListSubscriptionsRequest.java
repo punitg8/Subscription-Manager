@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private ListSubscriptionsRequest() {
     parent_ = "";
+    pageToken_ = "";
   }
 
   @java.lang.Override
@@ -96,6 +97,76 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PAGE_SIZE_FIELD_NUMBER = 2;
+  private int pageSize_;
+  /**
+   * <pre>
+   * The maximum number of subscription to return. The service may return fewer than
+   * this value.
+   * If unspecified, at most 50 books will be returned.
+   * The maximum value is 1000; values above 1000 will be coerced to 1000.
+   * </pre>
+   *
+   * <code>int32 page_size = 2;</code>
+   * @return The pageSize.
+   */
+  @java.lang.Override
+  public int getPageSize() {
+    return pageSize_;
+  }
+
+  public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
+  private volatile java.lang.Object pageToken_;
+  /**
+   * <pre>
+   * A page token, received from a previous `ListSubscriptions` call.
+   * Provide this to retrieve the subsequent page.
+   * When paginating, all other parameters provided to `ListSubscriptions` must match
+   * the call that provided the page token.
+   * </pre>
+   *
+   * <code>string page_token = 3;</code>
+   * @return The pageToken.
+   */
+  @java.lang.Override
+  public java.lang.String getPageToken() {
+    java.lang.Object ref = pageToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      pageToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * A page token, received from a previous `ListSubscriptions` call.
+   * Provide this to retrieve the subsequent page.
+   * When paginating, all other parameters provided to `ListSubscriptions` must match
+   * the call that provided the page token.
+   * </pre>
+   *
+   * <code>string page_token = 3;</code>
+   * @return The bytes for pageToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPageTokenBytes() {
+    java.lang.Object ref = pageToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      pageToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -113,6 +184,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, parent_);
     }
+    if (pageSize_ != 0) {
+      output.writeInt32(2, pageSize_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pageToken_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -124,6 +201,13 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, parent_);
+    }
+    if (pageSize_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, pageSize_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pageToken_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -142,6 +226,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getParent()
         .equals(other.getParent())) return false;
+    if (getPageSize()
+        != other.getPageSize()) return false;
+    if (!getPageToken()
+        .equals(other.getPageToken())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -155,6 +243,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PARENT_FIELD_NUMBER;
     hash = (53 * hash) + getParent().hashCode();
+    hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getPageSize();
+    hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getPageToken().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -289,6 +381,10 @@ private static final long serialVersionUID = 0L;
       super.clear();
       parent_ = "";
 
+      pageSize_ = 0;
+
+      pageToken_ = "";
+
       return this;
     }
 
@@ -316,6 +412,8 @@ private static final long serialVersionUID = 0L;
     public com.subscriptionmanager.v1.proto.ListSubscriptionsRequest buildPartial() {
       com.subscriptionmanager.v1.proto.ListSubscriptionsRequest result = new com.subscriptionmanager.v1.proto.ListSubscriptionsRequest(this);
       result.parent_ = parent_;
+      result.pageSize_ = pageSize_;
+      result.pageToken_ = pageToken_;
       onBuilt();
       return result;
     }
@@ -368,6 +466,13 @@ private static final long serialVersionUID = 0L;
         parent_ = other.parent_;
         onChanged();
       }
+      if (other.getPageSize() != 0) {
+        setPageSize(other.getPageSize());
+      }
+      if (!other.getPageToken().isEmpty()) {
+        pageToken_ = other.pageToken_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -399,6 +504,16 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 10
+            case 16: {
+              pageSize_ = input.readInt32();
+
+              break;
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -512,6 +627,169 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       parent_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int pageSize_ ;
+    /**
+     * <pre>
+     * The maximum number of subscription to return. The service may return fewer than
+     * this value.
+     * If unspecified, at most 50 books will be returned.
+     * The maximum value is 1000; values above 1000 will be coerced to 1000.
+     * </pre>
+     *
+     * <code>int32 page_size = 2;</code>
+     * @return The pageSize.
+     */
+    @java.lang.Override
+    public int getPageSize() {
+      return pageSize_;
+    }
+    /**
+     * <pre>
+     * The maximum number of subscription to return. The service may return fewer than
+     * this value.
+     * If unspecified, at most 50 books will be returned.
+     * The maximum value is 1000; values above 1000 will be coerced to 1000.
+     * </pre>
+     *
+     * <code>int32 page_size = 2;</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageSize(int value) {
+      
+      pageSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The maximum number of subscription to return. The service may return fewer than
+     * this value.
+     * If unspecified, at most 50 books will be returned.
+     * The maximum value is 1000; values above 1000 will be coerced to 1000.
+     * </pre>
+     *
+     * <code>int32 page_size = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageSize() {
+      
+      pageSize_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object pageToken_ = "";
+    /**
+     * <pre>
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
+     * </pre>
+     *
+     * <code>string page_token = 3;</code>
+     * @return The pageToken.
+     */
+    public java.lang.String getPageToken() {
+      java.lang.Object ref = pageToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pageToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
+     * </pre>
+     *
+     * <code>string page_token = 3;</code>
+     * @return The bytes for pageToken.
+     */
+    public com.google.protobuf.ByteString
+        getPageTokenBytes() {
+      java.lang.Object ref = pageToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pageToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
+     * </pre>
+     *
+     * <code>string page_token = 3;</code>
+     * @param value The pageToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageToken(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      pageToken_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
+     * </pre>
+     *
+     * <code>string page_token = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageToken() {
+      
+      pageToken_ = getDefaultInstance().getPageToken();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
+     * </pre>
+     *
+     * <code>string page_token = 3;</code>
+     * @param value The bytes for pageToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      pageToken_ = value;
       onChanged();
       return this;
     }

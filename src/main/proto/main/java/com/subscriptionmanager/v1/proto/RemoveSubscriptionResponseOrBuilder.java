@@ -12,42 +12,25 @@ public interface RemoveSubscriptionResponseOrBuilder extends
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+   * @return Whether the subscription field is set.
    */
-  java.util.List<com.subscriptionmanager.v1.proto.Subscription> 
-      getSubscriptionsList();
+  boolean hasSubscription();
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+   * @return The subscription.
    */
-  com.subscriptionmanager.v1.proto.Subscription getSubscriptions(int index);
+  com.subscriptionmanager.v1.proto.Subscription getSubscription();
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
    */
-  int getSubscriptionsCount();
-  /**
-   * <pre>
-   * The subscriptions from the specified user.
-   * </pre>
-   *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-   */
-  java.util.List<? extends com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> 
-      getSubscriptionsOrBuilderList();
-  /**
-   * <pre>
-   * The subscriptions from the specified user.
-   * </pre>
-   *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-   */
-  com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionsOrBuilder(
-      int index);
+  com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionOrBuilder();
 }

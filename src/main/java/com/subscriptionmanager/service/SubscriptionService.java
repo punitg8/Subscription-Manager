@@ -1,7 +1,8 @@
 package com.subscriptionmanager.service;
 
-import com.subscription.proto.CreateSubscriptionRequest;
-import com.subscription.proto.Subscription;
+
+import com.subscriptionmanager.v1.proto.CreateSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.Subscription;
 
 public interface SubscriptionService {
 

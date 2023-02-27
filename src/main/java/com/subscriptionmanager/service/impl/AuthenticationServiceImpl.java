@@ -1,10 +1,10 @@
 package com.subscriptionmanager.service.impl;
 
-import com.subscription.proto.CreateUserRequest;
 import com.subscriptionmanager.enums.Role;
 import com.subscriptionmanager.model.User;
 import com.subscriptionmanager.repository.UserRepository;
 import com.subscriptionmanager.service.AuthenticationService;
+import com.subscriptionmanager.v1.proto.CreateUserRequest;
 import com.subscriptionmanager.validations.ValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
   @Override
-  public com.subscription.proto.User createUser(final CreateUserRequest request) {
-    final com.subscription.proto.User newUser = request.getUser();
+  public com.subscriptionmanager.v1.proto.User createUser(final CreateUserRequest request) {
+    final com.subscriptionmanager.v1.proto.User newUser = request.getUser();
 
     User user = User.builder()
-        .name(newUser.getName())
+        .name(newUser.getDisplayName())
         .emailId(newUser.getEmailId())
         .password(newUser.getPassword())
         .role(Role.valueOf(newUser.getRole().toString()))
@@ -33,12 +33,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     user = userRepository.save(user);
 
-    return com.subscription.proto.User.newBuilder()
-        .setId(user.getId())
-        .setName(user.getName())
+    return com.subscriptionmanager.v1.proto.User.newBuilder()
+        .setName(user.getId())
+        .setDisplayName(user.getName())
         .setEmailId(user.getEmailId())
         .setPassword(user.getPassword())
-        .setRole(com.subscription.proto.User.Role.valueOf(user.getRole().toString()))
+        .setRole(com.subscriptionmanager.v1.proto.User.Role.valueOf(user.getRole().toString()))
         .build();
   }
 

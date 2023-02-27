@@ -12,7 +12,7 @@ public interface NewsletterOrBuilder extends
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return A list containing the news.
    */
   java.util.List<java.lang.String>
@@ -22,7 +22,7 @@ public interface NewsletterOrBuilder extends
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The count of news.
    */
   int getNewsCount();
@@ -31,7 +31,7 @@ public interface NewsletterOrBuilder extends
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the element to return.
    * @return The news at the given index.
    */
@@ -41,7 +41,7 @@ public interface NewsletterOrBuilder extends
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the value to return.
    * @return The bytes of the news at the given index.
    */

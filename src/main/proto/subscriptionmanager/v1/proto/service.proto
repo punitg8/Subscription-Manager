@@ -11,79 +11,93 @@ import "google/protobuf/empty.proto";
 import "subscriptionmanager/v1/proto/message.proto";
 
 option java_package = "com.subscription.v1.proto";
-
+option java_outer_classname = "ServiceProto";
 option java_multiple_files = true;
 
+
+//Service for authentication related functionalities
 service AuthenticationService{
+  //Request for creation of new user
   rpc createUser(CreateUserRequest) returns (User){
     option(google.api.http) = {
-      post: "v1/users"
+      post: "/v1/users:create"
       body: "user"
     };
     option (google.api.method_signature) = "user";
   };
 }
 
+//Service for news related functionalities
 service NewsService{
+  //Request for creation of new news
   rpc createNews(CreateNewsRequest) returns (News){
     option (google.api.http) = {
-      post: "/v1/{parent=genres/*}/news"
+      post: "/v1/{parent=genres/*}/news:create"
       body: "news"
     };
     option (google.api.method_signature) = "parent,news";
   };
 }
 
+//Service for genre related functionalities
 service GenreService{
+  //Request for creation of new genre
   rpc createGenre(CreateGenreRequest) returns (Genre){
     option (google.api.http) = {
-      post: "/v1/{parent=subscriptions/*}/genres"
+      post: "/v1/{parent=subscriptions/*}/genres:create"
       body: "genre"
     };
     option (google.api.method_signature) = "parent,genre";
   };
 }
 
+//Service for subscription related functionalities
 service SubscriptionService{
+  //Request for creation of new subscription
   rpc createSubscription(CreateSubscriptionRequest) returns (Subscription){
     option(google.api.http) = {
-      post: "v1/subscriptions"
+      post: "/v1/subscriptions:create"
       body: "subscription"
     };
     option (google.api.method_signature) = "subscription";
   };
 }
 
+//Service for user related functionalities
 service UserService{
-  rpc ListSubscription(ListSubscriptionsRequest) returns (ListSubscriptionsResponse){
+  //Request to list a subscription from user
+  rpc ListSubscriptions(ListSubscriptionsRequest) returns (ListSubscriptionsResponse){
     option(google.api.http) = {
-      get: "v1/{parent=users/*}/subscriptions"
+      get: "/v1/{parent=users/*}/subscriptions"
     };
     option (google.api.method_signature) = "parent";
   };
 
+  //Request to add a subscription from user
   rpc AddSubscription(AddSubscriptionRequest) returns (AddSubscriptionResponse){
     option(google.api.http) = {
-      post: "v1/{parent=users/*}/subscriptions"
-      body: "subscription_id"
+      post: "/v1/{parent=users/*}/subscriptions:add"
+      body: "*"
     };
-    option (google.api.method_signature) = "parent,subscription_id";
+    option (google.api.method_signature) = "parent,name";
   };
 
+  //Request to renew a subscription from user
   rpc RenewSubscription(RenewSubscriptionRequest) returns (RenewSubscriptionResponse){
     option(google.api.http) = {
-      post: "v1/{parent=users/*}/subscriptions"
-      body: "subscription_id"
+      patch: "/v1/{parent=users/*}/subscriptions:renew"
+      body: "*"
     };
-    option (google.api.method_signature) = "parent,subscription_id";
+    option (google.api.method_signature) = "parent,name";
   };
 
+  //Request to remove a subscription from user
   rpc RemoveSubscription(RemoveSubscriptionRequest) returns (RemoveSubscriptionResponse){
     option(google.api.http) = {
-      post: "v1/{parent=users/*}/subscriptions"
-      body: "subscription_id"
+      delete: "/v1/{parent=users/*}/{name={subscriptions/*}"
+      body: "*"
     };
-    option (google.api.method_signature) = "parent,subscription_id";
+    option (google.api.method_signature) = "parent,name";
   };
 
 }

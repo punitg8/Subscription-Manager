@@ -28,4 +28,43 @@ public interface ListSubscriptionsRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getParentBytes();
+
+  /**
+   * <pre>
+   * The maximum number of subscription to return. The service may return fewer than
+   * this value.
+   * If unspecified, at most 50 books will be returned.
+   * The maximum value is 1000; values above 1000 will be coerced to 1000.
+   * </pre>
+   *
+   * <code>int32 page_size = 2;</code>
+   * @return The pageSize.
+   */
+  int getPageSize();
+
+  /**
+   * <pre>
+   * A page token, received from a previous `ListSubscriptions` call.
+   * Provide this to retrieve the subsequent page.
+   * When paginating, all other parameters provided to `ListSubscriptions` must match
+   * the call that provided the page token.
+   * </pre>
+   *
+   * <code>string page_token = 3;</code>
+   * @return The pageToken.
+   */
+  java.lang.String getPageToken();
+  /**
+   * <pre>
+   * A page token, received from a previous `ListSubscriptions` call.
+   * Provide this to retrieve the subsequent page.
+   * When paginating, all other parameters provided to `ListSubscriptions` must match
+   * the call that provided the page token.
+   * </pre>
+   *
+   * <code>string page_token = 3;</code>
+   * @return The bytes for pageToken.
+   */
+  com.google.protobuf.ByteString
+      getPageTokenBytes();
 }

@@ -2,9 +2,9 @@ package com.subscriptionmanager.service.impl;
 
 import static com.subscriptionmanager.constants.Newsletter.NEWSLETTER_SUBJECT;
 
-import com.subscription.proto.NewsletterMailInfo;
 import com.subscriptionmanager.service.EmailService;
 import com.subscriptionmanager.service.SendGridMailService;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

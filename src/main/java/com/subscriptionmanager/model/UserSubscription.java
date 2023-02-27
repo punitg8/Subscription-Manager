@@ -31,8 +31,8 @@ public class UserSubscription extends Audit implements Serializable {
   private static final long serialVersionUID = 101;
 
   @NotNull
-  @Column(name = "validity_date", nullable = false)
-  private Date validitiyDate;
+  @Column(name = "expiry_date", nullable = false)
+  private Date expiryDate;
 
   @NotNull
   @ManyToOne(fetch = FetchType.EAGER)

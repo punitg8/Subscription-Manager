@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RenewSubscriptionResponse() {
-    subscriptions_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -48,64 +47,80 @@ private static final long serialVersionUID = 0L;
             com.subscriptionmanager.v1.proto.RenewSubscriptionResponse.class, com.subscriptionmanager.v1.proto.RenewSubscriptionResponse.Builder.class);
   }
 
-  public static final int SUBSCRIPTIONS_FIELD_NUMBER = 1;
-  private java.util.List<com.subscriptionmanager.v1.proto.Subscription> subscriptions_;
+  public static final int SUBSCRIPTION_FIELD_NUMBER = 1;
+  private com.subscriptionmanager.v1.proto.Subscription subscription_;
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+   * @return Whether the subscription field is set.
    */
   @java.lang.Override
-  public java.util.List<com.subscriptionmanager.v1.proto.Subscription> getSubscriptionsList() {
-    return subscriptions_;
+  public boolean hasSubscription() {
+    return subscription_ != null;
   }
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+   * @return The subscription.
    */
   @java.lang.Override
-  public java.util.List<? extends com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> 
-      getSubscriptionsOrBuilderList() {
-    return subscriptions_;
+  public com.subscriptionmanager.v1.proto.Subscription getSubscription() {
+    return subscription_ == null ? com.subscriptionmanager.v1.proto.Subscription.getDefaultInstance() : subscription_;
   }
   /**
    * <pre>
    * The subscriptions from the specified user.
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
    */
   @java.lang.Override
-  public int getSubscriptionsCount() {
-    return subscriptions_.size();
+  public com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionOrBuilder() {
+    return getSubscription();
+  }
+
+  public static final int EXPIRY_DATE_FIELD_NUMBER = 2;
+  private com.google.type.Date expiryDate_;
+  /**
+   * <pre>
+   *expiry date
+   * </pre>
+   *
+   * <code>.google.type.Date expiry_date = 2;</code>
+   * @return Whether the expiryDate field is set.
+   */
+  @java.lang.Override
+  public boolean hasExpiryDate() {
+    return expiryDate_ != null;
   }
   /**
    * <pre>
-   * The subscriptions from the specified user.
+   *expiry date
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.google.type.Date expiry_date = 2;</code>
+   * @return The expiryDate.
    */
   @java.lang.Override
-  public com.subscriptionmanager.v1.proto.Subscription getSubscriptions(int index) {
-    return subscriptions_.get(index);
+  public com.google.type.Date getExpiryDate() {
+    return expiryDate_ == null ? com.google.type.Date.getDefaultInstance() : expiryDate_;
   }
   /**
    * <pre>
-   * The subscriptions from the specified user.
+   *expiry date
    * </pre>
    *
-   * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+   * <code>.google.type.Date expiry_date = 2;</code>
    */
   @java.lang.Override
-  public com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionsOrBuilder(
-      int index) {
-    return subscriptions_.get(index);
+  public com.google.type.DateOrBuilder getExpiryDateOrBuilder() {
+    return getExpiryDate();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -122,8 +137,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < subscriptions_.size(); i++) {
-      output.writeMessage(1, subscriptions_.get(i));
+    if (subscription_ != null) {
+      output.writeMessage(1, getSubscription());
+    }
+    if (expiryDate_ != null) {
+      output.writeMessage(2, getExpiryDate());
     }
     getUnknownFields().writeTo(output);
   }
@@ -134,9 +152,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < subscriptions_.size(); i++) {
+    if (subscription_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, subscriptions_.get(i));
+        .computeMessageSize(1, getSubscription());
+    }
+    if (expiryDate_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getExpiryDate());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -153,8 +175,16 @@ private static final long serialVersionUID = 0L;
     }
     com.subscriptionmanager.v1.proto.RenewSubscriptionResponse other = (com.subscriptionmanager.v1.proto.RenewSubscriptionResponse) obj;
 
-    if (!getSubscriptionsList()
-        .equals(other.getSubscriptionsList())) return false;
+    if (hasSubscription() != other.hasSubscription()) return false;
+    if (hasSubscription()) {
+      if (!getSubscription()
+          .equals(other.getSubscription())) return false;
+    }
+    if (hasExpiryDate() != other.hasExpiryDate()) return false;
+    if (hasExpiryDate()) {
+      if (!getExpiryDate()
+          .equals(other.getExpiryDate())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -166,9 +196,13 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getSubscriptionsCount() > 0) {
-      hash = (37 * hash) + SUBSCRIPTIONS_FIELD_NUMBER;
-      hash = (53 * hash) + getSubscriptionsList().hashCode();
+    if (hasSubscription()) {
+      hash = (37 * hash) + SUBSCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getSubscription().hashCode();
+    }
+    if (hasExpiryDate()) {
+      hash = (37 * hash) + EXPIRY_DATE_FIELD_NUMBER;
+      hash = (53 * hash) + getExpiryDate().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -302,13 +336,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (subscriptionsBuilder_ == null) {
-        subscriptions_ = java.util.Collections.emptyList();
+      if (subscriptionBuilder_ == null) {
+        subscription_ = null;
       } else {
-        subscriptions_ = null;
-        subscriptionsBuilder_.clear();
+        subscription_ = null;
+        subscriptionBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      if (expiryDateBuilder_ == null) {
+        expiryDate_ = null;
+      } else {
+        expiryDate_ = null;
+        expiryDateBuilder_ = null;
+      }
       return this;
     }
 
@@ -335,15 +374,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.subscriptionmanager.v1.proto.RenewSubscriptionResponse buildPartial() {
       com.subscriptionmanager.v1.proto.RenewSubscriptionResponse result = new com.subscriptionmanager.v1.proto.RenewSubscriptionResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (subscriptionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          subscriptions_ = java.util.Collections.unmodifiableList(subscriptions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.subscriptions_ = subscriptions_;
+      if (subscriptionBuilder_ == null) {
+        result.subscription_ = subscription_;
       } else {
-        result.subscriptions_ = subscriptionsBuilder_.build();
+        result.subscription_ = subscriptionBuilder_.build();
+      }
+      if (expiryDateBuilder_ == null) {
+        result.expiryDate_ = expiryDate_;
+      } else {
+        result.expiryDate_ = expiryDateBuilder_.build();
       }
       onBuilt();
       return result;
@@ -393,31 +432,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.subscriptionmanager.v1.proto.RenewSubscriptionResponse other) {
       if (other == com.subscriptionmanager.v1.proto.RenewSubscriptionResponse.getDefaultInstance()) return this;
-      if (subscriptionsBuilder_ == null) {
-        if (!other.subscriptions_.isEmpty()) {
-          if (subscriptions_.isEmpty()) {
-            subscriptions_ = other.subscriptions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureSubscriptionsIsMutable();
-            subscriptions_.addAll(other.subscriptions_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.subscriptions_.isEmpty()) {
-          if (subscriptionsBuilder_.isEmpty()) {
-            subscriptionsBuilder_.dispose();
-            subscriptionsBuilder_ = null;
-            subscriptions_ = other.subscriptions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            subscriptionsBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getSubscriptionsFieldBuilder() : null;
-          } else {
-            subscriptionsBuilder_.addAllMessages(other.subscriptions_);
-          }
-        }
+      if (other.hasSubscription()) {
+        mergeSubscription(other.getSubscription());
+      }
+      if (other.hasExpiryDate()) {
+        mergeExpiryDate(other.getExpiryDate());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -446,18 +465,19 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              com.subscriptionmanager.v1.proto.Subscription m =
-                  input.readMessage(
-                      com.subscriptionmanager.v1.proto.Subscription.parser(),
-                      extensionRegistry);
-              if (subscriptionsBuilder_ == null) {
-                ensureSubscriptionsIsMutable();
-                subscriptions_.add(m);
-              } else {
-                subscriptionsBuilder_.addMessage(m);
-              }
+              input.readMessage(
+                  getSubscriptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+
               break;
             } // case 10
+            case 18: {
+              input.readMessage(
+                  getExpiryDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -473,32 +493,34 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int bitField0_;
 
-    private java.util.List<com.subscriptionmanager.v1.proto.Subscription> subscriptions_ =
-      java.util.Collections.emptyList();
-    private void ensureSubscriptionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        subscriptions_ = new java.util.ArrayList<com.subscriptionmanager.v1.proto.Subscription>(subscriptions_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.subscriptionmanager.v1.proto.Subscription, com.subscriptionmanager.v1.proto.Subscription.Builder, com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> subscriptionsBuilder_;
-
+    private com.subscriptionmanager.v1.proto.Subscription subscription_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.subscriptionmanager.v1.proto.Subscription, com.subscriptionmanager.v1.proto.Subscription.Builder, com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> subscriptionBuilder_;
     /**
      * <pre>
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+     * @return Whether the subscription field is set.
      */
-    public java.util.List<com.subscriptionmanager.v1.proto.Subscription> getSubscriptionsList() {
-      if (subscriptionsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(subscriptions_);
+    public boolean hasSubscription() {
+      return subscriptionBuilder_ != null || subscription_ != null;
+    }
+    /**
+     * <pre>
+     * The subscriptions from the specified user.
+     * </pre>
+     *
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+     * @return The subscription.
+     */
+    public com.subscriptionmanager.v1.proto.Subscription getSubscription() {
+      if (subscriptionBuilder_ == null) {
+        return subscription_ == null ? com.subscriptionmanager.v1.proto.Subscription.getDefaultInstance() : subscription_;
       } else {
-        return subscriptionsBuilder_.getMessageList();
+        return subscriptionBuilder_.getMessage();
       }
     }
     /**
@@ -506,48 +528,19 @@ private static final long serialVersionUID = 0L;
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
      */
-    public int getSubscriptionsCount() {
-      if (subscriptionsBuilder_ == null) {
-        return subscriptions_.size();
-      } else {
-        return subscriptionsBuilder_.getCount();
-      }
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public com.subscriptionmanager.v1.proto.Subscription getSubscriptions(int index) {
-      if (subscriptionsBuilder_ == null) {
-        return subscriptions_.get(index);
-      } else {
-        return subscriptionsBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public Builder setSubscriptions(
-        int index, com.subscriptionmanager.v1.proto.Subscription value) {
-      if (subscriptionsBuilder_ == null) {
+    public Builder setSubscription(com.subscriptionmanager.v1.proto.Subscription value) {
+      if (subscriptionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureSubscriptionsIsMutable();
-        subscriptions_.set(index, value);
+        subscription_ = value;
         onChanged();
       } else {
-        subscriptionsBuilder_.setMessage(index, value);
+        subscriptionBuilder_.setMessage(value);
       }
+
       return this;
     }
     /**
@@ -555,76 +548,17 @@ private static final long serialVersionUID = 0L;
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
      */
-    public Builder setSubscriptions(
-        int index, com.subscriptionmanager.v1.proto.Subscription.Builder builderForValue) {
-      if (subscriptionsBuilder_ == null) {
-        ensureSubscriptionsIsMutable();
-        subscriptions_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        subscriptionsBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public Builder addSubscriptions(com.subscriptionmanager.v1.proto.Subscription value) {
-      if (subscriptionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureSubscriptionsIsMutable();
-        subscriptions_.add(value);
-        onChanged();
-      } else {
-        subscriptionsBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public Builder addSubscriptions(
-        int index, com.subscriptionmanager.v1.proto.Subscription value) {
-      if (subscriptionsBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureSubscriptionsIsMutable();
-        subscriptions_.add(index, value);
-        onChanged();
-      } else {
-        subscriptionsBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public Builder addSubscriptions(
+    public Builder setSubscription(
         com.subscriptionmanager.v1.proto.Subscription.Builder builderForValue) {
-      if (subscriptionsBuilder_ == null) {
-        ensureSubscriptionsIsMutable();
-        subscriptions_.add(builderForValue.build());
+      if (subscriptionBuilder_ == null) {
+        subscription_ = builderForValue.build();
         onChanged();
       } else {
-        subscriptionsBuilder_.addMessage(builderForValue.build());
+        subscriptionBuilder_.setMessage(builderForValue.build());
       }
+
       return this;
     }
     /**
@@ -632,17 +566,21 @@ private static final long serialVersionUID = 0L;
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
      */
-    public Builder addSubscriptions(
-        int index, com.subscriptionmanager.v1.proto.Subscription.Builder builderForValue) {
-      if (subscriptionsBuilder_ == null) {
-        ensureSubscriptionsIsMutable();
-        subscriptions_.add(index, builderForValue.build());
+    public Builder mergeSubscription(com.subscriptionmanager.v1.proto.Subscription value) {
+      if (subscriptionBuilder_ == null) {
+        if (subscription_ != null) {
+          subscription_ =
+            com.subscriptionmanager.v1.proto.Subscription.newBuilder(subscription_).mergeFrom(value).buildPartial();
+        } else {
+          subscription_ = value;
+        }
         onChanged();
       } else {
-        subscriptionsBuilder_.addMessage(index, builderForValue.build());
+        subscriptionBuilder_.mergeFrom(value);
       }
+
       return this;
     }
     /**
@@ -650,18 +588,17 @@ private static final long serialVersionUID = 0L;
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
      */
-    public Builder addAllSubscriptions(
-        java.lang.Iterable<? extends com.subscriptionmanager.v1.proto.Subscription> values) {
-      if (subscriptionsBuilder_ == null) {
-        ensureSubscriptionsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, subscriptions_);
+    public Builder clearSubscription() {
+      if (subscriptionBuilder_ == null) {
+        subscription_ = null;
         onChanged();
       } else {
-        subscriptionsBuilder_.addAllMessages(values);
+        subscription_ = null;
+        subscriptionBuilder_ = null;
       }
+
       return this;
     }
     /**
@@ -669,58 +606,26 @@ private static final long serialVersionUID = 0L;
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
      */
-    public Builder clearSubscriptions() {
-      if (subscriptionsBuilder_ == null) {
-        subscriptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+    public com.subscriptionmanager.v1.proto.Subscription.Builder getSubscriptionBuilder() {
+      
+      onChanged();
+      return getSubscriptionFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The subscriptions from the specified user.
+     * </pre>
+     *
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
+     */
+    public com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionOrBuilder() {
+      if (subscriptionBuilder_ != null) {
+        return subscriptionBuilder_.getMessageOrBuilder();
       } else {
-        subscriptionsBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public Builder removeSubscriptions(int index) {
-      if (subscriptionsBuilder_ == null) {
-        ensureSubscriptionsIsMutable();
-        subscriptions_.remove(index);
-        onChanged();
-      } else {
-        subscriptionsBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public com.subscriptionmanager.v1.proto.Subscription.Builder getSubscriptionsBuilder(
-        int index) {
-      return getSubscriptionsFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public com.subscriptionmanager.v1.proto.SubscriptionOrBuilder getSubscriptionsOrBuilder(
-        int index) {
-      if (subscriptionsBuilder_ == null) {
-        return subscriptions_.get(index);  } else {
-        return subscriptionsBuilder_.getMessageOrBuilder(index);
+        return subscription_ == null ?
+            com.subscriptionmanager.v1.proto.Subscription.getDefaultInstance() : subscription_;
       }
     }
     /**
@@ -728,63 +633,175 @@ private static final long serialVersionUID = 0L;
      * The subscriptions from the specified user.
      * </pre>
      *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Subscription subscription = 1;</code>
      */
-    public java.util.List<? extends com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> 
-         getSubscriptionsOrBuilderList() {
-      if (subscriptionsBuilder_ != null) {
-        return subscriptionsBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(subscriptions_);
-      }
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public com.subscriptionmanager.v1.proto.Subscription.Builder addSubscriptionsBuilder() {
-      return getSubscriptionsFieldBuilder().addBuilder(
-          com.subscriptionmanager.v1.proto.Subscription.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public com.subscriptionmanager.v1.proto.Subscription.Builder addSubscriptionsBuilder(
-        int index) {
-      return getSubscriptionsFieldBuilder().addBuilder(
-          index, com.subscriptionmanager.v1.proto.Subscription.getDefaultInstance());
-    }
-    /**
-     * <pre>
-     * The subscriptions from the specified user.
-     * </pre>
-     *
-     * <code>repeated .subscriptionmanager.v1.proto.Subscription subscriptions = 1;</code>
-     */
-    public java.util.List<com.subscriptionmanager.v1.proto.Subscription.Builder> 
-         getSubscriptionsBuilderList() {
-      return getSubscriptionsFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
+    private com.google.protobuf.SingleFieldBuilderV3<
         com.subscriptionmanager.v1.proto.Subscription, com.subscriptionmanager.v1.proto.Subscription.Builder, com.subscriptionmanager.v1.proto.SubscriptionOrBuilder> 
-        getSubscriptionsFieldBuilder() {
-      if (subscriptionsBuilder_ == null) {
-        subscriptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+        getSubscriptionFieldBuilder() {
+      if (subscriptionBuilder_ == null) {
+        subscriptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             com.subscriptionmanager.v1.proto.Subscription, com.subscriptionmanager.v1.proto.Subscription.Builder, com.subscriptionmanager.v1.proto.SubscriptionOrBuilder>(
-                subscriptions_,
-                ((bitField0_ & 0x00000001) != 0),
+                getSubscription(),
                 getParentForChildren(),
                 isClean());
-        subscriptions_ = null;
+        subscription_ = null;
       }
-      return subscriptionsBuilder_;
+      return subscriptionBuilder_;
+    }
+
+    private com.google.type.Date expiryDate_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> expiryDateBuilder_;
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     * @return Whether the expiryDate field is set.
+     */
+    public boolean hasExpiryDate() {
+      return expiryDateBuilder_ != null || expiryDate_ != null;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     * @return The expiryDate.
+     */
+    public com.google.type.Date getExpiryDate() {
+      if (expiryDateBuilder_ == null) {
+        return expiryDate_ == null ? com.google.type.Date.getDefaultInstance() : expiryDate_;
+      } else {
+        return expiryDateBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    public Builder setExpiryDate(com.google.type.Date value) {
+      if (expiryDateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expiryDate_ = value;
+        onChanged();
+      } else {
+        expiryDateBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    public Builder setExpiryDate(
+        com.google.type.Date.Builder builderForValue) {
+      if (expiryDateBuilder_ == null) {
+        expiryDate_ = builderForValue.build();
+        onChanged();
+      } else {
+        expiryDateBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    public Builder mergeExpiryDate(com.google.type.Date value) {
+      if (expiryDateBuilder_ == null) {
+        if (expiryDate_ != null) {
+          expiryDate_ =
+            com.google.type.Date.newBuilder(expiryDate_).mergeFrom(value).buildPartial();
+        } else {
+          expiryDate_ = value;
+        }
+        onChanged();
+      } else {
+        expiryDateBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    public Builder clearExpiryDate() {
+      if (expiryDateBuilder_ == null) {
+        expiryDate_ = null;
+        onChanged();
+      } else {
+        expiryDate_ = null;
+        expiryDateBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    public com.google.type.Date.Builder getExpiryDateBuilder() {
+      
+      onChanged();
+      return getExpiryDateFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    public com.google.type.DateOrBuilder getExpiryDateOrBuilder() {
+      if (expiryDateBuilder_ != null) {
+        return expiryDateBuilder_.getMessageOrBuilder();
+      } else {
+        return expiryDate_ == null ?
+            com.google.type.Date.getDefaultInstance() : expiryDate_;
+      }
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> 
+        getExpiryDateFieldBuilder() {
+      if (expiryDateBuilder_ == null) {
+        expiryDateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder>(
+                getExpiryDate(),
+                getParentForChildren(),
+                isClean());
+        expiryDate_ = null;
+      }
+      return expiryDateBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

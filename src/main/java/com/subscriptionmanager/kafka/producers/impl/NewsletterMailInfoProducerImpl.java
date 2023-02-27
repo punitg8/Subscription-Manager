@@ -1,7 +1,7 @@
 package com.subscriptionmanager.kafka.producers.impl;
 
-import com.subscription.proto.NewsletterMailInfo;
 import com.subscriptionmanager.kafka.producers.NewsletterMailInfoProducer;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;

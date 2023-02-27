@@ -7,14 +7,13 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import com.subscription.proto.Newsletter;
-import com.subscription.proto.NewsletterMailInfo;
 import com.subscriptionmanager.kafka.producers.NewsletterMailInfoProducer;
 import com.subscriptionmanager.model.Subscription;
 import com.subscriptionmanager.repository.NewsRepository;
 import com.subscriptionmanager.repository.UserSubscriptionRepository;
 import com.subscriptionmanager.service.GenreRepositoryService;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;

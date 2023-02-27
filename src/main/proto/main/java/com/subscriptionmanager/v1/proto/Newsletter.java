@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return A list containing the news.
    */
   public com.google.protobuf.ProtocolStringList
@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The count of news.
    */
   public int getNewsCount() {
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the element to return.
    * @return The news at the given index.
    */
@@ -90,7 +90,7 @@ private static final long serialVersionUID = 0L;
    * The news from the specified subscription.
    * </pre>
    *
-   * <code>repeated string news = 1;</code>
+   * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the value to return.
    * @return The bytes of the news at the given index.
    */
@@ -450,7 +450,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return A list containing the news.
      */
     public com.google.protobuf.ProtocolStringList
@@ -462,7 +462,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The count of news.
      */
     public int getNewsCount() {
@@ -473,7 +473,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param index The index of the element to return.
      * @return The news at the given index.
      */
@@ -485,7 +485,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param index The index of the value to return.
      * @return The bytes of the news at the given index.
      */
@@ -498,7 +498,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param index The index to set the value at.
      * @param value The news to set.
      * @return This builder for chaining.
@@ -518,7 +518,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The news to add.
      * @return This builder for chaining.
      */
@@ -537,7 +537,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param values The news to add.
      * @return This builder for chaining.
      */
@@ -554,7 +554,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearNews() {
@@ -568,7 +568,7 @@ private static final long serialVersionUID = 0L;
      * The news from the specified subscription.
      * </pre>
      *
-     * <code>repeated string news = 1;</code>
+     * <code>repeated string news = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The bytes of the news to add.
      * @return This builder for chaining.
      */

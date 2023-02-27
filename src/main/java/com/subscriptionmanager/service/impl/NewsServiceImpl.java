@@ -1,11 +1,11 @@
 package com.subscriptionmanager.service.impl;
 
-import com.subscription.proto.CreateNewsRequest;
 import com.subscriptionmanager.model.Genre;
 import com.subscriptionmanager.model.News;
 import com.subscriptionmanager.repository.NewsRepository;
 import com.subscriptionmanager.service.GenreRepositoryService;
 import com.subscriptionmanager.service.NewsService;
+import com.subscriptionmanager.v1.proto.CreateNewsRequest;
 import com.subscriptionmanager.validations.ValidationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,9 +21,9 @@ public class NewsServiceImpl implements NewsService {
   private final ValidationService validationService;
 
   @Override
-  public com.subscription.proto.News createNews(final CreateNewsRequest request) {
-    final com.subscription.proto.News newNews = request.getNews();
-    final String genreUid = newNews.getGenreUid();
+  public com.subscriptionmanager.v1.proto.News createNews(final CreateNewsRequest request) {
+    final com.subscriptionmanager.v1.proto.News newNews = request.getNews();
+    final String genreUid = request.getParent();
 
     final Genre genre = genreRepositoryService.findById(genreUid);
 
@@ -37,9 +37,9 @@ public class NewsServiceImpl implements NewsService {
 
     news = newsRepository.save(news);
 
-    return com.subscription.proto.News.newBuilder()
-        .setId(news.getId())
-        .setGenreUid(news.getGenre().getId())
+    return com.subscriptionmanager.v1.proto.News.newBuilder()
+        .setName(news.getId())
+        .setParent(news.getGenre().getId())
         .setTitle(news.getTitle())
         .setDescription(news.getDescription())
         .build();

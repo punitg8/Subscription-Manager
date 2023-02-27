@@ -1,7 +1,7 @@
 package com.subscriptionmanager.kafka.deserializer;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.subscription.proto.NewsletterMailInfo;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 import lombok.extern.log4j.Log4j2;
 import org.apache.kafka.common.serialization.Deserializer;
 

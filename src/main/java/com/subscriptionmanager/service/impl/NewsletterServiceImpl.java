@@ -1,7 +1,5 @@
 package com.subscriptionmanager.service.impl;
 
-import com.subscription.proto.Newsletter;
-import com.subscription.proto.NewsletterMailInfo;
 import com.subscriptionmanager.kafka.producers.NewsletterMailInfoProducer;
 import com.subscriptionmanager.model.News;
 import com.subscriptionmanager.model.Subscription;
@@ -12,6 +10,8 @@ import com.subscriptionmanager.repository.UserSubscriptionRepository;
 import com.subscriptionmanager.service.GenreRepositoryService;
 import com.subscriptionmanager.service.NewsletterService;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
+import com.subscriptionmanager.v1.proto.Newsletter;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

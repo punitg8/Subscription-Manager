@@ -3,6 +3,9 @@ package com.subscription.v1.proto;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ *Service for authentication related functionalities
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -91,10 +94,16 @@ public final class AuthenticationServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for authentication related functionalities
+   * </pre>
    */
   public static abstract class AuthenticationServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Request for creation of new user
+     * </pre>
      */
     public void createUser(com.subscriptionmanager.v1.proto.CreateUserRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.User> responseObserver) {
@@ -115,6 +124,9 @@ public final class AuthenticationServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for authentication related functionalities
+   * </pre>
    */
   public static final class AuthenticationServiceStub extends io.grpc.stub.AbstractAsyncStub<AuthenticationServiceStub> {
     private AuthenticationServiceStub(
@@ -129,6 +141,9 @@ public final class AuthenticationServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new user
+     * </pre>
      */
     public void createUser(com.subscriptionmanager.v1.proto.CreateUserRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.User> responseObserver) {
@@ -138,6 +153,9 @@ public final class AuthenticationServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for authentication related functionalities
+   * </pre>
    */
   public static final class AuthenticationServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<AuthenticationServiceBlockingStub> {
     private AuthenticationServiceBlockingStub(
@@ -152,6 +170,9 @@ public final class AuthenticationServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new user
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.User createUser(com.subscriptionmanager.v1.proto.CreateUserRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -160,6 +181,9 @@ public final class AuthenticationServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for authentication related functionalities
+   * </pre>
    */
   public static final class AuthenticationServiceFutureStub extends io.grpc.stub.AbstractFutureStub<AuthenticationServiceFutureStub> {
     private AuthenticationServiceFutureStub(
@@ -174,6 +198,9 @@ public final class AuthenticationServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new user
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.User> createUser(
         com.subscriptionmanager.v1.proto.CreateUserRequest request) {
@@ -227,7 +254,7 @@ public final class AuthenticationServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.subscription.v1.proto.Service.getDescriptor();
+      return com.subscription.v1.proto.ServiceProto.getDescriptor();
     }
 
     @java.lang.Override

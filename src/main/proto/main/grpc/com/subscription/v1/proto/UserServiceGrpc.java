@@ -3,6 +3,9 @@ package com.subscription.v1.proto;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ *Service for user related functionalities
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -16,34 +19,34 @@ public final class UserServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListSubscriptionsRequest,
-      com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> getListSubscriptionMethod;
+      com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> getListSubscriptionsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ListSubscription",
+      fullMethodName = SERVICE_NAME + '/' + "ListSubscriptions",
       requestType = com.subscriptionmanager.v1.proto.ListSubscriptionsRequest.class,
       responseType = com.subscriptionmanager.v1.proto.ListSubscriptionsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListSubscriptionsRequest,
-      com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> getListSubscriptionMethod() {
-    io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListSubscriptionsRequest, com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> getListSubscriptionMethod;
-    if ((getListSubscriptionMethod = UserServiceGrpc.getListSubscriptionMethod) == null) {
+      com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> getListSubscriptionsMethod() {
+    io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListSubscriptionsRequest, com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> getListSubscriptionsMethod;
+    if ((getListSubscriptionsMethod = UserServiceGrpc.getListSubscriptionsMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getListSubscriptionMethod = UserServiceGrpc.getListSubscriptionMethod) == null) {
-          UserServiceGrpc.getListSubscriptionMethod = getListSubscriptionMethod =
+        if ((getListSubscriptionsMethod = UserServiceGrpc.getListSubscriptionsMethod) == null) {
+          UserServiceGrpc.getListSubscriptionsMethod = getListSubscriptionsMethod =
               io.grpc.MethodDescriptor.<com.subscriptionmanager.v1.proto.ListSubscriptionsRequest, com.subscriptionmanager.v1.proto.ListSubscriptionsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListSubscription"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListSubscriptions"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.subscriptionmanager.v1.proto.ListSubscriptionsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.subscriptionmanager.v1.proto.ListSubscriptionsResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("ListSubscription"))
+              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("ListSubscriptions"))
               .build();
         }
       }
     }
-    return getListSubscriptionMethod;
+    return getListSubscriptionsMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.AddSubscriptionRequest,
@@ -184,17 +187,26 @@ public final class UserServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for user related functionalities
+   * </pre>
    */
   public static abstract class UserServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Request to list a subscription from user
+     * </pre>
      */
-    public void listSubscription(com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request,
+    public void listSubscriptions(com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSubscriptionMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSubscriptionsMethod(), responseObserver);
     }
 
     /**
+     * <pre>
+     *Request to add a subscription from user
+     * </pre>
      */
     public void addSubscription(com.subscriptionmanager.v1.proto.AddSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.AddSubscriptionResponse> responseObserver) {
@@ -202,6 +214,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to renew a subscription from user
+     * </pre>
      */
     public void renewSubscription(com.subscriptionmanager.v1.proto.RenewSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.RenewSubscriptionResponse> responseObserver) {
@@ -209,6 +224,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to remove a subscription from user
+     * </pre>
      */
     public void removeSubscription(com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse> responseObserver) {
@@ -218,12 +236,12 @@ public final class UserServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getListSubscriptionMethod(),
+            getListSubscriptionsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.subscriptionmanager.v1.proto.ListSubscriptionsRequest,
                 com.subscriptionmanager.v1.proto.ListSubscriptionsResponse>(
-                  this, METHODID_LIST_SUBSCRIPTION)))
+                  this, METHODID_LIST_SUBSCRIPTIONS)))
           .addMethod(
             getAddSubscriptionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -250,6 +268,9 @@ public final class UserServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for user related functionalities
+   * </pre>
    */
   public static final class UserServiceStub extends io.grpc.stub.AbstractAsyncStub<UserServiceStub> {
     private UserServiceStub(
@@ -264,14 +285,20 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to list a subscription from user
+     * </pre>
      */
-    public void listSubscription(com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request,
+    public void listSubscriptions(com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getListSubscriptionMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getListSubscriptionsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
+     * <pre>
+     *Request to add a subscription from user
+     * </pre>
      */
     public void addSubscription(com.subscriptionmanager.v1.proto.AddSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.AddSubscriptionResponse> responseObserver) {
@@ -280,6 +307,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to renew a subscription from user
+     * </pre>
      */
     public void renewSubscription(com.subscriptionmanager.v1.proto.RenewSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.RenewSubscriptionResponse> responseObserver) {
@@ -288,6 +318,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to remove a subscription from user
+     * </pre>
      */
     public void removeSubscription(com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse> responseObserver) {
@@ -297,6 +330,9 @@ public final class UserServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for user related functionalities
+   * </pre>
    */
   public static final class UserServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<UserServiceBlockingStub> {
     private UserServiceBlockingStub(
@@ -311,13 +347,19 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to list a subscription from user
+     * </pre>
      */
-    public com.subscriptionmanager.v1.proto.ListSubscriptionsResponse listSubscription(com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request) {
+    public com.subscriptionmanager.v1.proto.ListSubscriptionsResponse listSubscriptions(com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getListSubscriptionMethod(), getCallOptions(), request);
+          getChannel(), getListSubscriptionsMethod(), getCallOptions(), request);
     }
 
     /**
+     * <pre>
+     *Request to add a subscription from user
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.AddSubscriptionResponse addSubscription(com.subscriptionmanager.v1.proto.AddSubscriptionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -325,6 +367,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to renew a subscription from user
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.RenewSubscriptionResponse renewSubscription(com.subscriptionmanager.v1.proto.RenewSubscriptionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -332,6 +377,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to remove a subscription from user
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse removeSubscription(com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -340,6 +388,9 @@ public final class UserServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for user related functionalities
+   * </pre>
    */
   public static final class UserServiceFutureStub extends io.grpc.stub.AbstractFutureStub<UserServiceFutureStub> {
     private UserServiceFutureStub(
@@ -354,14 +405,20 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to list a subscription from user
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> listSubscription(
+    public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.ListSubscriptionsResponse> listSubscriptions(
         com.subscriptionmanager.v1.proto.ListSubscriptionsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getListSubscriptionMethod(), getCallOptions()), request);
+          getChannel().newCall(getListSubscriptionsMethod(), getCallOptions()), request);
     }
 
     /**
+     * <pre>
+     *Request to add a subscription from user
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.AddSubscriptionResponse> addSubscription(
         com.subscriptionmanager.v1.proto.AddSubscriptionRequest request) {
@@ -370,6 +427,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to renew a subscription from user
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.RenewSubscriptionResponse> renewSubscription(
         com.subscriptionmanager.v1.proto.RenewSubscriptionRequest request) {
@@ -378,6 +438,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request to remove a subscription from user
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse> removeSubscription(
         com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest request) {
@@ -386,7 +449,7 @@ public final class UserServiceGrpc {
     }
   }
 
-  private static final int METHODID_LIST_SUBSCRIPTION = 0;
+  private static final int METHODID_LIST_SUBSCRIPTIONS = 0;
   private static final int METHODID_ADD_SUBSCRIPTION = 1;
   private static final int METHODID_RENEW_SUBSCRIPTION = 2;
   private static final int METHODID_REMOVE_SUBSCRIPTION = 3;
@@ -408,8 +471,8 @@ public final class UserServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_LIST_SUBSCRIPTION:
-          serviceImpl.listSubscription((com.subscriptionmanager.v1.proto.ListSubscriptionsRequest) request,
+        case METHODID_LIST_SUBSCRIPTIONS:
+          serviceImpl.listSubscriptions((com.subscriptionmanager.v1.proto.ListSubscriptionsRequest) request,
               (io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.ListSubscriptionsResponse>) responseObserver);
           break;
         case METHODID_ADD_SUBSCRIPTION:
@@ -446,7 +509,7 @@ public final class UserServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.subscription.v1.proto.Service.getDescriptor();
+      return com.subscription.v1.proto.ServiceProto.getDescriptor();
     }
 
     @java.lang.Override
@@ -485,7 +548,7 @@ public final class UserServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
-              .addMethod(getListSubscriptionMethod())
+              .addMethod(getListSubscriptionsMethod())
               .addMethod(getAddSubscriptionMethod())
               .addMethod(getRenewSubscriptionMethod())
               .addMethod(getRemoveSubscriptionMethod())

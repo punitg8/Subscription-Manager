@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
    * The newsletter for a particular subscription.
    * </pre>
    *
-   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the newsletter field is set.
    */
   @java.lang.Override
@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
    * The newsletter for a particular subscription.
    * </pre>
    *
-   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The newsletter.
    */
   @java.lang.Override
@@ -79,7 +79,7 @@ private static final long serialVersionUID = 0L;
    * The newsletter for a particular subscription.
    * </pre>
    *
-   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+   * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.subscriptionmanager.v1.proto.NewsletterOrBuilder getNewsletterOrBuilder() {
@@ -93,7 +93,7 @@ private static final long serialVersionUID = 0L;
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return A list containing the emailId.
    */
   public com.google.protobuf.ProtocolStringList
@@ -105,7 +105,7 @@ private static final long serialVersionUID = 0L;
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The count of emailId.
    */
   public int getEmailIdCount() {
@@ -116,7 +116,7 @@ private static final long serialVersionUID = 0L;
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the element to return.
    * @return The emailId at the given index.
    */
@@ -128,7 +128,7 @@ private static final long serialVersionUID = 0L;
    * The list of email id which will receive the newsletter
    * </pre>
    *
-   * <code>repeated string email_id = 2;</code>
+   * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @param index The index of the value to return.
    * @return The bytes of the emailId at the given index.
    */
@@ -521,7 +521,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the newsletter field is set.
      */
     public boolean hasNewsletter() {
@@ -532,7 +532,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The newsletter.
      */
     public com.subscriptionmanager.v1.proto.Newsletter getNewsletter() {
@@ -547,7 +547,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setNewsletter(com.subscriptionmanager.v1.proto.Newsletter value) {
       if (newsletterBuilder_ == null) {
@@ -567,7 +567,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setNewsletter(
         com.subscriptionmanager.v1.proto.Newsletter.Builder builderForValue) {
@@ -585,7 +585,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeNewsletter(com.subscriptionmanager.v1.proto.Newsletter value) {
       if (newsletterBuilder_ == null) {
@@ -607,7 +607,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearNewsletter() {
       if (newsletterBuilder_ == null) {
@@ -625,7 +625,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.subscriptionmanager.v1.proto.Newsletter.Builder getNewsletterBuilder() {
       
@@ -637,7 +637,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.subscriptionmanager.v1.proto.NewsletterOrBuilder getNewsletterOrBuilder() {
       if (newsletterBuilder_ != null) {
@@ -652,7 +652,7 @@ private static final long serialVersionUID = 0L;
      * The newsletter for a particular subscription.
      * </pre>
      *
-     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1;</code>
+     * <code>.subscriptionmanager.v1.proto.Newsletter newsletter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.subscriptionmanager.v1.proto.Newsletter, com.subscriptionmanager.v1.proto.Newsletter.Builder, com.subscriptionmanager.v1.proto.NewsletterOrBuilder> 
@@ -680,7 +680,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return A list containing the emailId.
      */
     public com.google.protobuf.ProtocolStringList
@@ -692,7 +692,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The count of emailId.
      */
     public int getEmailIdCount() {
@@ -703,7 +703,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param index The index of the element to return.
      * @return The emailId at the given index.
      */
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param index The index of the value to return.
      * @return The bytes of the emailId at the given index.
      */
@@ -728,7 +728,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param index The index to set the value at.
      * @param value The emailId to set.
      * @return This builder for chaining.
@@ -748,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The emailId to add.
      * @return This builder for chaining.
      */
@@ -767,7 +767,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param values The emailId to add.
      * @return This builder for chaining.
      */
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearEmailId() {
@@ -798,7 +798,7 @@ private static final long serialVersionUID = 0L;
      * The list of email id which will receive the newsletter
      * </pre>
      *
-     * <code>repeated string email_id = 2;</code>
+     * <code>repeated string email_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The bytes of the emailId to add.
      * @return This builder for chaining.
      */

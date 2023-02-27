@@ -2,6 +2,7 @@ package com.subscriptionmanager.kafka.consumers.impl;
 
 import com.subscriptionmanager.kafka.consumers.NewsletterMailInfoConsumer;
 import com.subscriptionmanager.service.EmailService;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.annotation.KafkaListener;

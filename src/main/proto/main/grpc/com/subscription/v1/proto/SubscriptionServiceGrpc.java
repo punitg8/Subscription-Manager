@@ -3,6 +3,9 @@ package com.subscription.v1.proto;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ *Service for subscription related functionalities
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.52.1)",
@@ -91,10 +94,16 @@ public final class SubscriptionServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for subscription related functionalities
+   * </pre>
    */
   public static abstract class SubscriptionServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Request for creation of new subscription
+     * </pre>
      */
     public void createSubscription(com.subscriptionmanager.v1.proto.CreateSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.Subscription> responseObserver) {
@@ -115,6 +124,9 @@ public final class SubscriptionServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for subscription related functionalities
+   * </pre>
    */
   public static final class SubscriptionServiceStub extends io.grpc.stub.AbstractAsyncStub<SubscriptionServiceStub> {
     private SubscriptionServiceStub(
@@ -129,6 +141,9 @@ public final class SubscriptionServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new subscription
+     * </pre>
      */
     public void createSubscription(com.subscriptionmanager.v1.proto.CreateSubscriptionRequest request,
         io.grpc.stub.StreamObserver<com.subscriptionmanager.v1.proto.Subscription> responseObserver) {
@@ -138,6 +153,9 @@ public final class SubscriptionServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for subscription related functionalities
+   * </pre>
    */
   public static final class SubscriptionServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<SubscriptionServiceBlockingStub> {
     private SubscriptionServiceBlockingStub(
@@ -152,6 +170,9 @@ public final class SubscriptionServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new subscription
+     * </pre>
      */
     public com.subscriptionmanager.v1.proto.Subscription createSubscription(com.subscriptionmanager.v1.proto.CreateSubscriptionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -160,6 +181,9 @@ public final class SubscriptionServiceGrpc {
   }
 
   /**
+   * <pre>
+   *Service for subscription related functionalities
+   * </pre>
    */
   public static final class SubscriptionServiceFutureStub extends io.grpc.stub.AbstractFutureStub<SubscriptionServiceFutureStub> {
     private SubscriptionServiceFutureStub(
@@ -174,6 +198,9 @@ public final class SubscriptionServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Request for creation of new subscription
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.subscriptionmanager.v1.proto.Subscription> createSubscription(
         com.subscriptionmanager.v1.proto.CreateSubscriptionRequest request) {
@@ -227,7 +254,7 @@ public final class SubscriptionServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.subscription.v1.proto.Service.getDescriptor();
+      return com.subscription.v1.proto.ServiceProto.getDescriptor();
     }
 
     @java.lang.Override

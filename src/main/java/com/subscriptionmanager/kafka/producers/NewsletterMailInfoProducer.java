@@ -1,6 +1,6 @@
 package com.subscriptionmanager.kafka.producers;
 
-import com.subscription.proto.NewsletterMailInfo;
+import com.subscriptionmanager.v1.proto.NewsletterMailInfo;
 
 public interface NewsletterMailInfoProducer {
 

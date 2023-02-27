@@ -8,8 +8,10 @@ import com.subscriptionmanager.v1.proto.User;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.lognet.springboot.grpc.GRpcService;
 
+@Log4j2
 @RequiredArgsConstructor
 @GRpcService
 public class AuthenticationController
@@ -26,11 +28,15 @@ public class AuthenticationController
       responseObserver.onCompleted();
 
     } catch (InvalidArgumentException exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(Status.INVALID_ARGUMENT
           .withDescription(exception.getMessage())
           .asRuntimeException()
       );
     } catch (Exception exception) {
+      log.error(exception.getMessage());
+
       responseObserver.onError(Status.UNKNOWN
           .withDescription(exception.getMessage())
           .asRuntimeException());

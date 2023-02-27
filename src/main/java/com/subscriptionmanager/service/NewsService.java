@@ -1,7 +1,7 @@
 package com.subscriptionmanager.service;
 
-import com.subscription.proto.CreateNewsRequest;
-import com.subscription.proto.News;
+import com.subscriptionmanager.v1.proto.CreateNewsRequest;
+import com.subscriptionmanager.v1.proto.News;
 
 public interface NewsService {
 
