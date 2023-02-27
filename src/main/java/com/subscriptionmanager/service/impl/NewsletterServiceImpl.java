@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -67,7 +68,8 @@ public class NewsletterServiceImpl implements NewsletterService {
     final List<News> newsList = new ArrayList<>();
 
     genreRepositoryService.findBySubscription(subscription)
-        .forEach(genre -> newsList.addAll(newsRepository.findByGenre(genre)));
+        .forEach(genre ->
+            newsList.addAll(newsRepository.findByGenreOrderByCreateDateTimeDesc(genre, PageRequest.of(0,2))));
 
     return newsList.stream()
         .map(news -> news.getTitle() + "\n" + news.getDescription())

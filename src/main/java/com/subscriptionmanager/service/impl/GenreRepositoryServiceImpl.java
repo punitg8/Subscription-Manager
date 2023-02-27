@@ -42,7 +42,6 @@ public class GenreRepositoryServiceImpl implements GenreRepositoryService {
   }
 
   @Override
-  @CachePut(key = "#subscription.getId()", value = GENRE_CACHE)
   public List<Genre> findBySubscription(final Subscription subscription) {
     return genreRepository.findBySubscription(subscription);
   }
