@@ -147,21 +147,21 @@ public final class MessageProto {
       "ddSubscriptionResponse\022@\n\014subscription\030\001" +
       " \001(\0132*.subscriptionmanager.v1.proto.Subs" +
       "cription\022&\n\013expiry_date\030\002 \001(\0132\021.google.t" +
-      "ype.Date\"C\n\031RemoveSubscriptionRequest\022\023\n" +
-      "\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"^\n" +
-      "\032RemoveSubscriptionResponse\022@\n\014subscript" +
-      "ion\030\001 \001(\0132*.subscriptionmanager.v1.proto" +
-      ".Subscription\"B\n\030RenewSubscriptionReques" +
-      "t\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A" +
-      "\002\"\205\001\n\031RenewSubscriptionResponse\022@\n\014subsc" +
-      "ription\030\001 \001(\0132*.subscriptionmanager.v1.p" +
-      "roto.Subscription\022&\n\013expiry_date\030\002 \001(\0132\021" +
-      ".google.type.Date\"\037\n\nNewsletter\022\021\n\004news\030" +
-      "\001 \003(\tB\003\340A\002\"n\n\022NewsletterMailInfo\022A\n\nnews" +
-      "letter\030\001 \001(\0132(.subscriptionmanager.v1.pr" +
-      "oto.NewsletterB\003\340A\002\022\025\n\010email_id\030\002 \003(\tB\003\340" +
-      "A\002B2\n com.subscriptionmanager.v1.protoB\014" +
-      "MessageProtoP\001b\006proto3"
+      "ype.Date\".\n\031RemoveSubscriptionRequest\022\021\n" +
+      "\004name\030\001 \001(\tB\003\340A\002\"^\n\032RemoveSubscriptionRe" +
+      "sponse\022@\n\014subscription\030\001 \001(\0132*.subscript" +
+      "ionmanager.v1.proto.Subscription\"B\n\030Rene" +
+      "wSubscriptionRequest\022\023\n\006parent\030\001 \001(\tB\003\340A" +
+      "\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"\205\001\n\031RenewSubscripti" +
+      "onResponse\022@\n\014subscription\030\001 \001(\0132*.subsc" +
+      "riptionmanager.v1.proto.Subscription\022&\n\013" +
+      "expiry_date\030\002 \001(\0132\021.google.type.Date\"\037\n\n" +
+      "Newsletter\022\021\n\004news\030\001 \003(\tB\003\340A\002\"n\n\022Newslet" +
+      "terMailInfo\022A\n\nnewsletter\030\001 \001(\0132(.subscr" +
+      "iptionmanager.v1.proto.NewsletterB\003\340A\002\022\025" +
+      "\n\010email_id\030\002 \003(\tB\003\340A\002B2\n com.subscriptio" +
+      "nmanager.v1.protoB\014MessageProtoP\001b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -246,7 +246,7 @@ public final class MessageProto {
     internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_descriptor,
-        new java.lang.String[] { "Parent", "Name", });
+        new java.lang.String[] { "Name", });
     internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_fieldAccessorTable = new

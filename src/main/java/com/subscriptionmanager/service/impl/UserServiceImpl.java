@@ -24,6 +24,7 @@ import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
 import com.subscriptionmanager.validations.ValidationService;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,10 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public ListSubscriptionsResponse listSubscriptions(final ListSubscriptionsRequest request) {
-    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
+    Map<String, String> parentVariableValueMap =
+        validationService.validateAndExtractVariableValue(request.getParent(), "user");
+
+    final User user = userRepositoryService.findById(parentVariableValueMap.get("user"));
 
     final int pageToken = validationService.validateAndExtractPageToken(request.getPageToken());
 
@@ -51,11 +55,10 @@ public class UserServiceImpl implements UserService {
 
     return ListSubscriptionsResponse.newBuilder()
         .addAllSubscription(
-            userSubscriptionRepository.findAllByUser(user,
-                    PageRequest.of(pageToken, pageSize))
+            userSubscriptionRepository.findAllByUser(user, PageRequest.of(pageToken, pageSize))
                 .stream()
                 .map(userSubscription -> com.subscriptionmanager.v1.proto.Subscription.newBuilder()
-                    .setName(userSubscription.getSubscription().getName())
+                    .setName("subscription/" +userSubscription.getSubscription().getName())
                     .setDisplayName(userSubscription.getSubscription().getName())
                     .setValidity(userSubscription.getSubscription().getValidity())
                     .setPrice(userSubscription.getSubscription().getPrice())
@@ -69,10 +72,16 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public AddSubscriptionResponse addSubscription(final AddSubscriptionRequest request) {
-    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
+    Map<String, String> parentVariableValueMap =
+        validationService.validateAndExtractVariableValue(request.getParent(), "user");
+
+    final User user = userRepositoryService.findById(parentVariableValueMap.get("user"));
+
+    Map<String, String> nameVariableValueMap =
+        validationService.validateAndExtractVariableValue(request.getName(), "user");
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(request.getName().split("/")[1]);
+        subscriptionRepositoryService.findById(nameVariableValueMap.get("subscription"));
 
     if (userSubscriptionRepository.existsByUserAndSubscription(user, subscription)) {
       throw InvalidArgumentException.builder()
@@ -81,26 +90,26 @@ public class UserServiceImpl implements UserService {
           .build();
     }
 
-    final Date expiryDate = Date.valueOf(LocalDate.now().plusDays(subscription.getValidity()));
+    final LocalDate expiryDate = LocalDate.now().plusDays(subscription.getValidity());
 
     final UserSubscription userSubscription = UserSubscription.builder()
         .user(user)
         .subscription(subscription)
-        .expiryDate(expiryDate)
+        .expiryDate(Date.valueOf(expiryDate))
         .build();
 
     userSubscriptionRepository.save(userSubscription);
 
     return AddSubscriptionResponse.newBuilder()
         .setSubscription(com.subscriptionmanager.v1.proto.Subscription.newBuilder()
-            .setName(subscription.getId())
+            .setName("subscription/" + subscription.getId())
             .setDisplayName(subscription.getName())
             .setValidity(subscription.getValidity())
             .setPrice(subscription.getPrice())
             .build())
         .setExpiryDate(com.google.type.Date.newBuilder()
-            .setDay(expiryDate.getDay())
-            .setMonth(expiryDate.getMonth())
+            .setDay(expiryDate.getDayOfMonth())
+            .setMonth(expiryDate.getMonthValue())
             .setYear(expiryDate.getYear())
             .build())
         .build();
@@ -108,35 +117,44 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public RenewSubscriptionResponse renewSubscription(final RenewSubscriptionRequest request) {
-    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
+    Map<String, String> parentVariableValueMap =
+        validationService.validateAndExtractVariableValue(request.getParent(), "user");
+
+    final User user = userRepositoryService.findById(parentVariableValueMap.get("user"));
+
+    Map<String, String> nameVariableValueMap =
+        validationService.validateAndExtractVariableValue(request.getName(), "user");
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(request.getName().split("/")[1]);
+        subscriptionRepositoryService.findById(nameVariableValueMap.get("subscription"));
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
         .orElseThrow(() -> ResourceNotFoundException.builder()
             .resourceName("UserSubscription")
+            .fieldName("Mapping")
             .fieldValue(subscription.toString() + user.toString())
             .build()
         );
 
-    final Date expiryDate = Date.valueOf(LocalDate.now().plusDays(subscription.getValidity()));
+    final LocalDate expiryDate = userSubscription.getExpiryDate()
+        .toLocalDate()
+        .plusDays(subscription.getValidity());
 
-    userSubscription.setExpiryDate(expiryDate);
+    userSubscription.setExpiryDate(Date.valueOf(expiryDate));
 
     userSubscriptionRepository.save(userSubscription);
 
     return RenewSubscriptionResponse.newBuilder()
         .setSubscription(com.subscriptionmanager.v1.proto.Subscription.newBuilder()
-            .setName(subscription.getId())
+            .setName("subscription/" +subscription.getId())
             .setDisplayName(subscription.getName())
             .setValidity(subscription.getValidity())
             .setPrice(subscription.getPrice())
             .build())
         .setExpiryDate(com.google.type.Date.newBuilder()
-            .setDay(expiryDate.getDay())
-            .setMonth(expiryDate.getMonth())
+            .setDay(expiryDate.getDayOfMonth())
+            .setMonth(expiryDate.getMonthValue())
             .setYear(expiryDate.getYear())
             .build())
         .build();
@@ -144,10 +162,13 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public RemoveSubscriptionResponse removeSubscription(final RemoveSubscriptionRequest request) {
-    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
+    Map<String, String> variableValueMap =
+        validationService.validateAndExtractVariableValue(request.getName(), "user","subscription");
+
+    final User user = userRepositoryService.findById(variableValueMap.get("user"));
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(request.getName().split("/")[1]);
+        subscriptionRepositoryService.findById(variableValueMap.get("subscription"));
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
@@ -161,7 +182,7 @@ public class UserServiceImpl implements UserService {
 
     return RemoveSubscriptionResponse.newBuilder()
         .setSubscription(com.subscriptionmanager.v1.proto.Subscription.newBuilder()
-            .setName(subscription.getId())
+            .setName("subscription/" +subscription.getId())
             .setDisplayName(subscription.getName())
             .setValidity(subscription.getValidity())
             .setPrice(subscription.getPrice())

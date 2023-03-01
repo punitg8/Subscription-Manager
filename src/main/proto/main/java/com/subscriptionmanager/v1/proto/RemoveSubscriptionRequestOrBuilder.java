@@ -10,42 +10,20 @@ public interface RemoveSubscriptionRequestOrBuilder extends
   /**
    * <pre>
    * The parent, which owns this collection of subscription.
-   * Format: users/{user}
+   * Format: users/{user}/subscriptions/{subscription}
    * </pre>
    *
-   * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The parent.
-   */
-  java.lang.String getParent();
-  /**
-   * <pre>
-   * The parent, which owns this collection of subscription.
-   * Format: users/{user}
-   * </pre>
-   *
-   * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for parent.
-   */
-  com.google.protobuf.ByteString
-      getParentBytes();
-
-  /**
-   * <pre>
-   *The id of subscription which needs to be removed
-   * Format: subscriptions/{subscription}
-   * </pre>
-   *
-   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
    * <pre>
-   *The id of subscription which needs to be removed
-   * Format: subscriptions/{subscription}
+   * The parent, which owns this collection of subscription.
+   * Format: users/{user}/subscriptions/{subscription}
    * </pre>
    *
-   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString

@@ -20,7 +20,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RemoveSubscriptionRequest() {
-    parent_ = "";
     name_ = "";
   }
 
@@ -49,63 +48,15 @@ private static final long serialVersionUID = 0L;
             com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest.class, com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest.Builder.class);
   }
 
-  public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
-  /**
-   * <pre>
-   * The parent, which owns this collection of subscription.
-   * Format: users/{user}
-   * </pre>
-   *
-   * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The parent.
-   */
-  @java.lang.Override
-  public java.lang.String getParent() {
-    java.lang.Object ref = parent_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      parent_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * The parent, which owns this collection of subscription.
-   * Format: users/{user}
-   * </pre>
-   *
-   * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for parent.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getParentBytes() {
-    java.lang.Object ref = parent_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      parent_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NAME_FIELD_NUMBER = 2;
+  public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   *The id of subscription which needs to be removed
-   * Format: subscriptions/{subscription}
+   * The parent, which owns this collection of subscription.
+   * Format: users/{user}/subscriptions/{subscription}
    * </pre>
    *
-   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The name.
    */
   @java.lang.Override
@@ -123,11 +74,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *The id of subscription which needs to be removed
-   * Format: subscriptions/{subscription}
+   * The parent, which owns this collection of subscription.
+   * Format: users/{user}/subscriptions/{subscription}
    * </pre>
    *
-   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -159,11 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, parent_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -174,11 +122,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, parent_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -195,8 +140,6 @@ private static final long serialVersionUID = 0L;
     }
     com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest other = (com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest) obj;
 
-    if (!getParent()
-        .equals(other.getParent())) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -210,8 +153,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PARENT_FIELD_NUMBER;
-    hash = (53 * hash) + getParent().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -346,8 +287,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      parent_ = "";
-
       name_ = "";
 
       return this;
@@ -376,7 +315,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest buildPartial() {
       com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest result = new com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest(this);
-      result.parent_ = parent_;
       result.name_ = name_;
       onBuilt();
       return result;
@@ -426,10 +364,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest other) {
       if (other == com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest.getDefaultInstance()) return this;
-      if (!other.getParent().isEmpty()) {
-        parent_ = other.parent_;
-        onChanged();
-      }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
@@ -461,15 +395,10 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              parent_ = input.readStringRequireUtf8();
-
-              break;
-            } // case 10
-            case 18: {
               name_ = input.readStringRequireUtf8();
 
               break;
-            } // case 18
+            } // case 10
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -486,115 +415,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object parent_ = "";
-    /**
-     * <pre>
-     * The parent, which owns this collection of subscription.
-     * Format: users/{user}
-     * </pre>
-     *
-     * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The parent.
-     */
-    public java.lang.String getParent() {
-      java.lang.Object ref = parent_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        parent_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The parent, which owns this collection of subscription.
-     * Format: users/{user}
-     * </pre>
-     *
-     * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for parent.
-     */
-    public com.google.protobuf.ByteString
-        getParentBytes() {
-      java.lang.Object ref = parent_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        parent_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The parent, which owns this collection of subscription.
-     * Format: users/{user}
-     * </pre>
-     *
-     * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The parent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setParent(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      parent_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The parent, which owns this collection of subscription.
-     * Format: users/{user}
-     * </pre>
-     *
-     * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearParent() {
-      
-      parent_ = getDefaultInstance().getParent();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The parent, which owns this collection of subscription.
-     * Format: users/{user}
-     * </pre>
-     *
-     * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for parent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setParentBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      parent_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     *The id of subscription which needs to be removed
-     * Format: subscriptions/{subscription}
+     * The parent, which owns this collection of subscription.
+     * Format: users/{user}/subscriptions/{subscription}
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -611,11 +439,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be removed
-     * Format: subscriptions/{subscription}
+     * The parent, which owns this collection of subscription.
+     * Format: users/{user}/subscriptions/{subscription}
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -633,11 +461,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be removed
-     * Format: subscriptions/{subscription}
+     * The parent, which owns this collection of subscription.
+     * Format: users/{user}/subscriptions/{subscription}
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -653,11 +481,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be removed
-     * Format: subscriptions/{subscription}
+     * The parent, which owns this collection of subscription.
+     * Format: users/{user}/subscriptions/{subscription}
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -668,11 +496,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be removed
-     * Format: subscriptions/{subscription}
+     * The parent, which owns this collection of subscription.
+     * Format: users/{user}/subscriptions/{subscription}
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */

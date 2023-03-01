@@ -3,6 +3,7 @@ package com.subscriptionmanager.validations.impl;
 import static com.subscriptionmanager.constants.ExceptionMessage.NEGATIVE_PAGE_SIZE_EXCEPTION;
 import static com.subscriptionmanager.constants.ExceptionMessage.NEGATIVE_PAGE_TOKEN_EXCEPTION;
 import static com.subscriptionmanager.constants.ExceptionMessage.NON_NUMERIC_PAGE_TOKEN_EXCEPTION;
+import static com.subscriptionmanager.constants.ExceptionMessage.PATH_VARIABLE_PARSING_EXCEPTION;
 
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.validations.ValidationService;
@@ -10,6 +11,8 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.stereotype.Service;
 
@@ -79,6 +82,34 @@ public class ValidationServiceImpl implements ValidationService {
     }
 
     return pageToken;
+  }
+
+  @Override
+  public Map<String, String> validateAndExtractVariableValue(String variableValue, String... variableNames) {
+    String[] variableValueList = variableValue.split("/");
+
+    if (variableValueList.length != variableNames.length * 2) {
+      throw InvalidArgumentException.builder()
+          .violationMessage(PATH_VARIABLE_PARSING_EXCEPTION)
+          .fieldValue(variableValue)
+          .build();
+    }
+
+    Map<String, String> variableValueMapping = new HashMap<>();
+
+    for (int i = 0; i < variableValueList.length; i += 2) {
+
+      if (!variableValueList[i].equals(variableNames[i / 2])) {
+        throw InvalidArgumentException.builder()
+            .violationMessage(PATH_VARIABLE_PARSING_EXCEPTION)
+            .fieldValue(variableValue)
+            .build();
+      }
+
+      variableValueMapping.put(variableValueList[i], variableValueList[i + 1]);
+    }
+
+    return variableValueMapping;
   }
 
 }

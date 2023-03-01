@@ -25,6 +25,7 @@ message User{
   }
 
   //The unique identification id of the user
+  //Format user/{userId}
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   //The name of the user which would be displayed
@@ -52,6 +53,7 @@ message CreateUserRequest{
 //A representation of news
 message News{
   //The unique identification id of a news
+  //Format news/{newsId}
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   //The title of the news
@@ -75,6 +77,7 @@ message CreateNewsRequest{
 message Genre{
 
   //The unique identification id of the genre
+  //Format genre/{genreId}
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   //The name of the genre which would be displayed
@@ -94,6 +97,7 @@ message CreateGenreRequest{
 //A representation of the subscription
 message Subscription{
   //The unique identification id of the subscription
+  //Format subscription/{subscriptionId}
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   //The name of the subscription which would be displayed
@@ -152,6 +156,7 @@ message AddSubscriptionRequest{
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
 
   //The id of subscription which needs to be added
+  // Format: subscription/{subscriptionId}
   string name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
@@ -167,12 +172,8 @@ message AddSubscriptionResponse{
 //Request for removal of subscription of user
 message RemoveSubscriptionRequest{
   // The parent, which owns this collection of subscription.
-  // Format: users/{user}
-  string parent = 1 [(google.api.field_behavior) = REQUIRED];
-
-  //The id of subscription which needs to be removed
-  // Format: subscriptions/{subscription}
-  string name = 2 [(google.api.field_behavior) = REQUIRED];
+  // Format: users/{user}/subscriptions/{subscription}
+  string name = 1 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Response of adding new subscription
@@ -188,6 +189,7 @@ message RenewSubscriptionRequest{
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
 
   //The id of subscription which needs to be renewed
+  // Format: subscription/{subscriptionId}
   string name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 

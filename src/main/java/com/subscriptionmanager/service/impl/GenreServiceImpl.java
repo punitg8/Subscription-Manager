@@ -7,6 +7,7 @@ import com.subscriptionmanager.service.GenreService;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
 import com.subscriptionmanager.v1.proto.CreateGenreRequest;
 import com.subscriptionmanager.validations.ValidationService;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,12 @@ public class GenreServiceImpl implements GenreService {
 
   @Override
   public com.subscriptionmanager.v1.proto.Genre createGenre(final CreateGenreRequest request) {
+    Map<String, String> parentVariableValueMap =
+        validationService.validateAndExtractVariableValue(request.getParent(), "genre");
+
+    final String subscriptionId = parentVariableValueMap.get("subscription");
+
     final com.subscriptionmanager.v1.proto.Genre  genreDetails = request.getGenre();
-    final String subscriptionId = request.getParent().split("/")[1];
 
     final Subscription subscription = subscriptionRepositoryService.findById(subscriptionId);
 
@@ -37,7 +42,7 @@ public class GenreServiceImpl implements GenreService {
     genre = genreRepositoryService.save(genre);
 
     return com.subscriptionmanager.v1.proto.Genre.newBuilder()
-        .setName(genre.getId())
+        .setName("genre/" + genre.getId())
         .setDisplayName(genre.getName())
         .build();
   }
