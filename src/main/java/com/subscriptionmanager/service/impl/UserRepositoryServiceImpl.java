@@ -16,7 +16,7 @@ public class UserRepositoryServiceImpl implements UserRepositoryService {
   private final UserRepository userRepository;
 
   @Override
-  public User findById(String id) {
+  public User findById(final String id) {
     return userRepository.findById(id)
         .orElseThrow(
             () -> ResourceNotFoundException.builder()
@@ -28,7 +28,7 @@ public class UserRepositoryServiceImpl implements UserRepositoryService {
   }
 
   @Override
-  public User save(User user){
+  public User save(final User user) {
     return userRepository.save(user);
   }
 

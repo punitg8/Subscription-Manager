@@ -27,7 +27,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
 
   @Override
   public void listSubscriptions(final ListSubscriptionsRequest request,
-                               final StreamObserver<ListSubscriptionsResponse> responseObserver) {
+                                final StreamObserver<ListSubscriptionsResponse> responseObserver) {
     try {
 
       responseObserver.onNext(userService.listSubscriptions(request));
@@ -125,8 +125,10 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void removeSubscription(final RemoveSubscriptionRequest request,
-                                 final StreamObserver<RemoveSubscriptionResponse> responseObserver) {
+  public void removeSubscription(
+      final RemoveSubscriptionRequest request,
+      final StreamObserver<RemoveSubscriptionResponse> responseObserver) {
+
     try {
 
       responseObserver.onNext(userService.removeSubscription(request));

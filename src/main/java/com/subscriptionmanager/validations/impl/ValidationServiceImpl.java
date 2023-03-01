@@ -34,7 +34,11 @@ public class ValidationServiceImpl implements ValidationService {
   }
 
   @Override
-  public int validateAndExtractPageSize(int pageSize, int minPageSize, int maxPageSize) {
+  public int validateAndExtractPageSize(
+      final int pageSize,
+      final int minPageSize,
+      final int maxPageSize) {
+
     if (pageSize < 0) {
       throw InvalidArgumentException.builder()
           .violationMessage(NEGATIVE_PAGE_SIZE_EXCEPTION)
@@ -49,7 +53,7 @@ public class ValidationServiceImpl implements ValidationService {
   }
 
   @Override
-  public int validateAndExtractPageToken(String pageTokenString) {
+  public int validateAndExtractPageToken(final String pageTokenString) {
     int pageToken;
 
     try {

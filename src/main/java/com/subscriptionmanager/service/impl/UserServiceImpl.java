@@ -24,7 +24,6 @@ import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
 import com.subscriptionmanager.validations.ValidationService;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -82,7 +81,7 @@ public class UserServiceImpl implements UserService {
           .build();
     }
 
-    Date expiryDate = Date.valueOf(LocalDate.now().plusDays(subscription.getValidity()));
+    final Date expiryDate = Date.valueOf(LocalDate.now().plusDays(subscription.getValidity()));
 
     final UserSubscription userSubscription = UserSubscription.builder()
         .user(user)
@@ -122,7 +121,7 @@ public class UserServiceImpl implements UserService {
             .build()
         );
 
-    Date expiryDate = Date.valueOf(LocalDate.now().plusDays(subscription.getValidity()));
+    final Date expiryDate = Date.valueOf(LocalDate.now().plusDays(subscription.getValidity()));
 
     userSubscription.setExpiryDate(expiryDate);
 

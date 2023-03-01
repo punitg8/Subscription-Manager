@@ -58,7 +58,7 @@ public class NewsletterServiceImpl implements NewsletterService {
         .stream()
         .map(UserSubscription::getUser)
         .map(User::getEmailId)
-        .collect(Collectors.toList());
+        .toList();
   }
 
   private Newsletter generateNewsletter(final Subscription subscription) {
@@ -72,10 +72,12 @@ public class NewsletterServiceImpl implements NewsletterService {
 
     genreRepositoryService.findBySubscription(subscription)
         .forEach(genre ->
-            newsList.addAll(newsRepository.findByGenreOrderByCreateDateTimeDesc(genre, PageRequest.of(0,NEWS_LIMIT))));
+            newsList.addAll(
+                newsRepository.findByGenreOrderByCreateDateTimeDesc(genre,
+                    PageRequest.of(0, NEWS_LIMIT))));
 
     return newsList.stream()
-        .map(news -> news.getTitle() + "\n" + news.getDescription())
-        .collect(Collectors.toList());
+        .map(news -> news.getTitle() + "\n" + news.getDescription()).toList();
   }
+
 }
