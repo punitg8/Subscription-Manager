@@ -6,6 +6,5 @@ public class ExceptionMessage {
   public static final String NEGATIVE_PAGE_TOKEN_EXCEPTION = "Page token is negative number";
   public static final String NEGATIVE_PAGE_SIZE_EXCEPTION = "Page size is negative number";
   public static final String DUPLICATE_VALUE_EXCEPTION = "Duplicate Value";
-  public static final String ERROR_WHILE_PROCESSING_ITEM = "Error while processing item";
 
 }

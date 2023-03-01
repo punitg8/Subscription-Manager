@@ -29,30 +29,10 @@ public interface GenreOrBuilder extends
 
   /**
    * <pre>
-   * The parent resource where this genre will be created.
-   * </pre>
-   *
-   * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-   * @return The parent.
-   */
-  java.lang.String getParent();
-  /**
-   * <pre>
-   * The parent resource where this genre will be created.
-   * </pre>
-   *
-   * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-   * @return The bytes for parent.
-   */
-  com.google.protobuf.ByteString
-      getParentBytes();
-
-  /**
-   * <pre>
    *The name of the genre which would be displayed
    * </pre>
    *
-   * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The displayName.
    */
   java.lang.String getDisplayName();
@@ -61,7 +41,7 @@ public interface GenreOrBuilder extends
    *The name of the genre which would be displayed
    * </pre>
    *
-   * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for displayName.
    */
   com.google.protobuf.ByteString

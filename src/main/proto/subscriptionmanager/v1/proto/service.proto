@@ -95,7 +95,6 @@ service UserService{
   rpc RemoveSubscription(RemoveSubscriptionRequest) returns (RemoveSubscriptionResponse){
     option(google.api.http) = {
       delete: "/v1/{parent=users/*}/{name={subscriptions/*}"
-      body: "*"
     };
     option (google.api.method_signature) = "parent,name";
   };

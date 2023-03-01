@@ -2,8 +2,8 @@ package com.subscriptionmanager.service.impl;
 
 import com.subscriptionmanager.enums.Role;
 import com.subscriptionmanager.model.User;
-import com.subscriptionmanager.repository.UserRepository;
 import com.subscriptionmanager.service.AuthenticationService;
+import com.subscriptionmanager.service.UserRepositoryService;
 import com.subscriptionmanager.v1.proto.CreateUserRequest;
 import com.subscriptionmanager.validations.ValidationService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-  private final UserRepository userRepository;
+  private final UserRepositoryService userRepositoryService;
 
   private final ValidationService validationService;
 
@@ -31,7 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     validationService.validateObj(user);
 
-    user = userRepository.save(user);
+    user = userRepositoryService.save(user);
 
     return com.subscriptionmanager.v1.proto.User.newBuilder()
         .setName(user.getId())

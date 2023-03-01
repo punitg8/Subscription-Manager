@@ -23,9 +23,9 @@ public class GenreServiceImpl implements GenreService {
   @Override
   public com.subscriptionmanager.v1.proto.Genre createGenre(final CreateGenreRequest request) {
     final com.subscriptionmanager.v1.proto.Genre  genreDetails = request.getGenre();
-    final String subscriptionUid = request.getParent();
+    final String subscriptionId = request.getParent().split("/")[1];
 
-    final Subscription subscription = subscriptionRepositoryService.findById(subscriptionUid);
+    final Subscription subscription = subscriptionRepositoryService.findById(subscriptionId);
 
     Genre genre = Genre.builder()
         .name(genreDetails.getDisplayName())
@@ -39,7 +39,6 @@ public class GenreServiceImpl implements GenreService {
     return com.subscriptionmanager.v1.proto.Genre.newBuilder()
         .setName(genre.getId())
         .setDisplayName(genre.getName())
-        .setParent(genre.getSubscription().getId())
         .build();
   }
 

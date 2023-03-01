@@ -33,7 +33,7 @@ public class Genre extends Audit implements Serializable {
   private static final long serialVersionUID = 101;
 
   @NotBlank
-  @Column(name = "name")
+  @Column(name = "name", unique = true)
   private String name;
 
   @OneToMany(mappedBy = "genre")

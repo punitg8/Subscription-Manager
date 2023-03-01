@@ -23,9 +23,9 @@ public class NewsServiceImpl implements NewsService {
   @Override
   public com.subscriptionmanager.v1.proto.News createNews(final CreateNewsRequest request) {
     final com.subscriptionmanager.v1.proto.News newNews = request.getNews();
-    final String genreUid = request.getParent();
+    final String genreId = request.getParent().split("/")[1];
 
-    final Genre genre = genreRepositoryService.findById(genreUid);
+    final Genre genre = genreRepositoryService.findById(genreId);
 
     News news = News.builder()
         .genre(genre)
@@ -39,7 +39,6 @@ public class NewsServiceImpl implements NewsService {
 
     return com.subscriptionmanager.v1.proto.News.newBuilder()
         .setName(news.getId())
-        .setParent(news.getGenre().getId())
         .setTitle(news.getTitle())
         .setDescription(news.getDescription())
         .build();

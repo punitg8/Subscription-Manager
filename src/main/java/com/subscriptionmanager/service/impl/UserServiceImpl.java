@@ -1,18 +1,17 @@
 package com.subscriptionmanager.service.impl;
 
 import static com.subscriptionmanager.constants.ExceptionMessage.DUPLICATE_VALUE_EXCEPTION;
-import static com.subscriptionmanager.constants.ExceptionMessage.NEGATIVE_PAGE_SIZE_EXCEPTION;
-import static com.subscriptionmanager.constants.ExceptionMessage.NEGATIVE_PAGE_TOKEN_EXCEPTION;
-import static com.subscriptionmanager.constants.ExceptionMessage.NON_NUMERIC_PAGE_TOKEN_EXCEPTION;
+import static com.subscriptionmanager.constants.User.LIST_SUBSCRIPTIONS_MAX_PAGE_SIZE;
+import static com.subscriptionmanager.constants.User.LIST_SUBSCRIPTIONS_MIN_PAGE_SIZE;
 
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.model.Subscription;
 import com.subscriptionmanager.model.User;
 import com.subscriptionmanager.model.UserSubscription;
-import com.subscriptionmanager.repository.UserRepository;
 import com.subscriptionmanager.repository.UserSubscriptionRepository;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
+import com.subscriptionmanager.service.UserRepositoryService;
 import com.subscriptionmanager.service.UserService;
 import com.subscriptionmanager.v1.proto.AddSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.AddSubscriptionResponse;
@@ -22,12 +21,12 @@ import com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse;
 import com.subscriptionmanager.v1.proto.RenewSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
+import com.subscriptionmanager.validations.ValidationService;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,47 +35,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserServiceImpl implements UserService {
 
-  private final UserRepository userRepository;
+  private final UserRepositoryService userRepositoryService;
   private final SubscriptionRepositoryService subscriptionRepositoryService;
   private final UserSubscriptionRepository userSubscriptionRepository;
+  private final ValidationService validationService;
 
   @Override
   public ListSubscriptionsResponse listSubscriptions(final ListSubscriptionsRequest request) {
-    final User user = findUserById(request.getParent());
+    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
 
-    final String pageTokenString = request.getPageToken();
-    int pageToken;
-    try {
+    final int pageToken = validationService.validateAndExtractPageToken(request.getPageToken());
 
-      if(pageTokenString.equals("")) pageToken = 0;
-      else pageToken = Integer.parseInt(pageTokenString);
 
-    }catch (Exception exception){
-      throw InvalidArgumentException.builder()
-          .violationMessage(NON_NUMERIC_PAGE_TOKEN_EXCEPTION)
-          .fieldValue(pageTokenString)
-          .build();
-    }
-
-    if(pageToken<0){
-      throw InvalidArgumentException.builder()
-          .violationMessage(NEGATIVE_PAGE_TOKEN_EXCEPTION)
-          .fieldValue(String.valueOf(pageToken))
-          .build();
-    }
-
-    int pageSize = request.getPageSize();
-
-    if(pageSize<0){
-      throw InvalidArgumentException.builder()
-          .violationMessage(NEGATIVE_PAGE_SIZE_EXCEPTION)
-          .fieldValue(String.valueOf(pageSize))
-          .build();
-    }else if(pageSize<50){
-      pageSize = 50;
-    }else if(pageSize>1000){
-      pageSize = 1000;
-    }
+    final int pageSize = validationService.validateAndExtractPageSize(request.getPageSize(),
+        LIST_SUBSCRIPTIONS_MIN_PAGE_SIZE, LIST_SUBSCRIPTIONS_MAX_PAGE_SIZE);
 
     return ListSubscriptionsResponse.newBuilder()
         .addAllSubscription(
@@ -90,18 +62,18 @@ public class UserServiceImpl implements UserService {
                     .setPrice(userSubscription.getSubscription().getPrice())
                     .build()
                 )
-                .collect(Collectors.toList())
+                .toList()
         )
-        .setNextPageToken(Integer.toString(pageToken+1))
+        .setNextPageToken(Integer.toString(pageToken + 1))
         .build();
   }
 
   @Override
   public AddSubscriptionResponse addSubscription(final AddSubscriptionRequest request) {
-    final User user = findUserById(request.getParent());
+    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(request.getName());
+        subscriptionRepositoryService.findById(request.getName().split("/")[1]);
 
     if (userSubscriptionRepository.existsByUserAndSubscription(user, subscription)) {
       throw InvalidArgumentException.builder()
@@ -137,10 +109,10 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public RenewSubscriptionResponse renewSubscription(final RenewSubscriptionRequest request) {
-    final User user = findUserById(request.getParent());
+    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(request.getName());
+        subscriptionRepositoryService.findById(request.getName().split("/")[1]);
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
@@ -173,10 +145,10 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public RemoveSubscriptionResponse removeSubscription(final RemoveSubscriptionRequest request) {
-    final User user = findUserById(request.getParent());
+    final User user = userRepositoryService.findById(request.getParent().split("/")[1]);
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(request.getName());
+        subscriptionRepositoryService.findById(request.getName().split("/")[1]);
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
@@ -196,17 +168,6 @@ public class UserServiceImpl implements UserService {
             .setPrice(subscription.getPrice())
             .build())
         .build();
-  }
-
-  public User findUserById(final String id) {
-    return userRepository.findById(id)
-        .orElseThrow(
-            () -> ResourceNotFoundException.builder()
-                .resourceName("User")
-                .fieldName("id")
-                .fieldValue(id)
-                .build()
-        );
   }
 
 }

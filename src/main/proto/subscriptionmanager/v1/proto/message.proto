@@ -54,14 +54,11 @@ message News{
   //The unique identification id of a news
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
-  // The parent resource where this genre will be created.
-  string parent = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
-
   //The title of the news
-  string title = 3 [(google.api.field_behavior) = REQUIRED];
+  string title = 2 [(google.api.field_behavior) = REQUIRED];
 
   //The description of the news
-  string description = 4 [(google.api.field_behavior) = REQUIRED];
+  string description = 3 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Request to create new news
@@ -80,11 +77,8 @@ message Genre{
   //The unique identification id of the genre
   string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
-  // The parent resource where this genre will be created.
-  string parent = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
-
   //The name of the genre which would be displayed
-  string display_name = 3 [(google.api.field_behavior) = REQUIRED];
+  string display_name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Request to create new genre
@@ -177,6 +171,7 @@ message RemoveSubscriptionRequest{
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
 
   //The id of subscription which needs to be removed
+  // Format: subscriptions/{subscription}
   string name = 2 [(google.api.field_behavior) = REQUIRED];
 }
 

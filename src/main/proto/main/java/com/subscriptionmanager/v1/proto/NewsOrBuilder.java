@@ -29,30 +29,10 @@ public interface NewsOrBuilder extends
 
   /**
    * <pre>
-   * The parent resource where this genre will be created.
-   * </pre>
-   *
-   * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-   * @return The parent.
-   */
-  java.lang.String getParent();
-  /**
-   * <pre>
-   * The parent resource where this genre will be created.
-   * </pre>
-   *
-   * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-   * @return The bytes for parent.
-   */
-  com.google.protobuf.ByteString
-      getParentBytes();
-
-  /**
-   * <pre>
    *The title of the news
    * </pre>
    *
-   * <code>string title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The title.
    */
   java.lang.String getTitle();
@@ -61,7 +41,7 @@ public interface NewsOrBuilder extends
    *The title of the news
    * </pre>
    *
-   * <code>string title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for title.
    */
   com.google.protobuf.ByteString
@@ -72,7 +52,7 @@ public interface NewsOrBuilder extends
    *The description of the news
    * </pre>
    *
-   * <code>string description = 4 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The description.
    */
   java.lang.String getDescription();
@@ -81,7 +61,7 @@ public interface NewsOrBuilder extends
    *The description of the news
    * </pre>
    *
-   * <code>string description = 4 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString

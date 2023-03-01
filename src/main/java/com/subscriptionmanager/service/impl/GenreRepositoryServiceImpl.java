@@ -1,12 +1,15 @@
 package com.subscriptionmanager.service.impl;
 
 import static com.subscriptionmanager.constants.Cache.GENRE_CACHE;
+import static com.subscriptionmanager.constants.ExceptionMessage.DB_SAVE_EXCEPTION;
 
+import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.model.Genre;
 import com.subscriptionmanager.model.Subscription;
 import com.subscriptionmanager.repository.GenreRepository;
 import com.subscriptionmanager.service.GenreRepositoryService;
+import java.sql.SQLException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,7 +27,6 @@ public class GenreRepositoryServiceImpl implements GenreRepositoryService {
   @Override
   @Cacheable(key = "#id", value = GENRE_CACHE)
   public Genre findById(final String id) {
-    log.info("DB hit");
     return genreRepository.findById(id)
         .orElseThrow(
             () -> ResourceNotFoundException.builder()

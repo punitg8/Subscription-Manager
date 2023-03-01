@@ -102,6 +102,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    *The id of subscription which needs to be removed
+   * Format: subscriptions/{subscription}
    * </pre>
    *
    * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -123,6 +124,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    *The id of subscription which needs to be removed
+   * Format: subscriptions/{subscription}
    * </pre>
    *
    * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -589,6 +591,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The id of subscription which needs to be removed
+     * Format: subscriptions/{subscription}
      * </pre>
      *
      * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -609,6 +612,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The id of subscription which needs to be removed
+     * Format: subscriptions/{subscription}
      * </pre>
      *
      * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -630,6 +634,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The id of subscription which needs to be removed
+     * Format: subscriptions/{subscription}
      * </pre>
      *
      * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -649,6 +654,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The id of subscription which needs to be removed
+     * Format: subscriptions/{subscription}
      * </pre>
      *
      * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -663,6 +669,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The id of subscription which needs to be removed
+     * Format: subscriptions/{subscription}
      * </pre>
      *
      * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>

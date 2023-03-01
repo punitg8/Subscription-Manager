@@ -123,46 +123,45 @@ public final class MessageProto {
       "er.RoleB\003\340A\002\"<\n\004Role\022\024\n\020ROLE_UNSPECIFIED" +
       "\020\000\022\r\n\tROLE_USER\020\001\022\017\n\013ROLE_WRITER\020\002\"J\n\021Cr" +
       "eateUserRequest\0225\n\004user\030\001 \001(\0132\".subscrip" +
-      "tionmanager.v1.proto.UserB\003\340A\002\"\\\n\004News\022\021" +
-      "\n\004name\030\001 \001(\tB\003\340A\003\022\023\n\006parent\030\002 \001(\tB\003\340A\003\022\022" +
-      "\n\005title\030\003 \001(\tB\003\340A\002\022\030\n\013description\030\004 \001(\tB" +
-      "\003\340A\002\"_\n\021CreateNewsRequest\022\023\n\006parent\030\001 \001(" +
-      "\tB\003\340A\002\0225\n\004news\030\002 \001(\0132\".subscriptionmanag" +
-      "er.v1.proto.NewsB\003\340A\002\"J\n\005Genre\022\021\n\004name\030\001" +
-      " \001(\tB\003\340A\003\022\023\n\006parent\030\002 \001(\tB\003\340A\003\022\031\n\014displa" +
-      "y_name\030\003 \001(\tB\003\340A\002\"b\n\022CreateGenreRequest\022" +
-      "\023\n\006parent\030\001 \001(\tB\003\340A\002\0227\n\005genre\030\002 \001(\0132#.su" +
-      "bscriptionmanager.v1.proto.GenreB\003\340A\002\"g\n" +
-      "\014Subscription\022\021\n\004name\030\001 \001(\tB\003\340A\003\022\031\n\014disp" +
-      "lay_name\030\002 \001(\tB\003\340A\002\022\022\n\005price\030\003 \001(\005B\003\340A\002\022" +
-      "\025\n\010validity\030\004 \001(\005B\003\340A\002\"b\n\031CreateSubscrip" +
-      "tionRequest\022E\n\014subscription\030\001 \001(\0132*.subs" +
-      "criptionmanager.v1.proto.SubscriptionB\003\340" +
-      "A\002\"V\n\030ListSubscriptionsRequest\022\023\n\006parent" +
-      "\030\001 \001(\tB\003\340A\002\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_t" +
-      "oken\030\003 \001(\t\"v\n\031ListSubscriptionsResponse\022" +
-      "@\n\014subscription\030\001 \003(\0132*.subscriptionmana" +
-      "ger.v1.proto.Subscription\022\027\n\017next_page_t" +
-      "oken\030\002 \001(\t\"@\n\026AddSubscriptionRequest\022\023\n\006" +
-      "parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"\203\001\n" +
-      "\027AddSubscriptionResponse\022@\n\014subscription" +
-      "\030\001 \001(\0132*.subscriptionmanager.v1.proto.Su" +
-      "bscription\022&\n\013expiry_date\030\002 \001(\0132\021.google" +
-      ".type.Date\"C\n\031RemoveSubscriptionRequest\022" +
-      "\023\n\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"" +
-      "^\n\032RemoveSubscriptionResponse\022@\n\014subscri" +
-      "ption\030\001 \001(\0132*.subscriptionmanager.v1.pro" +
-      "to.Subscription\"B\n\030RenewSubscriptionRequ" +
-      "est\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003" +
-      "\340A\002\"\205\001\n\031RenewSubscriptionResponse\022@\n\014sub" +
-      "scription\030\001 \001(\0132*.subscriptionmanager.v1" +
-      ".proto.Subscription\022&\n\013expiry_date\030\002 \001(\013" +
-      "2\021.google.type.Date\"\037\n\nNewsletter\022\021\n\004new" +
-      "s\030\001 \003(\tB\003\340A\002\"n\n\022NewsletterMailInfo\022A\n\nne" +
-      "wsletter\030\001 \001(\0132(.subscriptionmanager.v1." +
-      "proto.NewsletterB\003\340A\002\022\025\n\010email_id\030\002 \003(\tB" +
-      "\003\340A\002B2\n com.subscriptionmanager.v1.proto" +
-      "B\014MessageProtoP\001b\006proto3"
+      "tionmanager.v1.proto.UserB\003\340A\002\"G\n\004News\022\021" +
+      "\n\004name\030\001 \001(\tB\003\340A\003\022\022\n\005title\030\002 \001(\tB\003\340A\002\022\030\n" +
+      "\013description\030\003 \001(\tB\003\340A\002\"_\n\021CreateNewsReq" +
+      "uest\022\023\n\006parent\030\001 \001(\tB\003\340A\002\0225\n\004news\030\002 \001(\0132" +
+      "\".subscriptionmanager.v1.proto.NewsB\003\340A\002" +
+      "\"5\n\005Genre\022\021\n\004name\030\001 \001(\tB\003\340A\003\022\031\n\014display_" +
+      "name\030\002 \001(\tB\003\340A\002\"b\n\022CreateGenreRequest\022\023\n" +
+      "\006parent\030\001 \001(\tB\003\340A\002\0227\n\005genre\030\002 \001(\0132#.subs" +
+      "criptionmanager.v1.proto.GenreB\003\340A\002\"g\n\014S" +
+      "ubscription\022\021\n\004name\030\001 \001(\tB\003\340A\003\022\031\n\014displa" +
+      "y_name\030\002 \001(\tB\003\340A\002\022\022\n\005price\030\003 \001(\005B\003\340A\002\022\025\n" +
+      "\010validity\030\004 \001(\005B\003\340A\002\"b\n\031CreateSubscripti" +
+      "onRequest\022E\n\014subscription\030\001 \001(\0132*.subscr" +
+      "iptionmanager.v1.proto.SubscriptionB\003\340A\002" +
+      "\"V\n\030ListSubscriptionsRequest\022\023\n\006parent\030\001" +
+      " \001(\tB\003\340A\002\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_tok" +
+      "en\030\003 \001(\t\"v\n\031ListSubscriptionsResponse\022@\n" +
+      "\014subscription\030\001 \003(\0132*.subscriptionmanage" +
+      "r.v1.proto.Subscription\022\027\n\017next_page_tok" +
+      "en\030\002 \001(\t\"@\n\026AddSubscriptionRequest\022\023\n\006pa" +
+      "rent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"\203\001\n\027A" +
+      "ddSubscriptionResponse\022@\n\014subscription\030\001" +
+      " \001(\0132*.subscriptionmanager.v1.proto.Subs" +
+      "cription\022&\n\013expiry_date\030\002 \001(\0132\021.google.t" +
+      "ype.Date\"C\n\031RemoveSubscriptionRequest\022\023\n" +
+      "\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"^\n" +
+      "\032RemoveSubscriptionResponse\022@\n\014subscript" +
+      "ion\030\001 \001(\0132*.subscriptionmanager.v1.proto" +
+      ".Subscription\"B\n\030RenewSubscriptionReques" +
+      "t\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A" +
+      "\002\"\205\001\n\031RenewSubscriptionResponse\022@\n\014subsc" +
+      "ription\030\001 \001(\0132*.subscriptionmanager.v1.p" +
+      "roto.Subscription\022&\n\013expiry_date\030\002 \001(\0132\021" +
+      ".google.type.Date\"\037\n\nNewsletter\022\021\n\004news\030" +
+      "\001 \003(\tB\003\340A\002\"n\n\022NewsletterMailInfo\022A\n\nnews" +
+      "letter\030\001 \001(\0132(.subscriptionmanager.v1.pr" +
+      "oto.NewsletterB\003\340A\002\022\025\n\010email_id\030\002 \003(\tB\003\340" +
+      "A\002B2\n com.subscriptionmanager.v1.protoB\014" +
+      "MessageProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -187,7 +186,7 @@ public final class MessageProto {
     internal_static_subscriptionmanager_v1_proto_News_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscriptionmanager_v1_proto_News_descriptor,
-        new java.lang.String[] { "Name", "Parent", "Title", "Description", });
+        new java.lang.String[] { "Name", "Title", "Description", });
     internal_static_subscriptionmanager_v1_proto_CreateNewsRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_subscriptionmanager_v1_proto_CreateNewsRequest_fieldAccessorTable = new
@@ -199,7 +198,7 @@ public final class MessageProto {
     internal_static_subscriptionmanager_v1_proto_Genre_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscriptionmanager_v1_proto_Genre_descriptor,
-        new java.lang.String[] { "Name", "Parent", "DisplayName", });
+        new java.lang.String[] { "Name", "DisplayName", });
     internal_static_subscriptionmanager_v1_proto_CreateGenreRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_subscriptionmanager_v1_proto_CreateGenreRequest_fieldAccessorTable = new

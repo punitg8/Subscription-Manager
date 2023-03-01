@@ -32,6 +32,7 @@ public interface RemoveSubscriptionRequestOrBuilder extends
   /**
    * <pre>
    *The id of subscription which needs to be removed
+   * Format: subscriptions/{subscription}
    * </pre>
    *
    * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -41,6 +42,7 @@ public interface RemoveSubscriptionRequestOrBuilder extends
   /**
    * <pre>
    *The id of subscription which needs to be removed
+   * Format: subscriptions/{subscription}
    * </pre>
    *
    * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>

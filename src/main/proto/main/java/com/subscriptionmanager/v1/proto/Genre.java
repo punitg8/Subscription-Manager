@@ -21,7 +21,6 @@ private static final long serialVersionUID = 0L;
   }
   private Genre() {
     name_ = "";
-    parent_ = "";
     displayName_ = "";
   }
 
@@ -96,60 +95,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PARENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object parent_;
-  /**
-   * <pre>
-   * The parent resource where this genre will be created.
-   * </pre>
-   *
-   * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-   * @return The parent.
-   */
-  @java.lang.Override
-  public java.lang.String getParent() {
-    java.lang.Object ref = parent_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      parent_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * The parent resource where this genre will be created.
-   * </pre>
-   *
-   * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-   * @return The bytes for parent.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getParentBytes() {
-    java.lang.Object ref = parent_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      parent_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
+  public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object displayName_;
   /**
    * <pre>
    *The name of the genre which would be displayed
    * </pre>
    *
-   * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The displayName.
    */
   @java.lang.Override
@@ -170,7 +123,7 @@ private static final long serialVersionUID = 0L;
    *The name of the genre which would be displayed
    * </pre>
    *
-   * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for displayName.
    */
   @java.lang.Override
@@ -205,11 +158,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, parent_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayName_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayName_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -223,11 +173,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, parent_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, displayName_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayName_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -246,8 +193,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getName()
         .equals(other.getName())) return false;
-    if (!getParent()
-        .equals(other.getParent())) return false;
     if (!getDisplayName()
         .equals(other.getDisplayName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -263,8 +208,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + PARENT_FIELD_NUMBER;
-    hash = (53 * hash) + getParent().hashCode();
     hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getDisplayName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -401,8 +344,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       name_ = "";
 
-      parent_ = "";
-
       displayName_ = "";
 
       return this;
@@ -432,7 +373,6 @@ private static final long serialVersionUID = 0L;
     public com.subscriptionmanager.v1.proto.Genre buildPartial() {
       com.subscriptionmanager.v1.proto.Genre result = new com.subscriptionmanager.v1.proto.Genre(this);
       result.name_ = name_;
-      result.parent_ = parent_;
       result.displayName_ = displayName_;
       onBuilt();
       return result;
@@ -486,10 +426,6 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (!other.getParent().isEmpty()) {
-        parent_ = other.parent_;
-        onChanged();
-      }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
         onChanged();
@@ -526,15 +462,10 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              parent_ = input.readStringRequireUtf8();
-
-              break;
-            } // case 18
-            case 26: {
               displayName_ = input.readStringRequireUtf8();
 
               break;
-            } // case 26
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -647,109 +578,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object parent_ = "";
-    /**
-     * <pre>
-     * The parent resource where this genre will be created.
-     * </pre>
-     *
-     * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @return The parent.
-     */
-    public java.lang.String getParent() {
-      java.lang.Object ref = parent_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        parent_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The parent resource where this genre will be created.
-     * </pre>
-     *
-     * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @return The bytes for parent.
-     */
-    public com.google.protobuf.ByteString
-        getParentBytes() {
-      java.lang.Object ref = parent_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        parent_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The parent resource where this genre will be created.
-     * </pre>
-     *
-     * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @param value The parent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setParent(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      parent_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The parent resource where this genre will be created.
-     * </pre>
-     *
-     * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearParent() {
-      
-      parent_ = getDefaultInstance().getParent();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The parent resource where this genre will be created.
-     * </pre>
-     *
-     * <code>string parent = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @param value The bytes for parent to set.
-     * @return This builder for chaining.
-     */
-    public Builder setParentBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      parent_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object displayName_ = "";
     /**
      * <pre>
      *The name of the genre which would be displayed
      * </pre>
      *
-     * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The displayName.
      */
     public java.lang.String getDisplayName() {
@@ -769,7 +604,7 @@ private static final long serialVersionUID = 0L;
      *The name of the genre which would be displayed
      * </pre>
      *
-     * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The bytes for displayName.
      */
     public com.google.protobuf.ByteString
@@ -790,7 +625,7 @@ private static final long serialVersionUID = 0L;
      *The name of the genre which would be displayed
      * </pre>
      *
-     * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The displayName to set.
      * @return This builder for chaining.
      */
@@ -809,7 +644,7 @@ private static final long serialVersionUID = 0L;
      *The name of the genre which would be displayed
      * </pre>
      *
-     * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
@@ -823,7 +658,7 @@ private static final long serialVersionUID = 0L;
      *The name of the genre which would be displayed
      * </pre>
      *
-     * <code>string display_name = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @param value The bytes for displayName to set.
      * @return This builder for chaining.
      */

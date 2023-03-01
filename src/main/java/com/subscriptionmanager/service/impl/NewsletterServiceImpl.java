@@ -1,5 +1,6 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Newsletter.CRON_EACH_SUNDAY_9_AM;
 import static com.subscriptionmanager.constants.Newsletter.NEWS_LIMIT;
 
 import com.subscriptionmanager.kafka.producers.NewsletterMailInfoProducer;
@@ -39,7 +40,7 @@ public class NewsletterServiceImpl implements NewsletterService {
   private final NewsletterMailInfoProducer newsletterMailInfoProducer;
 
   @Override
-  @Scheduled(cron = "0 0 9 ? * SUN")
+  @Scheduled(cron = CRON_EACH_SUNDAY_9_AM)
   public void generateNewsletterMailInfo() {
     final List<Subscription> subscriptionList = subscriptionRepositoryService.findAll();
     subscriptionList.stream().forEach(subscription -> {

@@ -49,7 +49,7 @@ public final class ServiceProto {
       "scriptionRequest\032*.subscriptionmanager.v" +
       "1.proto.Subscription\"=\202\323\344\223\002(\"\030/v1/subscr" +
       "iptions:create:\014subscription\332A\014subscript" +
-      "ion2\246\006\n\013UserService\022\271\001\n\021ListSubscription" +
+      "ion2\243\006\n\013UserService\022\271\001\n\021ListSubscription" +
       "s\0226.subscriptionmanager.v1.proto.ListSub" +
       "scriptionsRequest\0327.subscriptionmanager." +
       "v1.proto.ListSubscriptionsResponse\"3\202\323\344\223" +
@@ -64,13 +64,13 @@ public final class ServiceProto {
       "7.subscriptionmanager.v1.proto.RenewSubs" +
       "criptionResponse\"A\202\323\344\223\002-2(/v1/{parent=us" +
       "ers/*}/subscriptions:renew:\001*\332A\013parent,n" +
-      "ame\022\316\001\n\022RemoveSubscription\0227.subscriptio" +
+      "ame\022\313\001\n\022RemoveSubscription\0227.subscriptio" +
       "nmanager.v1.proto.RemoveSubscriptionRequ" +
       "est\0328.subscriptionmanager.v1.proto.Remov" +
-      "eSubscriptionResponse\"E\202\323\344\223\0021*,/v1/{pare" +
-      "nt=users/*}/{name={subscriptions/*}:\001*\332A" +
-      "\013parent,nameB+\n\031com.subscription.v1.prot" +
-      "oB\014ServiceProtoP\001b\006proto3"
+      "eSubscriptionResponse\"B\202\323\344\223\002.*,/v1/{pare" +
+      "nt=users/*}/{name={subscriptions/*}\332A\013pa" +
+      "rent,nameB+\n\031com.subscription.v1.protoB\014" +
+      "ServiceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
