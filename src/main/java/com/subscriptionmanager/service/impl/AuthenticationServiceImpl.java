@@ -34,7 +34,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     user = userRepositoryService.save(user);
 
     return com.subscriptionmanager.v1.proto.User.newBuilder()
-        .setName("user/" + user.getId())
+        .setName("users/" + user.getId())
         .setDisplayName(user.getName())
         .setEmailId(user.getEmailId())
         .setPassword(user.getPassword())

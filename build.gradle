@@ -90,6 +90,8 @@ dependencies {
 	testImplementation 'org.mockito:mockito-junit-jupiter:4.1.0'
 	//H2 db
 	testImplementation 'com.h2database:h2:2.1.214'
+	// Grpc-Test-Support
+	implementation 'net.devh:grpc-client-spring-boot-starter:2.14.0.RELEASE'
 	compileOnly 'jakarta.annotation:jakarta.annotation-api:1.3.5'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

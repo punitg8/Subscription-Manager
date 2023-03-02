@@ -33,7 +33,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     subscription = subscriptionRepositoryService.save(subscription);
 
     return Subscription.newBuilder()
-        .setName("subscription/" + subscription.getId())
+        .setName("subscriptions/" + subscription.getId())
         .setDisplayName(subscription.getName())
         .setPrice(subscription.getPrice())
         .setValidity(subscription.getValidity())

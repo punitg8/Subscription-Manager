@@ -1,26 +1,166 @@
 package com.subscriptionmanager.integrationtest;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.subscription.v1.proto.AuthenticationServiceGrpc;
+import com.subscription.v1.proto.SubscriptionServiceGrpc;
+import com.subscription.v1.proto.UserServiceGrpc;
+import com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.CreateSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.CreateUserRequest;
+import com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest;
+import com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.Subscription;
+import com.subscriptionmanager.v1.proto.User;
+import com.subscriptionmanager.v1.proto.UserSubscription;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import java.time.LocalDate;
+import java.util.List;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class UserTest {
 
-  @Test
-  void testAddUserSubscription(){
+  private static ManagedChannel channel;
+  private static AuthenticationServiceGrpc.AuthenticationServiceBlockingStub
+      authenticationServiceStub;
+  private static UserServiceGrpc.UserServiceBlockingStub userServiceStub;
+  private static SubscriptionServiceGrpc.SubscriptionServiceBlockingStub subscriptionServiceStub;
 
+  @BeforeAll
+  static void setup() {
+    channel = ManagedChannelBuilder.forAddress("localhost", 9000).usePlaintext().build();
+
+    authenticationServiceStub = AuthenticationServiceGrpc.newBlockingStub(channel);
+    userServiceStub = UserServiceGrpc.newBlockingStub(channel);
+    subscriptionServiceStub = SubscriptionServiceGrpc.newBlockingStub(channel);
+  }
+
+  User createUser() {
+    return authenticationServiceStub.createUser(
+        CreateUserRequest.newBuilder()
+            .setUser(User.newBuilder()
+                .setDisplayName("Punit Gurnani")
+                .setPassword("password")
+                .setRole(User.Role.ROLE_USER)
+                .setEmailId("punitgurnani008@gmail.com")
+            ).build()
+    );
+  }
+
+  Subscription createSubscription() {
+    return subscriptionServiceStub.createSubscription(
+        CreateSubscriptionRequest.newBuilder()
+            .setSubscription(Subscription.newBuilder()
+                .setDisplayName("Entertainment")
+                .setPrice(100)
+                .setValidity(10)
+            ).build()
+    );
   }
 
   @Test
-  void testRenewUserSubscription(){
+  void testAddUserSubscriptionHappyPath() {
+    User user = createUser();
+    Subscription subscription = createSubscription();
 
+    UserSubscription userSubscription = userServiceStub.addUserSubscription(
+        AddUserSubscriptionRequest.newBuilder()
+            .setParent(user.getName())
+            .setName(subscription.getName())
+            .build()
+    ).getUserSubscription();
+
+    assertEquals(subscription.getDisplayName(), userSubscription.getDisplayName(),
+        "Add new subscription");
   }
 
   @Test
-  void testRemoveUserSubscription(){
+  void testRenewUserSubscriptionHappyPath() {
+    User user = createUser();
+    Subscription subscription = createSubscription();
 
+    userServiceStub.addUserSubscription(
+        AddUserSubscriptionRequest.newBuilder()
+            .setParent(user.getName())
+            .setName(subscription.getName())
+            .build()
+    );
+
+    UserSubscription userSubscription = userServiceStub.renewUserSubscription(
+        RenewUserSubscriptionRequest.newBuilder()
+            .setParent(user.getName())
+            .setName(subscription.getName())
+            .build()
+    ).getUserSubscription();
+
+    LocalDate expectedExpiryDate = LocalDate.now().plusDays(2L * subscription.getValidity());
+
+    assertEquals(expectedExpiryDate.getDayOfMonth(),
+        userSubscription.getExpiryDate().getDay(),
+        "Renew new subscription");
   }
 
   @Test
-  void testListUserSubscription(){
+  void testRemoveUserSubscriptionHappyPath() {
+    User user = createUser();
+    Subscription subscription = createSubscription();
 
+    userServiceStub.addUserSubscription(
+        AddUserSubscriptionRequest.newBuilder()
+            .setParent(user.getName())
+            .setName(subscription.getName())
+            .build()
+    );
+
+    userServiceStub.removeUserSubscription(
+        RemoveUserSubscriptionRequest.newBuilder()
+            .setName(user.getName().concat("/").concat(subscription.getName()))
+            .build()
+    );
+
+    List<UserSubscription> subscriptionList = userServiceStub.listUserSubscriptions(
+        ListUserSubscriptionsRequest.newBuilder()
+            .setParent(user.getName())
+            .build()
+    ).getUserSubscriptionList();
+
+    assertEquals(0,subscriptionList.size(),"Remove subscription");
+  }
+
+  @Test
+  void testListUserSubscriptionHappyPath() {
+    User user = createUser();
+    Subscription subscription = createSubscription();
+
+    userServiceStub.addUserSubscription(
+        AddUserSubscriptionRequest.newBuilder()
+            .setParent(user.getName())
+            .setName(subscription.getName())
+            .build()
+    );
+
+    List<UserSubscription> subscriptionList = userServiceStub.listUserSubscriptions(
+        ListUserSubscriptionsRequest.newBuilder()
+            .setParent(user.getName())
+            .build()
+    ).getUserSubscriptionList();
+
+    assertEquals(1,subscriptionList.size(),"List subscription");
+  }
+
+  @AfterAll
+  static void cleanUp(){
+    channel.shutdown();
   }
 }
