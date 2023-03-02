@@ -1,5 +1,8 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Resources.GENRES;
+import static com.subscriptionmanager.constants.Resources.SUBSCRIPTIONS;
+
 import com.subscriptionmanager.model.Genre;
 import com.subscriptionmanager.model.Subscription;
 import com.subscriptionmanager.service.GenreRepositoryService;
@@ -23,12 +26,12 @@ public class GenreServiceImpl implements GenreService {
 
   @Override
   public com.subscriptionmanager.v1.proto.Genre createGenre(final CreateGenreRequest request) {
-    Map<String, String> parentResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getParent(), "subscriptions");
+    final Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), SUBSCRIPTIONS);
 
-    final String subscriptionId = parentResourceValueMap.get("subscriptions");
+    final String subscriptionId = parentResourceValueMap.get(SUBSCRIPTIONS);
 
-    final com.subscriptionmanager.v1.proto.Genre  genreDetails = request.getGenre();
+    final com.subscriptionmanager.v1.proto.Genre genreDetails = request.getGenre();
 
     final Subscription subscription = subscriptionRepositoryService.findById(subscriptionId);
 
@@ -42,7 +45,7 @@ public class GenreServiceImpl implements GenreService {
     genre = genreRepositoryService.save(genre);
 
     return com.subscriptionmanager.v1.proto.Genre.newBuilder()
-        .setName("genres/" + genre.getId())
+        .setName(GENRES.concat("/").concat(genre.getId()))
         .setDisplayName(genre.getName())
         .build();
   }

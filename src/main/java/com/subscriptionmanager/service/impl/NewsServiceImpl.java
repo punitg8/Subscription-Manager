@@ -1,5 +1,8 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Resources.GENRES;
+import static com.subscriptionmanager.constants.Resources.NEWS;
+
 import com.subscriptionmanager.model.Genre;
 import com.subscriptionmanager.model.News;
 import com.subscriptionmanager.repository.NewsRepository;
@@ -23,10 +26,10 @@ public class NewsServiceImpl implements NewsService {
 
   @Override
   public com.subscriptionmanager.v1.proto.News createNews(final CreateNewsRequest request) {
-    Map<String, String> parentResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getParent(), "genres");
+    final Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), GENRES);
 
-    final String genreId = parentResourceValueMap.get("genres");
+    final String genreId = parentResourceValueMap.get(GENRES);
 
     final com.subscriptionmanager.v1.proto.News newNews = request.getNews();
 
@@ -43,7 +46,7 @@ public class NewsServiceImpl implements NewsService {
     news = newsRepository.save(news);
 
     return com.subscriptionmanager.v1.proto.News.newBuilder()
-        .setName("news/" + news.getId())
+        .setName(NEWS.concat("/").concat(news.getId()))
         .setTitle(news.getTitle())
         .setDescription(news.getDescription())
         .build();

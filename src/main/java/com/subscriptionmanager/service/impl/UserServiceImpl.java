@@ -1,6 +1,9 @@
 package com.subscriptionmanager.service.impl;
 
 import static com.subscriptionmanager.constants.ExceptionMessage.DUPLICATE_VALUE_EXCEPTION;
+import static com.subscriptionmanager.constants.Resources.SUBSCRIPTIONS;
+import static com.subscriptionmanager.constants.Resources.USERS;
+import static com.subscriptionmanager.constants.Resources.USER_SUBSCRIPTION;
 import static com.subscriptionmanager.constants.User.LIST_SUBSCRIPTIONS_MAX_PAGE_SIZE;
 import static com.subscriptionmanager.constants.User.LIST_SUBSCRIPTIONS_MIN_PAGE_SIZE;
 
@@ -43,10 +46,11 @@ public class UserServiceImpl implements UserService {
   @Override
   public ListUserSubscriptionsResponse listUserSubscriptions(
       final ListUserSubscriptionsRequest request) {
-    Map<String, String> parentResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getParent(), "users");
 
-    final User user = userRepositoryService.findById(parentResourceValueMap.get("users"));
+    final Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), USERS);
+
+    final User user = userRepositoryService.findById(parentResourceValueMap.get(USERS));
 
     final int pageToken = validationService.validateAndExtractPageToken(request.getPageToken());
 
@@ -60,7 +64,8 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(
                     userSubscription -> com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()
-                        .setName("subscriptions/" + userSubscription.getSubscription().getId())
+                        .setName(SUBSCRIPTIONS.concat("/")
+                            .concat(userSubscription.getSubscription().getId()))
                         .setDisplayName(userSubscription.getSubscription().getName())
                         .setExpiryDate(com.google.type.Date.newBuilder()
                             .setDay(userSubscription.getExpiryDate().toLocalDate().getDayOfMonth())
@@ -77,16 +82,17 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public AddUserSubscriptionResponse addUserSubscription(final AddUserSubscriptionRequest request) {
-    Map<String, String> parentResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getParent(), "users");
 
-    final User user = userRepositoryService.findById(parentResourceValueMap.get("users"));
+    final Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), USERS);
 
-    Map<String, String> nameResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getName(), "subscriptions");
+    final User user = userRepositoryService.findById(parentResourceValueMap.get(USERS));
+
+    final Map<String, String> nameResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getName(), SUBSCRIPTIONS);
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(nameResourceValueMap.get("subscriptions"));
+        subscriptionRepositoryService.findById(nameResourceValueMap.get(SUBSCRIPTIONS));
 
     if (userSubscriptionRepository.existsByUserAndSubscription(user, subscription)) {
       throw InvalidArgumentException.builder()
@@ -107,7 +113,7 @@ public class UserServiceImpl implements UserService {
 
     return AddUserSubscriptionResponse.newBuilder()
         .setUserSubscription(com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()
-            .setName("subscriptions/" + subscription.getId())
+            .setName(SUBSCRIPTIONS.concat("/").concat(subscription.getId()))
             .setDisplayName(subscription.getName())
             .setExpiryDate(com.google.type.Date.newBuilder()
                 .setDay(expiryDate.getDayOfMonth())
@@ -119,22 +125,24 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public RenewUserSubscriptionResponse renewUserSubscription(final RenewUserSubscriptionRequest request) {
-    Map<String, String> parentResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getParent(), "users");
+  public RenewUserSubscriptionResponse renewUserSubscription(
+      final RenewUserSubscriptionRequest request) {
 
-    final User user = userRepositoryService.findById(parentResourceValueMap.get("users"));
+    final Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), USERS);
 
-    Map<String, String> nameResourceValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getName(), "subscriptions");
+    final User user = userRepositoryService.findById(parentResourceValueMap.get(USERS));
+
+    final Map<String, String> nameResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getName(), SUBSCRIPTIONS);
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(nameResourceValueMap.get("subscriptions"));
+        subscriptionRepositoryService.findById(nameResourceValueMap.get(SUBSCRIPTIONS));
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
         .orElseThrow(() -> ResourceNotFoundException.builder()
-            .resourceName("UserSubscription")
+            .resourceName(USER_SUBSCRIPTION)
             .fieldName("Mapping")
             .fieldValue(subscription.toString() + user.toString())
             .build()
@@ -150,7 +158,7 @@ public class UserServiceImpl implements UserService {
 
     return RenewUserSubscriptionResponse.newBuilder()
         .setUserSubscription(com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()
-            .setName("subscriptions/" + subscription.getId())
+            .setName(SUBSCRIPTIONS.concat("/").concat(subscription.getId()))
             .setDisplayName(subscription.getName())
             .setExpiryDate(com.google.type.Date.newBuilder()
                 .setDay(expiryDate.getDayOfMonth())
@@ -162,20 +170,22 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public RemoveUserSubscriptionResponse removeUserSubscription(final RemoveUserSubscriptionRequest request) {
-    Map<String, String> variableValueMap =
-        validationService.validateAndExtractResourceValueMap(request.getName(), "users",
-            "subscriptions");
+  public RemoveUserSubscriptionResponse removeUserSubscription(
+      final RemoveUserSubscriptionRequest request) {
 
-    final User user = userRepositoryService.findById(variableValueMap.get("users"));
+    final Map<String, String> variableValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getName(), USERS,
+            SUBSCRIPTIONS);
+
+    final User user = userRepositoryService.findById(variableValueMap.get(USERS));
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(variableValueMap.get("subscriptions"));
+        subscriptionRepositoryService.findById(variableValueMap.get(SUBSCRIPTIONS));
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
         .orElseThrow(() -> ResourceNotFoundException.builder()
-            .resourceName("UserSubscription")
+            .resourceName(USER_SUBSCRIPTION)
             .fieldValue(subscription.toString() + user.toString())
             .build()
         );
@@ -186,7 +196,7 @@ public class UserServiceImpl implements UserService {
 
     return RemoveUserSubscriptionResponse.newBuilder()
         .setUserSubscription(com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()
-            .setName("subscriptions/" + subscription.getId())
+            .setName(SUBSCRIPTIONS.concat("/").concat(subscription.getId()))
             .setDisplayName(subscription.getName())
             .setExpiryDate(com.google.type.Date.newBuilder()
                 .setDay(expiryDate.getDayOfMonth())

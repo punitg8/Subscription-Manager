@@ -61,7 +61,7 @@ public class ValidationServiceImpl implements ValidationService {
 
     try {
 
-      if (pageTokenString.equals("")) {
+      if ("".equals(pageTokenString)) {
         pageToken = 0;
       } else {
         pageToken = Integer.parseInt(pageTokenString);
@@ -85,8 +85,10 @@ public class ValidationServiceImpl implements ValidationService {
   }
 
   @Override
-  public Map<String, String> validateAndExtractResourceValueMap(String fullResourceName, String... resources) {
-    String[] resourceValueList = fullResourceName.split("/");
+  public Map<String, String> validateAndExtractResourceValueMap(
+      final String fullResourceName, final String... resources) {
+
+    final String[] resourceValueList = fullResourceName.split("/");
 
     if (resourceValueList.length != resources.length * 2) {
       throw InvalidArgumentException.builder()
@@ -95,7 +97,7 @@ public class ValidationServiceImpl implements ValidationService {
           .build();
     }
 
-    Map<String, String> resourceValueMapping = new HashMap<>();
+    final Map<String, String> resourceValueMapping = new HashMap<>();
 
     for (int i = 0; i < resourceValueList.length; i += 2) {
 

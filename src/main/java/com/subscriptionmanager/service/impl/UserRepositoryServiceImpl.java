@@ -1,5 +1,7 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Resources.USERS;
+
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.model.User;
 import com.subscriptionmanager.repository.UserRepository;
@@ -20,7 +22,7 @@ public class UserRepositoryServiceImpl implements UserRepositoryService {
     return userRepository.findById(id)
         .orElseThrow(
             () -> ResourceNotFoundException.builder()
-                .resourceName("User")
+                .resourceName(USERS)
                 .fieldName("id")
                 .fieldValue(id)
                 .build()

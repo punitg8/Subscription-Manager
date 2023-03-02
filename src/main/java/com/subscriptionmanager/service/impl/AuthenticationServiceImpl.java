@@ -1,5 +1,7 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Resources.USERS;
+
 import com.subscriptionmanager.enums.Role;
 import com.subscriptionmanager.model.User;
 import com.subscriptionmanager.service.AuthenticationService;
@@ -34,7 +36,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     user = userRepositoryService.save(user);
 
     return com.subscriptionmanager.v1.proto.User.newBuilder()
-        .setName("users/" + user.getId())
+        .setName(USERS.concat("/").concat(user.getId()))
         .setDisplayName(user.getName())
         .setEmailId(user.getEmailId())
         .setPassword(user.getPassword())

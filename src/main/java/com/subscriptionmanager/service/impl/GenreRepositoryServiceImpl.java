@@ -1,6 +1,7 @@
 package com.subscriptionmanager.service.impl;
 
 import static com.subscriptionmanager.constants.Cache.GENRE_CACHE;
+import static com.subscriptionmanager.constants.Resources.SUBSCRIPTIONS;
 
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.model.Genre;
@@ -27,7 +28,7 @@ public class GenreRepositoryServiceImpl implements GenreRepositoryService {
     return genreRepository.findById(id)
         .orElseThrow(
             () -> ResourceNotFoundException.builder()
-                .resourceName("Subscription")
+                .resourceName(SUBSCRIPTIONS)
                 .fieldName("id")
                 .fieldValue(id)
                 .build()

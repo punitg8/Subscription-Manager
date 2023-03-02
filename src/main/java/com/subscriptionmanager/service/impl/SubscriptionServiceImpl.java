@@ -1,5 +1,7 @@
 package com.subscriptionmanager.service.impl;
 
+import static com.subscriptionmanager.constants.Resources.SUBSCRIPTIONS;
+
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
 import com.subscriptionmanager.service.SubscriptionService;
 import com.subscriptionmanager.v1.proto.CreateSubscriptionRequest;
@@ -33,7 +35,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     subscription = subscriptionRepositoryService.save(subscription);
 
     return Subscription.newBuilder()
-        .setName("subscriptions/" + subscription.getId())
+        .setName(SUBSCRIPTIONS.concat("/").concat(subscription.getId()))
         .setDisplayName(subscription.getName())
         .setPrice(subscription.getPrice())
         .setValidity(subscription.getValidity())

@@ -1,6 +1,7 @@
 package com.subscriptionmanager.service.impl;
 
 import static com.subscriptionmanager.constants.Cache.SUBSCRIPTION_CACHE;
+import static com.subscriptionmanager.constants.Resources.SUBSCRIPTIONS;
 
 import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.model.Subscription;
@@ -23,11 +24,10 @@ public class SubscriptionRepositoryServiceImpl implements SubscriptionRepository
   @Override
   @Cacheable(key = "#id", value = SUBSCRIPTION_CACHE)
   public Subscription findById(final String id) {
-    log.info("DB hit");
     return subscriptionRepository.findById(id)
         .orElseThrow(
             () -> ResourceNotFoundException.builder()
-                .resourceName("Subscription")
+                .resourceName(SUBSCRIPTIONS)
                 .fieldName("id")
                 .fieldValue(id)
                 .build()
