@@ -23,10 +23,10 @@ public class NewsServiceImpl implements NewsService {
 
   @Override
   public com.subscriptionmanager.v1.proto.News createNews(final CreateNewsRequest request) {
-    Map<String, String> parentVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getParent(), "genres");
+    Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), "genres");
 
-    final String genreId = parentVariableValueMap.get("genres");
+    final String genreId = parentResourceValueMap.get("genres");
 
     final com.subscriptionmanager.v1.proto.News newNews = request.getNews();
 

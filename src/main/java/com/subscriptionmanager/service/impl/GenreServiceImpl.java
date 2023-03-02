@@ -23,10 +23,10 @@ public class GenreServiceImpl implements GenreService {
 
   @Override
   public com.subscriptionmanager.v1.proto.Genre createGenre(final CreateGenreRequest request) {
-    Map<String, String> parentVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getParent(), "subscriptions");
+    Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), "subscriptions");
 
-    final String subscriptionId = parentVariableValueMap.get("subscriptions");
+    final String subscriptionId = parentResourceValueMap.get("subscriptions");
 
     final com.subscriptionmanager.v1.proto.Genre  genreDetails = request.getGenre();
 

@@ -10,6 +10,6 @@ public interface ValidationService {
 
   int validateAndExtractPageToken(String pageToken);
 
-  Map<String,String> validateAndExtractVariableValue(String pathInfo,String ...variableNames);
+  Map<String,String> validateAndExtractResourceValueMap(String fullResourceName, String ...resources);
 
 }

@@ -43,10 +43,10 @@ public class UserServiceImpl implements UserService {
   @Override
   public ListUserSubscriptionsResponse listUserSubscriptions(
       final ListUserSubscriptionsRequest request) {
-    Map<String, String> parentVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getParent(), "users");
+    Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), "users");
 
-    final User user = userRepositoryService.findById(parentVariableValueMap.get("users"));
+    final User user = userRepositoryService.findById(parentResourceValueMap.get("users"));
 
     final int pageToken = validationService.validateAndExtractPageToken(request.getPageToken());
 
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(
                     userSubscription -> com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()
-                        .setName("subscriptions/" + userSubscription.getSubscription().getName())
+                        .setName("subscriptions/" + userSubscription.getSubscription().getId())
                         .setDisplayName(userSubscription.getSubscription().getName())
                         .setExpiryDate(com.google.type.Date.newBuilder()
                             .setDay(userSubscription.getExpiryDate().toLocalDate().getDayOfMonth())
@@ -77,16 +77,16 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public AddUserSubscriptionResponse addUserSubscription(final AddUserSubscriptionRequest request) {
-    Map<String, String> parentVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getParent(), "users");
+    Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), "users");
 
-    final User user = userRepositoryService.findById(parentVariableValueMap.get("users"));
+    final User user = userRepositoryService.findById(parentResourceValueMap.get("users"));
 
-    Map<String, String> nameVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getName(), "subscriptions");
+    Map<String, String> nameResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getName(), "subscriptions");
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(nameVariableValueMap.get("subscriptions"));
+        subscriptionRepositoryService.findById(nameResourceValueMap.get("subscriptions"));
 
     if (userSubscriptionRepository.existsByUserAndSubscription(user, subscription)) {
       throw InvalidArgumentException.builder()
@@ -120,16 +120,16 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public RenewUserSubscriptionResponse renewUserSubscription(final RenewUserSubscriptionRequest request) {
-    Map<String, String> parentVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getParent(), "users");
+    Map<String, String> parentResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getParent(), "users");
 
-    final User user = userRepositoryService.findById(parentVariableValueMap.get("users"));
+    final User user = userRepositoryService.findById(parentResourceValueMap.get("users"));
 
-    Map<String, String> nameVariableValueMap =
-        validationService.validateAndExtractVariableValue(request.getName(), "subscriptions");
+    Map<String, String> nameResourceValueMap =
+        validationService.validateAndExtractResourceValueMap(request.getName(), "subscriptions");
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(nameVariableValueMap.get("subscriptions"));
+        subscriptionRepositoryService.findById(nameResourceValueMap.get("subscriptions"));
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)
@@ -164,7 +164,7 @@ public class UserServiceImpl implements UserService {
   @Override
   public RemoveUserSubscriptionResponse removeUserSubscription(final RemoveUserSubscriptionRequest request) {
     Map<String, String> variableValueMap =
-        validationService.validateAndExtractVariableValue(request.getName(), "users",
+        validationService.validateAndExtractResourceValueMap(request.getName(), "users",
             "subscriptions");
 
     final User user = userRepositoryService.findById(variableValueMap.get("users"));
@@ -180,9 +180,7 @@ public class UserServiceImpl implements UserService {
             .build()
         );
 
-    final LocalDate expiryDate = userSubscription.getExpiryDate()
-        .toLocalDate()
-        .plusDays(subscription.getValidity());
+    final LocalDate expiryDate = userSubscription.getExpiryDate().toLocalDate();
 
     userSubscriptionRepository.delete(userSubscription);
 

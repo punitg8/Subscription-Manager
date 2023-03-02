@@ -3,7 +3,7 @@ package com.subscriptionmanager.validations.impl;
 import static com.subscriptionmanager.constants.ExceptionMessage.NEGATIVE_PAGE_SIZE_EXCEPTION;
 import static com.subscriptionmanager.constants.ExceptionMessage.NEGATIVE_PAGE_TOKEN_EXCEPTION;
 import static com.subscriptionmanager.constants.ExceptionMessage.NON_NUMERIC_PAGE_TOKEN_EXCEPTION;
-import static com.subscriptionmanager.constants.ExceptionMessage.PATH_VARIABLE_PARSING_EXCEPTION;
+import static com.subscriptionmanager.constants.ExceptionMessage.RESOURCE_NAME_PARSING_EXCEPTION;
 
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.validations.ValidationService;
@@ -85,31 +85,31 @@ public class ValidationServiceImpl implements ValidationService {
   }
 
   @Override
-  public Map<String, String> validateAndExtractVariableValue(String variableValue, String... variableNames) {
-    String[] variableValueList = variableValue.split("/");
+  public Map<String, String> validateAndExtractResourceValueMap(String fullResourceName, String... resources) {
+    String[] resourceValueList = fullResourceName.split("/");
 
-    if (variableValueList.length != variableNames.length * 2) {
+    if (resourceValueList.length != resources.length * 2) {
       throw InvalidArgumentException.builder()
-          .violationMessage(PATH_VARIABLE_PARSING_EXCEPTION)
-          .fieldValue(variableValue)
+          .violationMessage(RESOURCE_NAME_PARSING_EXCEPTION)
+          .fieldValue(fullResourceName)
           .build();
     }
 
-    Map<String, String> variableValueMapping = new HashMap<>();
+    Map<String, String> resourceValueMapping = new HashMap<>();
 
-    for (int i = 0; i < variableValueList.length; i += 2) {
+    for (int i = 0; i < resourceValueList.length; i += 2) {
 
-      if (!variableValueList[i].equals(variableNames[i / 2])) {
+      if (!resourceValueList[i].equals(resources[i / 2])) {
         throw InvalidArgumentException.builder()
-            .violationMessage(PATH_VARIABLE_PARSING_EXCEPTION)
-            .fieldValue(variableValue)
+            .violationMessage(RESOURCE_NAME_PARSING_EXCEPTION)
+            .fieldValue(fullResourceName)
             .build();
       }
 
-      variableValueMapping.put(variableValueList[i], variableValueList[i + 1]);
+      resourceValueMapping.put(resourceValueList[i], resourceValueList[i + 1]);
     }
 
-    return variableValueMapping;
+    return resourceValueMapping;
   }
 
 }
