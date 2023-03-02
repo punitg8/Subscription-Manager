@@ -3,8 +3,8 @@
 
 package com.subscriptionmanager.v1.proto;
 
-public interface AddSubscriptionRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:subscriptionmanager.v1.proto.AddSubscriptionRequest)
+public interface RenewUserSubscriptionRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -31,7 +31,7 @@ public interface AddSubscriptionRequestOrBuilder extends
 
   /**
    * <pre>
-   *The id of subscription which needs to be added
+   *The id of subscription which needs to be renewed
    * Format: subscription/{subscriptionId}
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface AddSubscriptionRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   *The id of subscription which needs to be added
+   *The id of subscription which needs to be renewed
    * Format: subscription/{subscriptionId}
    * </pre>
    *

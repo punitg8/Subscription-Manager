@@ -6,12 +6,20 @@ import com.subscriptionmanager.exception.ResourceNotFoundException;
 import com.subscriptionmanager.service.UserService;
 import com.subscriptionmanager.v1.proto.AddSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.AddSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse;
 import com.subscriptionmanager.v1.proto.ListSubscriptionsRequest;
 import com.subscriptionmanager.v1.proto.ListSubscriptionsResponse;
+import com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest;
+import com.subscriptionmanager.v1.proto.ListUserSubscriptionsResponse;
 import com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse;
 import com.subscriptionmanager.v1.proto.RenewSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
@@ -26,11 +34,11 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   private final UserService userService;
 
   @Override
-  public void listSubscriptions(final ListSubscriptionsRequest request,
-                                final StreamObserver<ListSubscriptionsResponse> responseObserver) {
+  public void listUserSubscriptions(final ListUserSubscriptionsRequest request,
+                                final StreamObserver<ListUserSubscriptionsResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.listSubscriptions(request));
+      responseObserver.onNext(userService.listUserSubscriptions(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -59,11 +67,11 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void addSubscription(final AddSubscriptionRequest request,
-                              final StreamObserver<AddSubscriptionResponse> responseObserver) {
+  public void addUserSubscription(final AddUserSubscriptionRequest request,
+                              final StreamObserver<AddUserSubscriptionResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.addSubscription(request));
+      responseObserver.onNext(userService.addUserSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -92,11 +100,11 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void renewSubscription(final RenewSubscriptionRequest request,
-                                final StreamObserver<RenewSubscriptionResponse> responseObserver) {
+  public void renewUserSubscription(final RenewUserSubscriptionRequest request,
+                                final StreamObserver<RenewUserSubscriptionResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.renewSubscription(request));
+      responseObserver.onNext(userService.renewUserSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -125,13 +133,13 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
   }
 
   @Override
-  public void removeSubscription(
-      final RemoveSubscriptionRequest request,
-      final StreamObserver<RemoveSubscriptionResponse> responseObserver) {
+  public void removeUserSubscription(
+      final RemoveUserSubscriptionRequest request,
+      final StreamObserver<RemoveUserSubscriptionResponse> responseObserver) {
 
     try {
 
-      responseObserver.onNext(userService.removeSubscription(request));
+      responseObserver.onNext(userService.removeUserSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {

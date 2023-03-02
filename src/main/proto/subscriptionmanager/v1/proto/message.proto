@@ -119,8 +119,20 @@ message CreateSubscriptionRequest{
   Subscription subscription = 1 [(google.api.field_behavior) = REQUIRED];
 }
 
+message UserSubscription{
+  //The unique identification id of the subscription
+  //Format subscription/{subscriptionId}
+  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  //The name of the subscription which would be displayed
+  string display_name = 2 [(google.api.field_behavior) = REQUIRED];
+
+  //expiry date
+  google.type.Date expiry_date = 3;
+}
+
 //Request to list subscription
-message ListSubscriptionsRequest{
+message ListUserSubscriptionsRequest{
   // The parent, which owns this collection of subscription.
   // Format: users/{user}
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
@@ -140,9 +152,9 @@ message ListSubscriptionsRequest{
 }
 
 //Response to listing subscription
-message ListSubscriptionsResponse{
+message ListUserSubscriptionsResponse{
   // The subscriptions from the specified user.
-  repeated Subscription subscription = 1;
+  repeated UserSubscription userSubscription = 1;
 
   // A token that can be sent as `page_token` to retrieve the next page.
   // If this field is omitted, there are no subsequent pages.
@@ -150,7 +162,7 @@ message ListSubscriptionsResponse{
 }
 
 //Request to add subscription to user
-message AddSubscriptionRequest{
+message AddUserSubscriptionRequest{
   // The parent, which owns this collection of subscription.
   // Format: users/{user}
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
@@ -161,29 +173,26 @@ message AddSubscriptionRequest{
 }
 
 //Response of adding new subscription to user
-message AddSubscriptionResponse{
+message AddUserSubscriptionResponse{
   // The subscriptions from the specified user.
-  Subscription subscription = 1;
-
-  //expiry date
-  google.type.Date expiry_date = 2;
+  UserSubscription userSubscription = 1;
 }
 
 //Request for removal of subscription of user
-message RemoveSubscriptionRequest{
+message RemoveUserSubscriptionRequest{
   // The parent, which owns this collection of subscription.
   // Format: users/{user}/subscriptions/{subscription}
   string name = 1 [(google.api.field_behavior) = REQUIRED];
 }
 
 //Response of adding new subscription
-message RemoveSubscriptionResponse{
+message RemoveUserSubscriptionResponse{
   // The subscriptions from the specified user.
-  Subscription subscription = 1;
+  UserSubscription userSubscription = 1;
 }
 
 //Request to renew subscription of user
-message RenewSubscriptionRequest{
+message RenewUserSubscriptionRequest{
   // The parent, which owns this collection of subscription.
   // Format: users/{user}
   string parent = 1 [(google.api.field_behavior) = REQUIRED];
@@ -194,12 +203,9 @@ message RenewSubscriptionRequest{
 }
 
 //Response of renewing subscription
-message RenewSubscriptionResponse{
+message RenewUserSubscriptionResponse{
   // The subscriptions from the specified user.
-  Subscription subscription = 1;
-
-  //expiry date
-  google.type.Date expiry_date = 2;
+  UserSubscription userSubscription = 1;
 }
 
 //A representation of the newsletter

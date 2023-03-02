@@ -55,45 +55,50 @@ public final class MessageProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_subscriptionmanager_v1_proto_CreateSubscriptionRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_ListSubscriptionsRequest_descriptor;
+    internal_static_subscriptionmanager_v1_proto_UserSubscription_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_ListSubscriptionsRequest_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_UserSubscription_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_ListSubscriptionsResponse_descriptor;
+    internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_ListSubscriptionsResponse_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+    internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_AddSubscriptionResponse_descriptor;
+    internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_AddSubscriptionResponse_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_descriptor;
+    internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_descriptor;
+    internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_RenewSubscriptionRequest_descriptor;
+    internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_RenewSubscriptionRequest_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_subscriptionmanager_v1_proto_RenewSubscriptionResponse_descriptor;
+    internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_subscriptionmanager_v1_proto_RenewSubscriptionResponse_fieldAccessorTable;
+      internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_subscriptionmanager_v1_proto_Newsletter_descriptor;
   static final 
@@ -137,31 +142,33 @@ public final class MessageProto {
       "\010validity\030\004 \001(\005B\003\340A\002\"b\n\031CreateSubscripti" +
       "onRequest\022E\n\014subscription\030\001 \001(\0132*.subscr" +
       "iptionmanager.v1.proto.SubscriptionB\003\340A\002" +
-      "\"V\n\030ListSubscriptionsRequest\022\023\n\006parent\030\001" +
-      " \001(\tB\003\340A\002\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_tok" +
-      "en\030\003 \001(\t\"v\n\031ListSubscriptionsResponse\022@\n" +
-      "\014subscription\030\001 \003(\0132*.subscriptionmanage" +
-      "r.v1.proto.Subscription\022\027\n\017next_page_tok" +
-      "en\030\002 \001(\t\"@\n\026AddSubscriptionRequest\022\023\n\006pa" +
-      "rent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"\203\001\n\027A" +
-      "ddSubscriptionResponse\022@\n\014subscription\030\001" +
-      " \001(\0132*.subscriptionmanager.v1.proto.Subs" +
-      "cription\022&\n\013expiry_date\030\002 \001(\0132\021.google.t" +
-      "ype.Date\".\n\031RemoveSubscriptionRequest\022\021\n" +
-      "\004name\030\001 \001(\tB\003\340A\002\"^\n\032RemoveSubscriptionRe" +
-      "sponse\022@\n\014subscription\030\001 \001(\0132*.subscript" +
-      "ionmanager.v1.proto.Subscription\"B\n\030Rene" +
-      "wSubscriptionRequest\022\023\n\006parent\030\001 \001(\tB\003\340A" +
-      "\002\022\021\n\004name\030\002 \001(\tB\003\340A\002\"\205\001\n\031RenewSubscripti" +
-      "onResponse\022@\n\014subscription\030\001 \001(\0132*.subsc" +
-      "riptionmanager.v1.proto.Subscription\022&\n\013" +
-      "expiry_date\030\002 \001(\0132\021.google.type.Date\"\037\n\n" +
-      "Newsletter\022\021\n\004news\030\001 \003(\tB\003\340A\002\"n\n\022Newslet" +
-      "terMailInfo\022A\n\nnewsletter\030\001 \001(\0132(.subscr" +
-      "iptionmanager.v1.proto.NewsletterB\003\340A\002\022\025" +
-      "\n\010email_id\030\002 \003(\tB\003\340A\002B2\n com.subscriptio" +
-      "nmanager.v1.protoB\014MessageProtoP\001b\006proto" +
-      "3"
+      "\"h\n\020UserSubscription\022\021\n\004name\030\001 \001(\tB\003\340A\003\022" +
+      "\031\n\014display_name\030\002 \001(\tB\003\340A\002\022&\n\013expiry_dat" +
+      "e\030\003 \001(\0132\021.google.type.Date\"Z\n\034ListUserSu" +
+      "bscriptionsRequest\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022" +
+      "\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"\202" +
+      "\001\n\035ListUserSubscriptionsResponse\022H\n\020user" +
+      "Subscription\030\001 \003(\0132..subscriptionmanager" +
+      ".v1.proto.UserSubscription\022\027\n\017next_page_" +
+      "token\030\002 \001(\t\"D\n\032AddUserSubscriptionReques" +
+      "t\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022\021\n\004name\030\002 \001(\tB\003\340A" +
+      "\002\"g\n\033AddUserSubscriptionResponse\022H\n\020user" +
+      "Subscription\030\001 \001(\0132..subscriptionmanager" +
+      ".v1.proto.UserSubscription\"2\n\035RemoveUser" +
+      "SubscriptionRequest\022\021\n\004name\030\001 \001(\tB\003\340A\002\"j" +
+      "\n\036RemoveUserSubscriptionResponse\022H\n\020user" +
+      "Subscription\030\001 \001(\0132..subscriptionmanager" +
+      ".v1.proto.UserSubscription\"F\n\034RenewUserS" +
+      "ubscriptionRequest\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022" +
+      "\021\n\004name\030\002 \001(\tB\003\340A\002\"i\n\035RenewUserSubscript" +
+      "ionResponse\022H\n\020userSubscription\030\001 \001(\0132.." +
+      "subscriptionmanager.v1.proto.UserSubscri" +
+      "ption\"\037\n\nNewsletter\022\021\n\004news\030\001 \003(\tB\003\340A\002\"n" +
+      "\n\022NewsletterMailInfo\022A\n\nnewsletter\030\001 \001(\013" +
+      "2(.subscriptionmanager.v1.proto.Newslett" +
+      "erB\003\340A\002\022\025\n\010email_id\030\002 \003(\tB\003\340A\002B2\n com.su" +
+      "bscriptionmanager.v1.protoB\014MessageProto" +
+      "P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -217,62 +224,68 @@ public final class MessageProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscriptionmanager_v1_proto_CreateSubscriptionRequest_descriptor,
         new java.lang.String[] { "Subscription", });
-    internal_static_subscriptionmanager_v1_proto_ListSubscriptionsRequest_descriptor =
+    internal_static_subscriptionmanager_v1_proto_UserSubscription_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_subscriptionmanager_v1_proto_ListSubscriptionsRequest_fieldAccessorTable = new
+    internal_static_subscriptionmanager_v1_proto_UserSubscription_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_ListSubscriptionsRequest_descriptor,
-        new java.lang.String[] { "Parent", "PageSize", "PageToken", });
-    internal_static_subscriptionmanager_v1_proto_ListSubscriptionsResponse_descriptor =
+        internal_static_subscriptionmanager_v1_proto_UserSubscription_descriptor,
+        new java.lang.String[] { "Name", "DisplayName", "ExpiryDate", });
+    internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_subscriptionmanager_v1_proto_ListSubscriptionsResponse_fieldAccessorTable = new
+    internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_ListSubscriptionsResponse_descriptor,
-        new java.lang.String[] { "Subscription", "NextPageToken", });
-    internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor =
+        internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_descriptor,
+        new java.lang.String[] { "Parent", "PageSize", "PageToken", });
+    internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_fieldAccessorTable = new
+    internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor,
-        new java.lang.String[] { "Parent", "Name", });
-    internal_static_subscriptionmanager_v1_proto_AddSubscriptionResponse_descriptor =
+        internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsResponse_descriptor,
+        new java.lang.String[] { "UserSubscription", "NextPageToken", });
+    internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_subscriptionmanager_v1_proto_AddSubscriptionResponse_fieldAccessorTable = new
+    internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_AddSubscriptionResponse_descriptor,
-        new java.lang.String[] { "Subscription", "ExpiryDate", });
-    internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionRequest_descriptor,
-        new java.lang.String[] { "Name", });
-    internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_RemoveSubscriptionResponse_descriptor,
-        new java.lang.String[] { "Subscription", });
-    internal_static_subscriptionmanager_v1_proto_RenewSubscriptionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_subscriptionmanager_v1_proto_RenewSubscriptionRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_RenewSubscriptionRequest_descriptor,
+        internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionRequest_descriptor,
         new java.lang.String[] { "Parent", "Name", });
-    internal_static_subscriptionmanager_v1_proto_RenewSubscriptionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_subscriptionmanager_v1_proto_RenewSubscriptionResponse_fieldAccessorTable = new
+    internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_subscriptionmanager_v1_proto_RenewSubscriptionResponse_descriptor,
-        new java.lang.String[] { "Subscription", "ExpiryDate", });
-    internal_static_subscriptionmanager_v1_proto_Newsletter_descriptor =
+        internal_static_subscriptionmanager_v1_proto_AddUserSubscriptionResponse_descriptor,
+        new java.lang.String[] { "UserSubscription", });
+    internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionRequest_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_subscriptionmanager_v1_proto_RemoveUserSubscriptionResponse_descriptor,
+        new java.lang.String[] { "UserSubscription", });
+    internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_descriptor,
+        new java.lang.String[] { "Parent", "Name", });
+    internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionResponse_descriptor =
       getDescriptor().getMessageTypes().get(16);
+    internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionResponse_descriptor,
+        new java.lang.String[] { "UserSubscription", });
+    internal_static_subscriptionmanager_v1_proto_Newsletter_descriptor =
+      getDescriptor().getMessageTypes().get(17);
     internal_static_subscriptionmanager_v1_proto_Newsletter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscriptionmanager_v1_proto_Newsletter_descriptor,
         new java.lang.String[] { "News", });
     internal_static_subscriptionmanager_v1_proto_NewsletterMailInfo_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_subscriptionmanager_v1_proto_NewsletterMailInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_subscriptionmanager_v1_proto_NewsletterMailInfo_descriptor,

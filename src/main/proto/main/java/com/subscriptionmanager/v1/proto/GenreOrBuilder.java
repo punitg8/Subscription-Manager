@@ -10,6 +10,7 @@ public interface GenreOrBuilder extends
   /**
    * <pre>
    *The unique identification id of the genre
+   *Format genre/{genreId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -19,6 +20,7 @@ public interface GenreOrBuilder extends
   /**
    * <pre>
    *The unique identification id of the genre
+   *Format genre/{genreId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

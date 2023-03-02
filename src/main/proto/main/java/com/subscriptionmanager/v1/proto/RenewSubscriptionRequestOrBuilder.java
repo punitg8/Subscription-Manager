@@ -32,6 +32,7 @@ public interface RenewSubscriptionRequestOrBuilder extends
   /**
    * <pre>
    *The id of subscription which needs to be renewed
+   * Format: subscription/{subscriptionId}
    * </pre>
    *
    * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -41,6 +42,7 @@ public interface RenewSubscriptionRequestOrBuilder extends
   /**
    * <pre>
    *The id of subscription which needs to be renewed
+   * Format: subscription/{subscriptionId}
    * </pre>
    *
    * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>

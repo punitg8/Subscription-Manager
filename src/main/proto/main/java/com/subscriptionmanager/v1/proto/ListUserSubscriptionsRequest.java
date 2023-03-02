@@ -5,30 +5,30 @@ package com.subscriptionmanager.v1.proto;
 
 /**
  * <pre>
- *Request to add subscription to user
+ *Request to list subscription
  * </pre>
  *
- * Protobuf type {@code subscriptionmanager.v1.proto.AddSubscriptionRequest}
+ * Protobuf type {@code subscriptionmanager.v1.proto.ListUserSubscriptionsRequest}
  */
-public final class AddSubscriptionRequest extends
+public final class ListUserSubscriptionsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:subscriptionmanager.v1.proto.AddSubscriptionRequest)
-    AddSubscriptionRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:subscriptionmanager.v1.proto.ListUserSubscriptionsRequest)
+    ListUserSubscriptionsRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AddSubscriptionRequest.newBuilder() to construct.
-  private AddSubscriptionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ListUserSubscriptionsRequest.newBuilder() to construct.
+  private ListUserSubscriptionsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AddSubscriptionRequest() {
+  private ListUserSubscriptionsRequest() {
     parent_ = "";
-    name_ = "";
+    pageToken_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new AddSubscriptionRequest();
+    return new ListUserSubscriptionsRequest();
   }
 
   @java.lang.Override
@@ -38,15 +38,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_fieldAccessorTable
+    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.subscriptionmanager.v1.proto.AddSubscriptionRequest.class, com.subscriptionmanager.v1.proto.AddSubscriptionRequest.Builder.class);
+            com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.class, com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.Builder.class);
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
@@ -97,48 +97,70 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  public static final int PAGE_SIZE_FIELD_NUMBER = 2;
+  private int pageSize_;
   /**
    * <pre>
-   *The id of subscription which needs to be added
-   * Format: subscription/{subscriptionId}
+   * The maximum number of subscription to return. The service may return fewer than
+   * this value.
+   * If unspecified, at most 50 books will be returned.
+   * The maximum value is 1000; values above 1000 will be coerced to 1000.
    * </pre>
    *
-   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The name.
+   * <code>int32 page_size = 2;</code>
+   * @return The pageSize.
    */
   @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
+  public int getPageSize() {
+    return pageSize_;
+  }
+
+  public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
+  private volatile java.lang.Object pageToken_;
+  /**
+   * <pre>
+   * A page token, received from a previous `ListSubscriptions` call.
+   * Provide this to retrieve the subsequent page.
+   * When paginating, all other parameters provided to `ListSubscriptions` must match
+   * the call that provided the page token.
+   * </pre>
+   *
+   * <code>string page_token = 3;</code>
+   * @return The pageToken.
+   */
+  @java.lang.Override
+  public java.lang.String getPageToken() {
+    java.lang.Object ref = pageToken_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      name_ = s;
+      pageToken_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *The id of subscription which needs to be added
-   * Format: subscription/{subscriptionId}
+   * A page token, received from a previous `ListSubscriptions` call.
+   * Provide this to retrieve the subsequent page.
+   * When paginating, all other parameters provided to `ListSubscriptions` must match
+   * the call that provided the page token.
    * </pre>
    *
-   * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for name.
+   * <code>string page_token = 3;</code>
+   * @return The bytes for pageToken.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
+      getPageTokenBytes() {
+    java.lang.Object ref = pageToken_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      name_ = b;
+      pageToken_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -162,8 +184,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, parent_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+    if (pageSize_ != 0) {
+      output.writeInt32(2, pageSize_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pageToken_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -177,8 +202,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parent_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, parent_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+    if (pageSize_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, pageSize_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pageToken_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -190,15 +219,17 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.subscriptionmanager.v1.proto.AddSubscriptionRequest)) {
+    if (!(obj instanceof com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest)) {
       return super.equals(obj);
     }
-    com.subscriptionmanager.v1.proto.AddSubscriptionRequest other = (com.subscriptionmanager.v1.proto.AddSubscriptionRequest) obj;
+    com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest other = (com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest) obj;
 
     if (!getParent()
         .equals(other.getParent())) return false;
-    if (!getName()
-        .equals(other.getName())) return false;
+    if (getPageSize()
+        != other.getPageSize()) return false;
+    if (!getPageToken()
+        .equals(other.getPageToken())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -212,76 +243,78 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PARENT_FIELD_NUMBER;
     hash = (53 * hash) + getParent().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getPageSize();
+    hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getPageToken().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(byte[] data)
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(java.io.InputStream input)
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseDelimitedFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -294,7 +327,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.subscriptionmanager.v1.proto.AddSubscriptionRequest prototype) {
+  public static Builder newBuilder(com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -311,29 +344,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Request to add subscription to user
+   *Request to list subscription
    * </pre>
    *
-   * Protobuf type {@code subscriptionmanager.v1.proto.AddSubscriptionRequest}
+   * Protobuf type {@code subscriptionmanager.v1.proto.ListUserSubscriptionsRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:subscriptionmanager.v1.proto.AddSubscriptionRequest)
-      com.subscriptionmanager.v1.proto.AddSubscriptionRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:subscriptionmanager.v1.proto.ListUserSubscriptionsRequest)
+      com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_fieldAccessorTable
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.subscriptionmanager.v1.proto.AddSubscriptionRequest.class, com.subscriptionmanager.v1.proto.AddSubscriptionRequest.Builder.class);
+              com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.class, com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.Builder.class);
     }
 
-    // Construct using com.subscriptionmanager.v1.proto.AddSubscriptionRequest.newBuilder()
+    // Construct using com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.newBuilder()
     private Builder() {
 
     }
@@ -348,7 +381,9 @@ private static final long serialVersionUID = 0L;
       super.clear();
       parent_ = "";
 
-      name_ = "";
+      pageSize_ = 0;
+
+      pageToken_ = "";
 
       return this;
     }
@@ -356,17 +391,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_ListUserSubscriptionsRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.AddSubscriptionRequest getDefaultInstanceForType() {
-      return com.subscriptionmanager.v1.proto.AddSubscriptionRequest.getDefaultInstance();
+    public com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest getDefaultInstanceForType() {
+      return com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.AddSubscriptionRequest build() {
-      com.subscriptionmanager.v1.proto.AddSubscriptionRequest result = buildPartial();
+    public com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest build() {
+      com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -374,10 +409,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.AddSubscriptionRequest buildPartial() {
-      com.subscriptionmanager.v1.proto.AddSubscriptionRequest result = new com.subscriptionmanager.v1.proto.AddSubscriptionRequest(this);
+    public com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest buildPartial() {
+      com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest result = new com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest(this);
       result.parent_ = parent_;
-      result.name_ = name_;
+      result.pageSize_ = pageSize_;
+      result.pageToken_ = pageToken_;
       onBuilt();
       return result;
     }
@@ -416,22 +452,25 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.subscriptionmanager.v1.proto.AddSubscriptionRequest) {
-        return mergeFrom((com.subscriptionmanager.v1.proto.AddSubscriptionRequest)other);
+      if (other instanceof com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest) {
+        return mergeFrom((com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.subscriptionmanager.v1.proto.AddSubscriptionRequest other) {
-      if (other == com.subscriptionmanager.v1.proto.AddSubscriptionRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest other) {
+      if (other == com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
         onChanged();
       }
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
+      if (other.getPageSize() != 0) {
+        setPageSize(other.getPageSize());
+      }
+      if (!other.getPageToken().isEmpty()) {
+        pageToken_ = other.pageToken_;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -465,11 +504,16 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 10
-            case 18: {
-              name_ = input.readStringRequireUtf8();
+            case 16: {
+              pageSize_ = input.readInt32();
 
               break;
-            } // case 18
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -587,23 +631,77 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private int pageSize_ ;
     /**
      * <pre>
-     *The id of subscription which needs to be added
-     * Format: subscription/{subscriptionId}
+     * The maximum number of subscription to return. The service may return fewer than
+     * this value.
+     * If unspecified, at most 50 books will be returned.
+     * The maximum value is 1000; values above 1000 will be coerced to 1000.
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The name.
+     * <code>int32 page_size = 2;</code>
+     * @return The pageSize.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
+    @java.lang.Override
+    public int getPageSize() {
+      return pageSize_;
+    }
+    /**
+     * <pre>
+     * The maximum number of subscription to return. The service may return fewer than
+     * this value.
+     * If unspecified, at most 50 books will be returned.
+     * The maximum value is 1000; values above 1000 will be coerced to 1000.
+     * </pre>
+     *
+     * <code>int32 page_size = 2;</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageSize(int value) {
+      
+      pageSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The maximum number of subscription to return. The service may return fewer than
+     * this value.
+     * If unspecified, at most 50 books will be returned.
+     * The maximum value is 1000; values above 1000 will be coerced to 1000.
+     * </pre>
+     *
+     * <code>int32 page_size = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageSize() {
+      
+      pageSize_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object pageToken_ = "";
+    /**
+     * <pre>
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
+     * </pre>
+     *
+     * <code>string page_token = 3;</code>
+     * @return The pageToken.
+     */
+    public java.lang.String getPageToken() {
+      java.lang.Object ref = pageToken_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        name_ = s;
+        pageToken_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -611,21 +709,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
-     * Format: subscription/{subscriptionId}
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for name.
+     * <code>string page_token = 3;</code>
+     * @return The bytes for pageToken.
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
+        getPageTokenBytes() {
+      java.lang.Object ref = pageToken_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        name_ = b;
+        pageToken_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -633,57 +733,63 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
-     * Format: subscription/{subscriptionId}
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The name to set.
+     * <code>string page_token = 3;</code>
+     * @param value The pageToken to set.
      * @return This builder for chaining.
      */
-    public Builder setName(
+    public Builder setPageToken(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      name_ = value;
+      pageToken_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
-     * Format: subscription/{subscriptionId}
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string page_token = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearName() {
+    public Builder clearPageToken() {
       
-      name_ = getDefaultInstance().getName();
+      pageToken_ = getDefaultInstance().getPageToken();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
-     * Format: subscription/{subscriptionId}
+     * A page token, received from a previous `ListSubscriptions` call.
+     * Provide this to retrieve the subsequent page.
+     * When paginating, all other parameters provided to `ListSubscriptions` must match
+     * the call that provided the page token.
      * </pre>
      *
-     * <code>string name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for name to set.
+     * <code>string page_token = 3;</code>
+     * @param value The bytes for pageToken to set.
      * @return This builder for chaining.
      */
-    public Builder setNameBytes(
+    public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      name_ = value;
+      pageToken_ = value;
       onChanged();
       return this;
     }
@@ -700,23 +806,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:subscriptionmanager.v1.proto.AddSubscriptionRequest)
+    // @@protoc_insertion_point(builder_scope:subscriptionmanager.v1.proto.ListUserSubscriptionsRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:subscriptionmanager.v1.proto.AddSubscriptionRequest)
-  private static final com.subscriptionmanager.v1.proto.AddSubscriptionRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:subscriptionmanager.v1.proto.ListUserSubscriptionsRequest)
+  private static final com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.subscriptionmanager.v1.proto.AddSubscriptionRequest();
+    DEFAULT_INSTANCE = new com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest();
   }
 
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest getDefaultInstance() {
+  public static com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AddSubscriptionRequest>
-      PARSER = new com.google.protobuf.AbstractParser<AddSubscriptionRequest>() {
+  private static final com.google.protobuf.Parser<ListUserSubscriptionsRequest>
+      PARSER = new com.google.protobuf.AbstractParser<ListUserSubscriptionsRequest>() {
     @java.lang.Override
-    public AddSubscriptionRequest parsePartialFrom(
+    public ListUserSubscriptionsRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -735,17 +841,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<AddSubscriptionRequest> parser() {
+  public static com.google.protobuf.Parser<ListUserSubscriptionsRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AddSubscriptionRequest> getParserForType() {
+  public com.google.protobuf.Parser<ListUserSubscriptionsRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.subscriptionmanager.v1.proto.AddSubscriptionRequest getDefaultInstanceForType() {
+  public com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

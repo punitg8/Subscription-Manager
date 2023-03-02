@@ -3,8 +3,8 @@
 
 package com.subscriptionmanager.v1.proto;
 
-public interface SubscriptionOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:subscriptionmanager.v1.proto.Subscription)
+public interface UserSubscriptionOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:subscriptionmanager.v1.proto.UserSubscription)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -51,21 +51,28 @@ public interface SubscriptionOrBuilder extends
 
   /**
    * <pre>
-   *The price of the subscription
+   *expiry date
    * </pre>
    *
-   * <code>int32 price = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The price.
+   * <code>.google.type.Date expiry_date = 3;</code>
+   * @return Whether the expiryDate field is set.
    */
-  int getPrice();
-
+  boolean hasExpiryDate();
   /**
    * <pre>
-   *The validity of the subscription in no of days
+   *expiry date
    * </pre>
    *
-   * <code>int32 validity = 4 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The validity.
+   * <code>.google.type.Date expiry_date = 3;</code>
+   * @return The expiryDate.
    */
-  int getValidity();
+  com.google.type.Date getExpiryDate();
+  /**
+   * <pre>
+   *expiry date
+   * </pre>
+   *
+   * <code>.google.type.Date expiry_date = 3;</code>
+   */
+  com.google.type.DateOrBuilder getExpiryDateOrBuilder();
 }

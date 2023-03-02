@@ -3,8 +3,8 @@
 
 package com.subscriptionmanager.v1.proto;
 
-public interface AddSubscriptionRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:subscriptionmanager.v1.proto.AddSubscriptionRequest)
+public interface AddUserSubscriptionRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:subscriptionmanager.v1.proto.AddUserSubscriptionRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

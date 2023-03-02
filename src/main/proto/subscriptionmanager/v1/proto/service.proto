@@ -20,7 +20,7 @@ service AuthenticationService{
   //Request for creation of new user
   rpc createUser(CreateUserRequest) returns (User){
     option(google.api.http) = {
-      post: "/v1/user:create"
+      post: "/v1/users:create"
       body: "user"
     };
     option (google.api.method_signature) = "user";
@@ -32,7 +32,7 @@ service NewsService{
   //Request for creation of new news
   rpc createNews(CreateNewsRequest) returns (News){
     option (google.api.http) = {
-      post: "/v1/{parent=genre/*}/news:create"
+      post: "/v1/{parent=genres/*}/news:create"
       body: "news"
     };
     option (google.api.method_signature) = "parent,news";
@@ -44,7 +44,7 @@ service GenreService{
   //Request for creation of new genre
   rpc createGenre(CreateGenreRequest) returns (Genre){
     option (google.api.http) = {
-      post: "/v1/{parent=subscription/*}/genre:create"
+      post: "/v1/{parent=subscriptions/*}/genre:create"
       body: "genre"
     };
     option (google.api.method_signature) = "parent,genre";
@@ -56,7 +56,7 @@ service SubscriptionService{
   //Request for creation of new subscription
   rpc createSubscription(CreateSubscriptionRequest) returns (Subscription){
     option(google.api.http) = {
-      post: "/v1/subscription:create"
+      post: "/v1/subscriptions:create"
       body: "subscription"
     };
     option (google.api.method_signature) = "subscription";
@@ -66,35 +66,35 @@ service SubscriptionService{
 //Service for user related functionalities
 service UserService{
   //Request to list a subscription from user
-  rpc ListSubscriptions(ListSubscriptionsRequest) returns (ListSubscriptionsResponse){
+  rpc ListUserSubscriptions(ListUserSubscriptionsRequest) returns (ListUserSubscriptionsResponse){
     option(google.api.http) = {
-      get: "/v1/{parent=user/*}/subscriptions"
+      get: "/v1/{parent=users/*}/subscriptions"
     };
     option (google.api.method_signature) = "parent";
   };
 
   //Request to add a subscription from user
-  rpc AddSubscription(AddSubscriptionRequest) returns (AddSubscriptionResponse){
+  rpc AddUserSubscription(AddUserSubscriptionRequest) returns (AddUserSubscriptionResponse){
     option(google.api.http) = {
-      post: "/v1/{parent=user/*}/subscription:add"
+      post: "/v1/{parent=users/*}/subscriptions:add"
       body: "*"
     };
     option (google.api.method_signature) = "parent,name";
   };
 
   //Request to renew a subscription from user
-  rpc RenewSubscription(RenewSubscriptionRequest) returns (RenewSubscriptionResponse){
+  rpc RenewUserSubscription(RenewUserSubscriptionRequest) returns (RenewUserSubscriptionResponse){
     option(google.api.http) = {
-      patch: "/v1/{parent=user/*}/subscription:renew"
+      patch: "/v1/{parent=users/*}/subscriptions:renew"
       body: "*"
     };
     option (google.api.method_signature) = "parent,name";
   };
 
   //Request to remove a subscription from user
-  rpc RemoveSubscription(RemoveSubscriptionRequest) returns (RemoveSubscriptionResponse){
+  rpc RemoveUserSubscription(RemoveUserSubscriptionRequest) returns (RemoveUserSubscriptionResponse){
     option(google.api.http) = {
-      delete: "/v1/{name=user/*/subscription/*}"
+      delete: "/v1/{name=users/*/subscriptions/*}"
     };
     option (google.api.method_signature) = "name";
   };

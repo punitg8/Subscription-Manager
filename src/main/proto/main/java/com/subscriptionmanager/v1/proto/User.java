@@ -202,6 +202,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    *The unique identification id of the user
+   *Format user/{userId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -223,6 +224,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    *The unique identification id of the user
+   *Format user/{userId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -818,6 +820,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the user
+     *Format user/{userId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -838,6 +841,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the user
+     *Format user/{userId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -859,6 +863,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the user
+     *Format user/{userId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -878,6 +883,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the user
+     *Format user/{userId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -892,6 +898,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the user
+     *Format user/{userId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

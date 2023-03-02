@@ -5,21 +5,21 @@ package com.subscriptionmanager.v1.proto;
 
 /**
  * <pre>
- *Request to add subscription to user
+ *Request to renew subscription of user
  * </pre>
  *
- * Protobuf type {@code subscriptionmanager.v1.proto.AddSubscriptionRequest}
+ * Protobuf type {@code subscriptionmanager.v1.proto.RenewUserSubscriptionRequest}
  */
-public final class AddSubscriptionRequest extends
+public final class RenewUserSubscriptionRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:subscriptionmanager.v1.proto.AddSubscriptionRequest)
-    AddSubscriptionRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)
+    RenewUserSubscriptionRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AddSubscriptionRequest.newBuilder() to construct.
-  private AddSubscriptionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use RenewUserSubscriptionRequest.newBuilder() to construct.
+  private RenewUserSubscriptionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AddSubscriptionRequest() {
+  private RenewUserSubscriptionRequest() {
     parent_ = "";
     name_ = "";
   }
@@ -28,7 +28,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new AddSubscriptionRequest();
+    return new RenewUserSubscriptionRequest();
   }
 
   @java.lang.Override
@@ -38,15 +38,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_fieldAccessorTable
+    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.subscriptionmanager.v1.proto.AddSubscriptionRequest.class, com.subscriptionmanager.v1.proto.AddSubscriptionRequest.Builder.class);
+            com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.class, com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.Builder.class);
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
@@ -101,7 +101,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   *The id of subscription which needs to be added
+   *The id of subscription which needs to be renewed
    * Format: subscription/{subscriptionId}
    * </pre>
    *
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *The id of subscription which needs to be added
+   *The id of subscription which needs to be renewed
    * Format: subscription/{subscriptionId}
    * </pre>
    *
@@ -190,10 +190,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.subscriptionmanager.v1.proto.AddSubscriptionRequest)) {
+    if (!(obj instanceof com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)) {
       return super.equals(obj);
     }
-    com.subscriptionmanager.v1.proto.AddSubscriptionRequest other = (com.subscriptionmanager.v1.proto.AddSubscriptionRequest) obj;
+    com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest other = (com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest) obj;
 
     if (!getParent()
         .equals(other.getParent())) return false;
@@ -219,69 +219,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(byte[] data)
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(java.io.InputStream input)
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseDelimitedFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest parseFrom(
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -294,7 +294,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.subscriptionmanager.v1.proto.AddSubscriptionRequest prototype) {
+  public static Builder newBuilder(com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -311,29 +311,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *Request to add subscription to user
+   *Request to renew subscription of user
    * </pre>
    *
-   * Protobuf type {@code subscriptionmanager.v1.proto.AddSubscriptionRequest}
+   * Protobuf type {@code subscriptionmanager.v1.proto.RenewUserSubscriptionRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:subscriptionmanager.v1.proto.AddSubscriptionRequest)
-      com.subscriptionmanager.v1.proto.AddSubscriptionRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)
+      com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_fieldAccessorTable
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.subscriptionmanager.v1.proto.AddSubscriptionRequest.class, com.subscriptionmanager.v1.proto.AddSubscriptionRequest.Builder.class);
+              com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.class, com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.Builder.class);
     }
 
-    // Construct using com.subscriptionmanager.v1.proto.AddSubscriptionRequest.newBuilder()
+    // Construct using com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.newBuilder()
     private Builder() {
 
     }
@@ -356,17 +356,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_AddSubscriptionRequest_descriptor;
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_RenewUserSubscriptionRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.AddSubscriptionRequest getDefaultInstanceForType() {
-      return com.subscriptionmanager.v1.proto.AddSubscriptionRequest.getDefaultInstance();
+    public com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest getDefaultInstanceForType() {
+      return com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.AddSubscriptionRequest build() {
-      com.subscriptionmanager.v1.proto.AddSubscriptionRequest result = buildPartial();
+    public com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest build() {
+      com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -374,8 +374,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.AddSubscriptionRequest buildPartial() {
-      com.subscriptionmanager.v1.proto.AddSubscriptionRequest result = new com.subscriptionmanager.v1.proto.AddSubscriptionRequest(this);
+    public com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest buildPartial() {
+      com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest result = new com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest(this);
       result.parent_ = parent_;
       result.name_ = name_;
       onBuilt();
@@ -416,16 +416,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.subscriptionmanager.v1.proto.AddSubscriptionRequest) {
-        return mergeFrom((com.subscriptionmanager.v1.proto.AddSubscriptionRequest)other);
+      if (other instanceof com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest) {
+        return mergeFrom((com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.subscriptionmanager.v1.proto.AddSubscriptionRequest other) {
-      if (other == com.subscriptionmanager.v1.proto.AddSubscriptionRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest other) {
+      if (other == com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
         onChanged();
@@ -590,7 +590,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     *The id of subscription which needs to be added
+     *The id of subscription which needs to be renewed
      * Format: subscription/{subscriptionId}
      * </pre>
      *
@@ -611,7 +611,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
+     *The id of subscription which needs to be renewed
      * Format: subscription/{subscriptionId}
      * </pre>
      *
@@ -633,7 +633,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
+     *The id of subscription which needs to be renewed
      * Format: subscription/{subscriptionId}
      * </pre>
      *
@@ -653,7 +653,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
+     *The id of subscription which needs to be renewed
      * Format: subscription/{subscriptionId}
      * </pre>
      *
@@ -668,7 +668,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of subscription which needs to be added
+     *The id of subscription which needs to be renewed
      * Format: subscription/{subscriptionId}
      * </pre>
      *
@@ -700,23 +700,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:subscriptionmanager.v1.proto.AddSubscriptionRequest)
+    // @@protoc_insertion_point(builder_scope:subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:subscriptionmanager.v1.proto.AddSubscriptionRequest)
-  private static final com.subscriptionmanager.v1.proto.AddSubscriptionRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:subscriptionmanager.v1.proto.RenewUserSubscriptionRequest)
+  private static final com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.subscriptionmanager.v1.proto.AddSubscriptionRequest();
+    DEFAULT_INSTANCE = new com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest();
   }
 
-  public static com.subscriptionmanager.v1.proto.AddSubscriptionRequest getDefaultInstance() {
+  public static com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AddSubscriptionRequest>
-      PARSER = new com.google.protobuf.AbstractParser<AddSubscriptionRequest>() {
+  private static final com.google.protobuf.Parser<RenewUserSubscriptionRequest>
+      PARSER = new com.google.protobuf.AbstractParser<RenewUserSubscriptionRequest>() {
     @java.lang.Override
-    public AddSubscriptionRequest parsePartialFrom(
+    public RenewUserSubscriptionRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -735,17 +735,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<AddSubscriptionRequest> parser() {
+  public static com.google.protobuf.Parser<RenewUserSubscriptionRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AddSubscriptionRequest> getParserForType() {
+  public com.google.protobuf.Parser<RenewUserSubscriptionRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.subscriptionmanager.v1.proto.AddSubscriptionRequest getDefaultInstanceForType() {
+  public com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -54,6 +54,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    *The unique identification id of the genre
+   *Format genre/{genreId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -75,6 +76,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    *The unique identification id of the genre
+   *Format genre/{genreId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -486,6 +488,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the genre
+     *Format genre/{genreId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -506,6 +509,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the genre
+     *Format genre/{genreId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -527,6 +531,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the genre
+     *Format genre/{genreId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -546,6 +551,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the genre
+     *Format genre/{genreId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -560,6 +566,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      *The unique identification id of the genre
+     *Format genre/{genreId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

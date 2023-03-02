@@ -10,6 +10,7 @@ public interface NewsOrBuilder extends
   /**
    * <pre>
    *The unique identification id of a news
+   *Format news/{newsId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -19,6 +20,7 @@ public interface NewsOrBuilder extends
   /**
    * <pre>
    *The unique identification id of a news
+   *Format news/{newsId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

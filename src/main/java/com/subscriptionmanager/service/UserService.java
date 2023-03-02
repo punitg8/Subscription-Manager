@@ -1,22 +1,22 @@
 package com.subscriptionmanager.service;
 
-import com.subscriptionmanager.v1.proto.AddSubscriptionRequest;
-import com.subscriptionmanager.v1.proto.AddSubscriptionResponse;
-import com.subscriptionmanager.v1.proto.ListSubscriptionsRequest;
-import com.subscriptionmanager.v1.proto.ListSubscriptionsResponse;
-import com.subscriptionmanager.v1.proto.RemoveSubscriptionRequest;
-import com.subscriptionmanager.v1.proto.RemoveSubscriptionResponse;
-import com.subscriptionmanager.v1.proto.RenewSubscriptionRequest;
-import com.subscriptionmanager.v1.proto.RenewSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest;
+import com.subscriptionmanager.v1.proto.ListUserSubscriptionsResponse;
+import com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse;
+import com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest;
+import com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse;
 
 public interface UserService {
 
-  ListSubscriptionsResponse listSubscriptions(ListSubscriptionsRequest request);
+  ListUserSubscriptionsResponse listUserSubscriptions(ListUserSubscriptionsRequest request);
 
-  AddSubscriptionResponse addSubscription(AddSubscriptionRequest request);
+  AddUserSubscriptionResponse addUserSubscription(AddUserSubscriptionRequest request);
 
-  RenewSubscriptionResponse renewSubscription(RenewSubscriptionRequest request);
+  RenewUserSubscriptionResponse renewUserSubscription(RenewUserSubscriptionRequest request);
 
-  RemoveSubscriptionResponse removeSubscription(RemoveSubscriptionRequest request);
+  RemoveUserSubscriptionResponse removeUserSubscription(RemoveUserSubscriptionRequest request);
 
 }

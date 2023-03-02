@@ -4,32 +4,27 @@
 package com.subscriptionmanager.v1.proto;
 
 /**
- * <pre>
- *A representation of news
- * </pre>
- *
- * Protobuf type {@code subscriptionmanager.v1.proto.News}
+ * Protobuf type {@code subscriptionmanager.v1.proto.UserSubscription}
  */
-public final class News extends
+public final class UserSubscription extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:subscriptionmanager.v1.proto.News)
-    NewsOrBuilder {
+    // @@protoc_insertion_point(message_implements:subscriptionmanager.v1.proto.UserSubscription)
+    UserSubscriptionOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use News.newBuilder() to construct.
-  private News(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use UserSubscription.newBuilder() to construct.
+  private UserSubscription(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private News() {
+  private UserSubscription() {
     name_ = "";
-    title_ = "";
-    description_ = "";
+    displayName_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new News();
+    return new UserSubscription();
   }
 
   @java.lang.Override
@@ -39,23 +34,23 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_News_descriptor;
+    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_UserSubscription_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_News_fieldAccessorTable
+    return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_UserSubscription_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.subscriptionmanager.v1.proto.News.class, com.subscriptionmanager.v1.proto.News.Builder.class);
+            com.subscriptionmanager.v1.proto.UserSubscription.class, com.subscriptionmanager.v1.proto.UserSubscription.Builder.class);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
    * <pre>
-   *The unique identification id of a news
-   *Format news/{newsId}
+   *The unique identification id of the subscription
+   *Format subscription/{subscriptionId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -76,8 +71,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *The unique identification id of a news
-   *Format news/{newsId}
+   *The unique identification id of the subscription
+   *Format subscription/{subscriptionId}
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -98,96 +93,88 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object title_;
+  public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object displayName_;
   /**
    * <pre>
-   *The title of the news
+   *The name of the subscription which would be displayed
    * </pre>
    *
-   * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The title.
+   * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The displayName.
    */
   @java.lang.Override
-  public java.lang.String getTitle() {
-    java.lang.Object ref = title_;
+  public java.lang.String getDisplayName() {
+    java.lang.Object ref = displayName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      title_ = s;
+      displayName_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   *The title of the news
+   *The name of the subscription which would be displayed
    * </pre>
    *
-   * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for title.
+   * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bytes for displayName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getTitleBytes() {
-    java.lang.Object ref = title_;
+      getDisplayNameBytes() {
+    java.lang.Object ref = displayName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      title_ = b;
+      displayName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  public static final int EXPIRY_DATE_FIELD_NUMBER = 3;
+  private com.google.type.Date expiryDate_;
   /**
    * <pre>
-   *The description of the news
+   *expiry date
    * </pre>
    *
-   * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The description.
+   * <code>.google.type.Date expiry_date = 3;</code>
+   * @return Whether the expiryDate field is set.
    */
   @java.lang.Override
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      description_ = s;
-      return s;
-    }
+  public boolean hasExpiryDate() {
+    return expiryDate_ != null;
   }
   /**
    * <pre>
-   *The description of the news
+   *expiry date
    * </pre>
    *
-   * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for description.
+   * <code>.google.type.Date expiry_date = 3;</code>
+   * @return The expiryDate.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDescriptionBytes() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      description_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.type.Date getExpiryDate() {
+    return expiryDate_ == null ? com.google.type.Date.getDefaultInstance() : expiryDate_;
+  }
+  /**
+   * <pre>
+   *expiry date
+   * </pre>
+   *
+   * <code>.google.type.Date expiry_date = 3;</code>
+   */
+  @java.lang.Override
+  public com.google.type.DateOrBuilder getExpiryDateOrBuilder() {
+    return getExpiryDate();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -207,11 +194,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+    if (expiryDate_ != null) {
+      output.writeMessage(3, getExpiryDate());
     }
     getUnknownFields().writeTo(output);
   }
@@ -225,11 +212,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+    if (expiryDate_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getExpiryDate());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -241,17 +229,20 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.subscriptionmanager.v1.proto.News)) {
+    if (!(obj instanceof com.subscriptionmanager.v1.proto.UserSubscription)) {
       return super.equals(obj);
     }
-    com.subscriptionmanager.v1.proto.News other = (com.subscriptionmanager.v1.proto.News) obj;
+    com.subscriptionmanager.v1.proto.UserSubscription other = (com.subscriptionmanager.v1.proto.UserSubscription) obj;
 
     if (!getName()
         .equals(other.getName())) return false;
-    if (!getTitle()
-        .equals(other.getTitle())) return false;
-    if (!getDescription()
-        .equals(other.getDescription())) return false;
+    if (!getDisplayName()
+        .equals(other.getDisplayName())) return false;
+    if (hasExpiryDate() != other.hasExpiryDate()) return false;
+    if (hasExpiryDate()) {
+      if (!getExpiryDate()
+          .equals(other.getExpiryDate())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -265,78 +256,80 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + TITLE_FIELD_NUMBER;
-    hash = (53 * hash) + getTitle().hashCode();
-    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-    hash = (53 * hash) + getDescription().hashCode();
+    hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getDisplayName().hashCode();
+    if (hasExpiryDate()) {
+      hash = (37 * hash) + EXPIRY_DATE_FIELD_NUMBER;
+      hash = (53 * hash) + getExpiryDate().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(byte[] data)
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(java.io.InputStream input)
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.News parseDelimitedFrom(java.io.InputStream input)
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.News parseDelimitedFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.subscriptionmanager.v1.proto.News parseFrom(
+  public static com.subscriptionmanager.v1.proto.UserSubscription parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -349,7 +342,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.subscriptionmanager.v1.proto.News prototype) {
+  public static Builder newBuilder(com.subscriptionmanager.v1.proto.UserSubscription prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -365,30 +358,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   *A representation of news
-   * </pre>
-   *
-   * Protobuf type {@code subscriptionmanager.v1.proto.News}
+   * Protobuf type {@code subscriptionmanager.v1.proto.UserSubscription}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:subscriptionmanager.v1.proto.News)
-      com.subscriptionmanager.v1.proto.NewsOrBuilder {
+      // @@protoc_insertion_point(builder_implements:subscriptionmanager.v1.proto.UserSubscription)
+      com.subscriptionmanager.v1.proto.UserSubscriptionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_News_descriptor;
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_UserSubscription_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_News_fieldAccessorTable
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_UserSubscription_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.subscriptionmanager.v1.proto.News.class, com.subscriptionmanager.v1.proto.News.Builder.class);
+              com.subscriptionmanager.v1.proto.UserSubscription.class, com.subscriptionmanager.v1.proto.UserSubscription.Builder.class);
     }
 
-    // Construct using com.subscriptionmanager.v1.proto.News.newBuilder()
+    // Construct using com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()
     private Builder() {
 
     }
@@ -403,27 +392,31 @@ private static final long serialVersionUID = 0L;
       super.clear();
       name_ = "";
 
-      title_ = "";
+      displayName_ = "";
 
-      description_ = "";
-
+      if (expiryDateBuilder_ == null) {
+        expiryDate_ = null;
+      } else {
+        expiryDate_ = null;
+        expiryDateBuilder_ = null;
+      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_News_descriptor;
+      return com.subscriptionmanager.v1.proto.MessageProto.internal_static_subscriptionmanager_v1_proto_UserSubscription_descriptor;
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.News getDefaultInstanceForType() {
-      return com.subscriptionmanager.v1.proto.News.getDefaultInstance();
+    public com.subscriptionmanager.v1.proto.UserSubscription getDefaultInstanceForType() {
+      return com.subscriptionmanager.v1.proto.UserSubscription.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.News build() {
-      com.subscriptionmanager.v1.proto.News result = buildPartial();
+    public com.subscriptionmanager.v1.proto.UserSubscription build() {
+      com.subscriptionmanager.v1.proto.UserSubscription result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -431,11 +424,15 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.subscriptionmanager.v1.proto.News buildPartial() {
-      com.subscriptionmanager.v1.proto.News result = new com.subscriptionmanager.v1.proto.News(this);
+    public com.subscriptionmanager.v1.proto.UserSubscription buildPartial() {
+      com.subscriptionmanager.v1.proto.UserSubscription result = new com.subscriptionmanager.v1.proto.UserSubscription(this);
       result.name_ = name_;
-      result.title_ = title_;
-      result.description_ = description_;
+      result.displayName_ = displayName_;
+      if (expiryDateBuilder_ == null) {
+        result.expiryDate_ = expiryDate_;
+      } else {
+        result.expiryDate_ = expiryDateBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -474,27 +471,26 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.subscriptionmanager.v1.proto.News) {
-        return mergeFrom((com.subscriptionmanager.v1.proto.News)other);
+      if (other instanceof com.subscriptionmanager.v1.proto.UserSubscription) {
+        return mergeFrom((com.subscriptionmanager.v1.proto.UserSubscription)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.subscriptionmanager.v1.proto.News other) {
-      if (other == com.subscriptionmanager.v1.proto.News.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.subscriptionmanager.v1.proto.UserSubscription other) {
+      if (other == com.subscriptionmanager.v1.proto.UserSubscription.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
       }
-      if (!other.getTitle().isEmpty()) {
-        title_ = other.title_;
+      if (!other.getDisplayName().isEmpty()) {
+        displayName_ = other.displayName_;
         onChanged();
       }
-      if (!other.getDescription().isEmpty()) {
-        description_ = other.description_;
-        onChanged();
+      if (other.hasExpiryDate()) {
+        mergeExpiryDate(other.getExpiryDate());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -528,12 +524,14 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              title_ = input.readStringRequireUtf8();
+              displayName_ = input.readStringRequireUtf8();
 
               break;
             } // case 18
             case 26: {
-              description_ = input.readStringRequireUtf8();
+              input.readMessage(
+                  getExpiryDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
 
               break;
             } // case 26
@@ -556,8 +554,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     *The unique identification id of a news
-     *Format news/{newsId}
+     *The unique identification id of the subscription
+     *Format subscription/{subscriptionId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -577,8 +575,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The unique identification id of a news
-     *Format news/{newsId}
+     *The unique identification id of the subscription
+     *Format subscription/{subscriptionId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -599,8 +597,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The unique identification id of a news
-     *Format news/{newsId}
+     *The unique identification id of the subscription
+     *Format subscription/{subscriptionId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -619,8 +617,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The unique identification id of a news
-     *Format news/{newsId}
+     *The unique identification id of the subscription
+     *Format subscription/{subscriptionId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -634,8 +632,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The unique identification id of a news
-     *Format news/{newsId}
+     *The unique identification id of the subscription
+     *Format subscription/{subscriptionId}
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -654,22 +652,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object title_ = "";
+    private java.lang.Object displayName_ = "";
     /**
      * <pre>
-     *The title of the news
+     *The name of the subscription which would be displayed
      * </pre>
      *
-     * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The title.
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The displayName.
      */
-    public java.lang.String getTitle() {
-      java.lang.Object ref = title_;
+    public java.lang.String getDisplayName() {
+      java.lang.Object ref = displayName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        title_ = s;
+        displayName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -677,20 +675,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The title of the news
+     *The name of the subscription which would be displayed
      * </pre>
      *
-     * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for title.
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for displayName.
      */
     public com.google.protobuf.ByteString
-        getTitleBytes() {
-      java.lang.Object ref = title_;
+        getDisplayNameBytes() {
+      java.lang.Object ref = displayName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        title_ = b;
+        displayName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -698,152 +696,211 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The title of the news
+     *The name of the subscription which would be displayed
      * </pre>
      *
-     * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The title to set.
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The displayName to set.
      * @return This builder for chaining.
      */
-    public Builder setTitle(
+    public Builder setDisplayName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      title_ = value;
+      displayName_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *The title of the news
+     *The name of the subscription which would be displayed
      * </pre>
      *
-     * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
-    public Builder clearTitle() {
+    public Builder clearDisplayName() {
       
-      title_ = getDefaultInstance().getTitle();
+      displayName_ = getDefaultInstance().getDisplayName();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     *The title of the news
+     *The name of the subscription which would be displayed
      * </pre>
      *
-     * <code>string title = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for title to set.
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The bytes for displayName to set.
      * @return This builder for chaining.
      */
-    public Builder setTitleBytes(
+    public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      title_ = value;
+      displayName_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object description_ = "";
+    private com.google.type.Date expiryDate_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> expiryDateBuilder_;
     /**
      * <pre>
-     *The description of the news
+     *expiry date
      * </pre>
      *
-     * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The description.
+     * <code>.google.type.Date expiry_date = 3;</code>
+     * @return Whether the expiryDate field is set.
      */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
+    public boolean hasExpiryDate() {
+      return expiryDateBuilder_ != null || expiryDate_ != null;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 3;</code>
+     * @return The expiryDate.
+     */
+    public com.google.type.Date getExpiryDate() {
+      if (expiryDateBuilder_ == null) {
+        return expiryDate_ == null ? com.google.type.Date.getDefaultInstance() : expiryDate_;
       } else {
-        return (java.lang.String) ref;
+        return expiryDateBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     *The description of the news
+     *expiry date
      * </pre>
      *
-     * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for description.
+     * <code>.google.type.Date expiry_date = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
+    public Builder setExpiryDate(com.google.type.Date value) {
+      if (expiryDateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        expiryDate_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        expiryDateBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 3;</code>
+     */
+    public Builder setExpiryDate(
+        com.google.type.Date.Builder builderForValue) {
+      if (expiryDateBuilder_ == null) {
+        expiryDate_ = builderForValue.build();
+        onChanged();
+      } else {
+        expiryDateBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 3;</code>
+     */
+    public Builder mergeExpiryDate(com.google.type.Date value) {
+      if (expiryDateBuilder_ == null) {
+        if (expiryDate_ != null) {
+          expiryDate_ =
+            com.google.type.Date.newBuilder(expiryDate_).mergeFrom(value).buildPartial();
+        } else {
+          expiryDate_ = value;
+        }
+        onChanged();
+      } else {
+        expiryDateBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 3;</code>
+     */
+    public Builder clearExpiryDate() {
+      if (expiryDateBuilder_ == null) {
+        expiryDate_ = null;
+        onChanged();
+      } else {
+        expiryDate_ = null;
+        expiryDateBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 3;</code>
+     */
+    public com.google.type.Date.Builder getExpiryDateBuilder() {
+      
+      onChanged();
+      return getExpiryDateFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     *expiry date
+     * </pre>
+     *
+     * <code>.google.type.Date expiry_date = 3;</code>
+     */
+    public com.google.type.DateOrBuilder getExpiryDateOrBuilder() {
+      if (expiryDateBuilder_ != null) {
+        return expiryDateBuilder_.getMessageOrBuilder();
+      } else {
+        return expiryDate_ == null ?
+            com.google.type.Date.getDefaultInstance() : expiryDate_;
       }
     }
     /**
      * <pre>
-     *The description of the news
+     *expiry date
      * </pre>
      *
-     * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The description to set.
-     * @return This builder for chaining.
+     * <code>.google.type.Date expiry_date = 3;</code>
      */
-    public Builder setDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      description_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *The description of the news
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDescription() {
-      
-      description_ = getDefaultInstance().getDescription();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *The description of the news
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      description_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> 
+        getExpiryDateFieldBuilder() {
+      if (expiryDateBuilder_ == null) {
+        expiryDateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder>(
+                getExpiryDate(),
+                getParentForChildren(),
+                isClean());
+        expiryDate_ = null;
+      }
+      return expiryDateBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -858,23 +915,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:subscriptionmanager.v1.proto.News)
+    // @@protoc_insertion_point(builder_scope:subscriptionmanager.v1.proto.UserSubscription)
   }
 
-  // @@protoc_insertion_point(class_scope:subscriptionmanager.v1.proto.News)
-  private static final com.subscriptionmanager.v1.proto.News DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:subscriptionmanager.v1.proto.UserSubscription)
+  private static final com.subscriptionmanager.v1.proto.UserSubscription DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.subscriptionmanager.v1.proto.News();
+    DEFAULT_INSTANCE = new com.subscriptionmanager.v1.proto.UserSubscription();
   }
 
-  public static com.subscriptionmanager.v1.proto.News getDefaultInstance() {
+  public static com.subscriptionmanager.v1.proto.UserSubscription getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<News>
-      PARSER = new com.google.protobuf.AbstractParser<News>() {
+  private static final com.google.protobuf.Parser<UserSubscription>
+      PARSER = new com.google.protobuf.AbstractParser<UserSubscription>() {
     @java.lang.Override
-    public News parsePartialFrom(
+    public UserSubscription parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -893,17 +950,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<News> parser() {
+  public static com.google.protobuf.Parser<UserSubscription> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<News> getParserForType() {
+  public com.google.protobuf.Parser<UserSubscription> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.subscriptionmanager.v1.proto.News getDefaultInstanceForType() {
+  public com.subscriptionmanager.v1.proto.UserSubscription getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
