@@ -18,6 +18,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class UserTest {
 
   private static ManagedChannel channel;
@@ -47,22 +47,25 @@ public class UserTest {
   }
 
   User createUser() {
+    String randomUserName = "TEST::USER::" + UUID.randomUUID();
+    String randomUserEmailId = "TEST::EMAIL::" + UUID.randomUUID();
     return authenticationServiceStub.createUser(
         CreateUserRequest.newBuilder()
             .setUser(User.newBuilder()
-                .setDisplayName("Punit Gurnani")
+                .setDisplayName(randomUserName)
                 .setPassword("password")
                 .setRole(User.Role.ROLE_USER)
-                .setEmailId("punitgurnani008@gmail.com")
+                .setEmailId(randomUserEmailId)
             ).build()
     );
   }
 
   Subscription createSubscription() {
+    String randomSubscriptionName = "TEST::SUBSCRIPTION::" + UUID.randomUUID();
     return subscriptionServiceStub.createSubscription(
         CreateSubscriptionRequest.newBuilder()
             .setSubscription(Subscription.newBuilder()
-                .setDisplayName("Entertainment")
+                .setDisplayName(randomSubscriptionName)
                 .setPrice(100)
                 .setValidity(10)
             ).build()

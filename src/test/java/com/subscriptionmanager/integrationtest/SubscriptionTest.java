@@ -8,6 +8,7 @@ import com.subscriptionmanager.v1.proto.CreateSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.Subscription;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import java.util.UUID;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class SubscriptionTest {
 
   private static ManagedChannel channel;
@@ -32,16 +32,17 @@ public class SubscriptionTest {
   }
   @Test
   void testCreateSubscriptionHappyPath(){
+    String randomSubscriptionName = "TEST::SUBSCRIPTION::" + UUID.randomUUID();
     Subscription subscription = subscriptionServiceStub.createSubscription(
         CreateSubscriptionRequest.newBuilder()
             .setSubscription(Subscription.newBuilder()
-                .setDisplayName("Entertainment")
+                .setDisplayName(randomSubscriptionName)
                 .setPrice(100)
                 .setValidity(10)
             ).build()
     );
 
-    assertEquals("Entertainment",subscription.getDisplayName(),"Create Subscription Test");
+    assertEquals(randomSubscriptionName,subscription.getDisplayName(),"Create Subscription Test");
     assertNotNull(subscription.getName());
   }
 

@@ -11,6 +11,7 @@ import com.subscriptionmanager.v1.proto.Genre;
 import com.subscriptionmanager.v1.proto.Subscription;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import java.util.UUID;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class GenreTest {
 
   private static ManagedChannel channel;
@@ -38,27 +38,29 @@ public class GenreTest {
 
   @Test
   void testCreateGenreHappyPath(){
+    String randomSubscriptionName = "TEST::SUBSCRIPTION::" + UUID.randomUUID();
     Subscription subscription = subscriptionServiceStub.createSubscription(
         CreateSubscriptionRequest.newBuilder()
             .setSubscription(Subscription.newBuilder()
-                .setDisplayName("Entertainment")
+                .setDisplayName(randomSubscriptionName)
                 .setPrice(100)
                 .setValidity(10)
             ).build()
     );
 
+    String randomGenreName = "TEST::GENRE::" + UUID.randomUUID();
     Genre genre = genreServiceStub.createGenre(
         CreateGenreRequest.newBuilder()
             .setParent(subscription.getName())
             .setGenre(
                 Genre.newBuilder()
-                    .setDisplayName("Movie")
+                    .setDisplayName(randomGenreName)
                     .build()
             ).build()
     );
 
     assertNotNull(genre.getName());
-    assertEquals("Movie",genre.getDisplayName(),"Create genre");
+    assertEquals(randomGenreName,genre.getDisplayName(),"Create genre");
   }
 
   @AfterAll

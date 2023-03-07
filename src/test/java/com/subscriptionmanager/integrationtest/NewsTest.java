@@ -14,6 +14,7 @@ import com.subscriptionmanager.v1.proto.News;
 import com.subscriptionmanager.v1.proto.Subscription;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import java.util.UUID;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class NewsTest {
 
   private static ManagedChannel channel;
@@ -43,38 +43,41 @@ public class NewsTest {
 
   @Test
   void testCreateNewsHappyPath(){
+    String randomSubscriptionName = "TEST::SUBSCRIPTION::" + UUID.randomUUID();
     Subscription subscription = subscriptionServiceStub.createSubscription(
         CreateSubscriptionRequest.newBuilder()
             .setSubscription(Subscription.newBuilder()
-                .setDisplayName("Entertainment")
+                .setDisplayName(randomSubscriptionName)
                 .setPrice(100)
                 .setValidity(10)
             ).build()
     );
 
+    String randomGenreName = "TEST::GENRE::" + UUID.randomUUID();
     Genre genre = genreServiceStub.createGenre(
         CreateGenreRequest.newBuilder()
             .setParent(subscription.getName())
             .setGenre(
                 Genre.newBuilder()
-                    .setDisplayName("Movie")
+                    .setDisplayName(randomGenreName)
                     .build()
             ).build()
     );
 
+    String randomNewsTitle = "TEST::NEWS::" + UUID.randomUUID();
     News news = newsServiceStub.createNews(
         CreateNewsRequest.newBuilder()
             .setParent(genre.getName())
             .setNews(
                 News.newBuilder()
-                    .setTitle("Movie Actor")
-                    .setDescription("Movie Actor Info")
+                    .setTitle(randomNewsTitle)
+                    .setDescription("random info")
                     .build()
             ).build()
     );
 
     assertNotNull(news.getName());
-    assertEquals("Movie Actor",news.getTitle(),"Create news");
+    assertEquals(randomNewsTitle,news.getTitle(),"Create news");
   }
 
   @AfterAll
