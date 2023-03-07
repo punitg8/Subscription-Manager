@@ -16,12 +16,15 @@ import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+@Getter
+@Setter
 @NoArgsConstructor
-@Data
 @Builder
 @AllArgsConstructor
 @SQLDelete(sql = "UPDATE user SET deleted = true WHERE id=?")
