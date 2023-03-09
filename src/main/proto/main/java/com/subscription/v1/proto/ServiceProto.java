@@ -30,48 +30,47 @@ public final class ServiceProto {
       "to\032\031google/api/resource.proto\032\036google/pr" +
       "otobuf/duration.proto\032\033google/protobuf/e" +
       "mpty.proto\032*subscriptionmanager/v1/proto" +
-      "/message.proto2\242\001\n\025AuthenticationService" +
-      "\022\210\001\n\ncreateUser\022/.subscriptionmanager.v1" +
+      "/message.proto2\233\001\n\025AuthenticationService" +
+      "\022\201\001\n\ncreateUser\022/.subscriptionmanager.v1" +
       ".proto.CreateUserRequest\032\".subscriptionm" +
-      "anager.v1.proto.User\"%\202\323\344\223\002\030\"\020/v1/users:" +
-      "create:\004user\332A\004user2\260\001\n\013NewsService\022\240\001\n\n" +
-      "createNews\022/.subscriptionmanager.v1.prot" +
-      "o.CreateNewsRequest\032\".subscriptionmanage" +
-      "r.v1.proto.News\"=\202\323\344\223\002)\"!/v1/{parent=gen" +
-      "res/*}/news:create:\004news\332A\013parent,news2\276" +
-      "\001\n\014GenreService\022\255\001\n\013createGenre\0220.subscr" +
-      "iptionmanager.v1.proto.CreateGenreReques" +
-      "t\032#.subscriptionmanager.v1.proto.Genre\"G" +
-      "\202\323\344\223\0022\")/v1/{parent=subscriptions/*}/gen" +
-      "re:create:\005genre\332A\014parent,genre2\320\001\n\023Subs" +
-      "criptionService\022\270\001\n\022createSubscription\0227" +
-      ".subscriptionmanager.v1.proto.CreateSubs" +
-      "criptionRequest\032*.subscriptionmanager.v1" +
-      ".proto.Subscription\"=\202\323\344\223\002(\"\030/v1/subscri" +
-      "ptions:create:\014subscription\332A\014subscripti" +
-      "on2\316\006\n\027UserSubscriptionService\022\305\001\n\025ListU" +
-      "serSubscriptions\022:.subscriptionmanager.v" +
-      "1.proto.ListUserSubscriptionsRequest\032;.s" +
-      "ubscriptionmanager.v1.proto.ListUserSubs" +
-      "criptionsResponse\"3\202\323\344\223\002$\022\"/v1/{parent=u" +
-      "sers/*}/subscriptions\332A\006parent\022\313\001\n\023AddUs" +
-      "erSubscription\0228.subscriptionmanager.v1." +
-      "proto.AddUserSubscriptionRequest\0329.subsc" +
-      "riptionmanager.v1.proto.AddUserSubscript" +
-      "ionResponse\"?\202\323\344\223\002+\"&/v1/{parent=users/*" +
-      "}/subscriptions:add:\001*\332A\013parent,name\022\323\001\n" +
-      "\025RenewUserSubscription\022:.subscriptionman" +
-      "ager.v1.proto.RenewUserSubscriptionReque" +
-      "st\032;.subscriptionmanager.v1.proto.RenewU" +
-      "serSubscriptionResponse\"A\202\323\344\223\002-2(/v1/{pa" +
-      "rent=users/*}/subscriptions:renew:\001*\332A\013p" +
-      "arent,name\022\306\001\n\026RemoveUserSubscription\022;." +
-      "subscriptionmanager.v1.proto.RemoveUserS" +
-      "ubscriptionRequest\032<.subscriptionmanager" +
-      ".v1.proto.RemoveUserSubscriptionResponse" +
-      "\"1\202\323\344\223\002$*\"/v1/{name=users/*/subscription" +
-      "s/*}\332A\004nameB+\n\031com.subscription.v1.proto" +
-      "B\014ServiceProtoP\001b\006proto3"
+      "anager.v1.proto.User\"\036\202\323\344\223\002\021\"\t/v1/users:" +
+      "\004user\332A\004user2\251\001\n\013NewsService\022\231\001\n\ncreateN" +
+      "ews\022/.subscriptionmanager.v1.proto.Creat" +
+      "eNewsRequest\032\".subscriptionmanager.v1.pr" +
+      "oto.News\"6\202\323\344\223\002\"\"\032/v1/{parent=genres/*}/" +
+      "news:\004news\332A\013parent,news2\267\001\n\014GenreServic" +
+      "e\022\246\001\n\013createGenre\0220.subscriptionmanager." +
+      "v1.proto.CreateGenreRequest\032#.subscripti" +
+      "onmanager.v1.proto.Genre\"@\202\323\344\223\002+\"\"/v1/{p" +
+      "arent=subscriptions/*}/genre:\005genre\332A\014pa" +
+      "rent,genre2\311\001\n\023SubscriptionService\022\261\001\n\022c" +
+      "reateSubscription\0227.subscriptionmanager." +
+      "v1.proto.CreateSubscriptionRequest\032*.sub" +
+      "scriptionmanager.v1.proto.Subscription\"6" +
+      "\202\323\344\223\002!\"\021/v1/subscriptions:\014subscription\332" +
+      "A\014subscription2\316\006\n\027UserSubscriptionServi" +
+      "ce\022\305\001\n\025ListUserSubscriptions\022:.subscript" +
+      "ionmanager.v1.proto.ListUserSubscription" +
+      "sRequest\032;.subscriptionmanager.v1.proto." +
+      "ListUserSubscriptionsResponse\"3\202\323\344\223\002$\022\"/" +
+      "v1/{parent=users/*}/subscriptions\332A\006pare" +
+      "nt\022\313\001\n\023AddUserSubscription\0228.subscriptio" +
+      "nmanager.v1.proto.AddUserSubscriptionReq" +
+      "uest\0329.subscriptionmanager.v1.proto.AddU" +
+      "serSubscriptionResponse\"?\202\323\344\223\002+\"&/v1/{pa" +
+      "rent=users/*}/subscriptions:add:\001*\332A\013par" +
+      "ent,name\022\323\001\n\025RenewUserSubscription\022:.sub" +
+      "scriptionmanager.v1.proto.RenewUserSubsc" +
+      "riptionRequest\032;.subscriptionmanager.v1." +
+      "proto.RenewUserSubscriptionResponse\"A\202\323\344" +
+      "\223\002-2(/v1/{parent=users/*}/subscriptions:" +
+      "renew:\001*\332A\013parent,name\022\306\001\n\026RemoveUserSub" +
+      "scription\022;.subscriptionmanager.v1.proto" +
+      ".RemoveUserSubscriptionRequest\032<.subscri" +
+      "ptionmanager.v1.proto.RemoveUserSubscrip" +
+      "tionResponse\"1\202\323\344\223\002$*\"/v1/{name=users/*/" +
+      "subscriptions/*}\332A\004nameB+\n\031com.subscript" +
+      "ion.v1.protoB\014ServiceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

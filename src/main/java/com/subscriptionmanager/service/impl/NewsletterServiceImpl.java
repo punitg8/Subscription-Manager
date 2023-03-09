@@ -72,7 +72,7 @@ public class NewsletterServiceImpl implements NewsletterService {
     genreRepositoryService.findBySubscription(subscription)
         .forEach(genre ->
             newsList.addAll(
-                newsRepository.findByGenreOrderByCreateDateTimeDesc(genre,
+                newsRepository.findByGenreOrderByCreatedAtDesc(genre,
                     PageRequest.of(0, NEWS_LIMIT))));
 
     return newsList.stream()

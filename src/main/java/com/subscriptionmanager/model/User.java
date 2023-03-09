@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -15,11 +17,10 @@ import java.io.Serializable;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Where;
 
 @Getter
@@ -27,14 +28,19 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@SQLDelete(sql = "UPDATE user SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
+@Where(clause = "is_active=true")
 @Entity
 @Table(name = "user")
 public class User extends Audit implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 101;
+
+  @Id
+  @Column(name = "id", length = 36)
+  @GeneratedValue(generator = "uuid")
+  @GenericGenerator(name = "uuid", strategy = "uuid2")
+  private String id;
 
   @NotBlank
   @Column(name = "name")

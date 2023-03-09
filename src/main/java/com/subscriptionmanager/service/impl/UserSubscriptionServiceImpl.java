@@ -29,6 +29,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional
 @Service
+@Log4j2
 public class UserSubscriptionServiceImpl implements UserSubscriptionService {
 
   private final UserRepositoryService userRepositoryService;
@@ -191,8 +193,8 @@ public class UserSubscriptionServiceImpl implements UserSubscriptionService {
         );
 
     final LocalDate expiryDate = userSubscription.getExpiryDate().toLocalDate();
-
-    userSubscriptionRepository.delete(userSubscription);
+    log.info(userSubscription.getId());
+    userSubscriptionRepository.disable(userSubscription.getId());
 
     return RemoveUserSubscriptionResponse.newBuilder()
         .setUserSubscription(com.subscriptionmanager.v1.proto.UserSubscription.newBuilder()

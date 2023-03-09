@@ -157,6 +157,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .asRuntimeException()
       );
     } catch (Exception exception) {
+      exception.printStackTrace();
       log.error(exception.getMessage().concat(" for user subscription ").concat(request.getName()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(

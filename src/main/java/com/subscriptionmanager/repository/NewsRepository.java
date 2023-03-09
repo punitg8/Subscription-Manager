@@ -10,6 +10,6 @@ public interface NewsRepository extends JpaRepository<News, String> {
 
   List<News> findByGenre(Genre genre);
 
-  List<News> findByGenreOrderByCreateDateTimeDesc(Genre genre, Pageable pageable);
+  List<News> findByGenreOrderByCreatedAtDesc(Genre genre, Pageable pageable);
 
 }
