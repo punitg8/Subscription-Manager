@@ -1,9 +1,9 @@
 package com.subscriptionmanager.controllers;
 
-import com.subscription.v1.proto.UserServiceGrpc;
+import com.subscription.v1.proto.UserSubscriptionServiceGrpc;
 import com.subscriptionmanager.exception.InvalidArgumentException;
 import com.subscriptionmanager.exception.ResourceNotFoundException;
-import com.subscriptionmanager.service.UserService;
+import com.subscriptionmanager.service.UserSubscriptionService;
 import com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse;
 import com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest;
@@ -21,16 +21,16 @@ import org.lognet.springboot.grpc.GRpcService;
 @Log4j2
 @RequiredArgsConstructor
 @GRpcService
-public class UserController extends UserServiceGrpc.UserServiceImplBase {
+public class UserSubscriptionController extends UserSubscriptionServiceGrpc.UserSubscriptionServiceImplBase {
 
-  private final UserService userService;
+  private final UserSubscriptionService userSubscriptionService;
 
   @Override
   public void listUserSubscriptions(final ListUserSubscriptionsRequest request,
                                 final StreamObserver<ListUserSubscriptionsResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.listUserSubscriptions(request));
+      responseObserver.onNext(userSubscriptionService.listUserSubscriptions(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -50,10 +50,12 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for user ").concat(request.getParent()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for user ")
+                  .concat(request.getParent()))
           .asRuntimeException());
     }
   }
@@ -63,7 +65,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
                               final StreamObserver<AddUserSubscriptionResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.addUserSubscription(request));
+      responseObserver.onNext(userSubscriptionService.addUserSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -83,10 +85,12 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for user ").concat(request.getParent()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for user ")
+                  .concat(request.getParent()))
           .asRuntimeException());
     }
   }
@@ -96,7 +100,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
                                 final StreamObserver<RenewUserSubscriptionResponse> responseObserver) {
     try {
 
-      responseObserver.onNext(userService.renewUserSubscription(request));
+      responseObserver.onNext(userSubscriptionService.renewUserSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -116,10 +120,12 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for user ").concat(request.getParent()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for user ")
+                  .concat(request.getParent()))
           .asRuntimeException());
     }
   }
@@ -131,7 +137,7 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
 
     try {
 
-      responseObserver.onNext(userService.removeUserSubscription(request));
+      responseObserver.onNext(userSubscriptionService.removeUserSubscription(request));
       responseObserver.onCompleted();
 
     } catch (ResourceNotFoundException exception) {
@@ -151,10 +157,12 @@ public class UserController extends UserServiceGrpc.UserServiceImplBase {
               .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for user subscription ").concat(request.getName()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for user subscription ")
+                  .concat(request.getName()))
           .asRuntimeException());
     }
   }

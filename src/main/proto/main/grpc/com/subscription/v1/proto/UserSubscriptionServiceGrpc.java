@@ -11,11 +11,11 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
     value = "by gRPC proto compiler (version 1.52.1)",
     comments = "Source: subscriptionmanager/v1/proto/service.proto")
 @io.grpc.stub.annotations.GrpcGenerated
-public final class UserServiceGrpc {
+public final class UserSubscriptionServiceGrpc {
 
-  private UserServiceGrpc() {}
+  private UserSubscriptionServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "subscriptionmanager.v1.proto.UserService";
+  public static final String SERVICE_NAME = "subscriptionmanager.v1.proto.UserSubscriptionService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest,
@@ -29,10 +29,10 @@ public final class UserServiceGrpc {
   public static io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest,
       com.subscriptionmanager.v1.proto.ListUserSubscriptionsResponse> getListUserSubscriptionsMethod() {
     io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest, com.subscriptionmanager.v1.proto.ListUserSubscriptionsResponse> getListUserSubscriptionsMethod;
-    if ((getListUserSubscriptionsMethod = UserServiceGrpc.getListUserSubscriptionsMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getListUserSubscriptionsMethod = UserServiceGrpc.getListUserSubscriptionsMethod) == null) {
-          UserServiceGrpc.getListUserSubscriptionsMethod = getListUserSubscriptionsMethod =
+    if ((getListUserSubscriptionsMethod = UserSubscriptionServiceGrpc.getListUserSubscriptionsMethod) == null) {
+      synchronized (UserSubscriptionServiceGrpc.class) {
+        if ((getListUserSubscriptionsMethod = UserSubscriptionServiceGrpc.getListUserSubscriptionsMethod) == null) {
+          UserSubscriptionServiceGrpc.getListUserSubscriptionsMethod = getListUserSubscriptionsMethod =
               io.grpc.MethodDescriptor.<com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest, com.subscriptionmanager.v1.proto.ListUserSubscriptionsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListUserSubscriptions"))
@@ -41,7 +41,7 @@ public final class UserServiceGrpc {
                   com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.subscriptionmanager.v1.proto.ListUserSubscriptionsResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("ListUserSubscriptions"))
+              .setSchemaDescriptor(new UserSubscriptionServiceMethodDescriptorSupplier("ListUserSubscriptions"))
               .build();
         }
       }
@@ -60,10 +60,10 @@ public final class UserServiceGrpc {
   public static io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest,
       com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse> getAddUserSubscriptionMethod() {
     io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest, com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse> getAddUserSubscriptionMethod;
-    if ((getAddUserSubscriptionMethod = UserServiceGrpc.getAddUserSubscriptionMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getAddUserSubscriptionMethod = UserServiceGrpc.getAddUserSubscriptionMethod) == null) {
-          UserServiceGrpc.getAddUserSubscriptionMethod = getAddUserSubscriptionMethod =
+    if ((getAddUserSubscriptionMethod = UserSubscriptionServiceGrpc.getAddUserSubscriptionMethod) == null) {
+      synchronized (UserSubscriptionServiceGrpc.class) {
+        if ((getAddUserSubscriptionMethod = UserSubscriptionServiceGrpc.getAddUserSubscriptionMethod) == null) {
+          UserSubscriptionServiceGrpc.getAddUserSubscriptionMethod = getAddUserSubscriptionMethod =
               io.grpc.MethodDescriptor.<com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest, com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddUserSubscription"))
@@ -72,7 +72,7 @@ public final class UserServiceGrpc {
                   com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("AddUserSubscription"))
+              .setSchemaDescriptor(new UserSubscriptionServiceMethodDescriptorSupplier("AddUserSubscription"))
               .build();
         }
       }
@@ -91,10 +91,10 @@ public final class UserServiceGrpc {
   public static io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest,
       com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse> getRenewUserSubscriptionMethod() {
     io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest, com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse> getRenewUserSubscriptionMethod;
-    if ((getRenewUserSubscriptionMethod = UserServiceGrpc.getRenewUserSubscriptionMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getRenewUserSubscriptionMethod = UserServiceGrpc.getRenewUserSubscriptionMethod) == null) {
-          UserServiceGrpc.getRenewUserSubscriptionMethod = getRenewUserSubscriptionMethod =
+    if ((getRenewUserSubscriptionMethod = UserSubscriptionServiceGrpc.getRenewUserSubscriptionMethod) == null) {
+      synchronized (UserSubscriptionServiceGrpc.class) {
+        if ((getRenewUserSubscriptionMethod = UserSubscriptionServiceGrpc.getRenewUserSubscriptionMethod) == null) {
+          UserSubscriptionServiceGrpc.getRenewUserSubscriptionMethod = getRenewUserSubscriptionMethod =
               io.grpc.MethodDescriptor.<com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest, com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RenewUserSubscription"))
@@ -103,7 +103,7 @@ public final class UserServiceGrpc {
                   com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("RenewUserSubscription"))
+              .setSchemaDescriptor(new UserSubscriptionServiceMethodDescriptorSupplier("RenewUserSubscription"))
               .build();
         }
       }
@@ -122,10 +122,10 @@ public final class UserServiceGrpc {
   public static io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest,
       com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse> getRemoveUserSubscriptionMethod() {
     io.grpc.MethodDescriptor<com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest, com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse> getRemoveUserSubscriptionMethod;
-    if ((getRemoveUserSubscriptionMethod = UserServiceGrpc.getRemoveUserSubscriptionMethod) == null) {
-      synchronized (UserServiceGrpc.class) {
-        if ((getRemoveUserSubscriptionMethod = UserServiceGrpc.getRemoveUserSubscriptionMethod) == null) {
-          UserServiceGrpc.getRemoveUserSubscriptionMethod = getRemoveUserSubscriptionMethod =
+    if ((getRemoveUserSubscriptionMethod = UserSubscriptionServiceGrpc.getRemoveUserSubscriptionMethod) == null) {
+      synchronized (UserSubscriptionServiceGrpc.class) {
+        if ((getRemoveUserSubscriptionMethod = UserSubscriptionServiceGrpc.getRemoveUserSubscriptionMethod) == null) {
+          UserSubscriptionServiceGrpc.getRemoveUserSubscriptionMethod = getRemoveUserSubscriptionMethod =
               io.grpc.MethodDescriptor.<com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest, com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveUserSubscription"))
@@ -134,7 +134,7 @@ public final class UserServiceGrpc {
                   com.subscriptionmanager.v1.proto.RemoveUserSubscriptionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("RemoveUserSubscription"))
+              .setSchemaDescriptor(new UserSubscriptionServiceMethodDescriptorSupplier("RemoveUserSubscription"))
               .build();
         }
       }
@@ -145,45 +145,45 @@ public final class UserServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static UserServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UserServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UserServiceStub>() {
+  public static UserSubscriptionServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<UserSubscriptionServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UserSubscriptionServiceStub>() {
         @java.lang.Override
-        public UserServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UserServiceStub(channel, callOptions);
+        public UserSubscriptionServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UserSubscriptionServiceStub(channel, callOptions);
         }
       };
-    return UserServiceStub.newStub(factory, channel);
+    return UserSubscriptionServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static UserServiceBlockingStub newBlockingStub(
+  public static UserSubscriptionServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UserServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UserServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<UserSubscriptionServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UserSubscriptionServiceBlockingStub>() {
         @java.lang.Override
-        public UserServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UserServiceBlockingStub(channel, callOptions);
+        public UserSubscriptionServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UserSubscriptionServiceBlockingStub(channel, callOptions);
         }
       };
-    return UserServiceBlockingStub.newStub(factory, channel);
+    return UserSubscriptionServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static UserServiceFutureStub newFutureStub(
+  public static UserSubscriptionServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<UserServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<UserServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<UserSubscriptionServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<UserSubscriptionServiceFutureStub>() {
         @java.lang.Override
-        public UserServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new UserServiceFutureStub(channel, callOptions);
+        public UserSubscriptionServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new UserSubscriptionServiceFutureStub(channel, callOptions);
         }
       };
-    return UserServiceFutureStub.newStub(factory, channel);
+    return UserSubscriptionServiceFutureStub.newStub(factory, channel);
   }
 
   /**
@@ -191,7 +191,7 @@ public final class UserServiceGrpc {
    *Service for user related functionalities
    * </pre>
    */
-  public static abstract class UserServiceImplBase implements io.grpc.BindableService {
+  public static abstract class UserSubscriptionServiceImplBase implements io.grpc.BindableService {
 
     /**
      * <pre>
@@ -272,16 +272,16 @@ public final class UserServiceGrpc {
    *Service for user related functionalities
    * </pre>
    */
-  public static final class UserServiceStub extends io.grpc.stub.AbstractAsyncStub<UserServiceStub> {
-    private UserServiceStub(
+  public static final class UserSubscriptionServiceStub extends io.grpc.stub.AbstractAsyncStub<UserSubscriptionServiceStub> {
+    private UserSubscriptionServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceStub build(
+    protected UserSubscriptionServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UserServiceStub(channel, callOptions);
+      return new UserSubscriptionServiceStub(channel, callOptions);
     }
 
     /**
@@ -334,16 +334,16 @@ public final class UserServiceGrpc {
    *Service for user related functionalities
    * </pre>
    */
-  public static final class UserServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<UserServiceBlockingStub> {
-    private UserServiceBlockingStub(
+  public static final class UserSubscriptionServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<UserSubscriptionServiceBlockingStub> {
+    private UserSubscriptionServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceBlockingStub build(
+    protected UserSubscriptionServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UserServiceBlockingStub(channel, callOptions);
+      return new UserSubscriptionServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -392,16 +392,16 @@ public final class UserServiceGrpc {
    *Service for user related functionalities
    * </pre>
    */
-  public static final class UserServiceFutureStub extends io.grpc.stub.AbstractFutureStub<UserServiceFutureStub> {
-    private UserServiceFutureStub(
+  public static final class UserSubscriptionServiceFutureStub extends io.grpc.stub.AbstractFutureStub<UserSubscriptionServiceFutureStub> {
+    private UserSubscriptionServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected UserServiceFutureStub build(
+    protected UserSubscriptionServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new UserServiceFutureStub(channel, callOptions);
+      return new UserSubscriptionServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -459,10 +459,10 @@ public final class UserServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final UserServiceImplBase serviceImpl;
+    private final UserSubscriptionServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(UserServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(UserSubscriptionServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -503,9 +503,9 @@ public final class UserServiceGrpc {
     }
   }
 
-  private static abstract class UserServiceBaseDescriptorSupplier
+  private static abstract class UserSubscriptionServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    UserServiceBaseDescriptorSupplier() {}
+    UserSubscriptionServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -514,21 +514,21 @@ public final class UserServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("UserService");
+      return getFileDescriptor().findServiceByName("UserSubscriptionService");
     }
   }
 
-  private static final class UserServiceFileDescriptorSupplier
-      extends UserServiceBaseDescriptorSupplier {
-    UserServiceFileDescriptorSupplier() {}
+  private static final class UserSubscriptionServiceFileDescriptorSupplier
+      extends UserSubscriptionServiceBaseDescriptorSupplier {
+    UserSubscriptionServiceFileDescriptorSupplier() {}
   }
 
-  private static final class UserServiceMethodDescriptorSupplier
-      extends UserServiceBaseDescriptorSupplier
+  private static final class UserSubscriptionServiceMethodDescriptorSupplier
+      extends UserSubscriptionServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    UserServiceMethodDescriptorSupplier(String methodName) {
+    UserSubscriptionServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -543,11 +543,11 @@ public final class UserServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (UserServiceGrpc.class) {
+      synchronized (UserSubscriptionServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new UserSubscriptionServiceFileDescriptorSupplier())
               .addMethod(getListUserSubscriptionsMethod())
               .addMethod(getAddUserSubscriptionMethod())
               .addMethod(getRenewUserSubscriptionMethod())

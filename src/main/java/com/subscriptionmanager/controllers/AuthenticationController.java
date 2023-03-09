@@ -35,10 +35,12 @@ public class AuthenticationController
           .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for user ").concat(request.getUser().toString()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for user ")
+                  .concat(request.getUser().toString()))
           .asRuntimeException());
     }
   }

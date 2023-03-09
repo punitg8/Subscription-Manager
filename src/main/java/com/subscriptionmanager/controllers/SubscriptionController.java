@@ -34,10 +34,12 @@ public class SubscriptionController extends SubscriptionServiceGrpc.Subscription
           .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for subscription ").concat(request.getSubscription().toString()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for subscription ")
+                  .concat(request.getSubscription().toString()))
           .asRuntimeException());
     }
   }

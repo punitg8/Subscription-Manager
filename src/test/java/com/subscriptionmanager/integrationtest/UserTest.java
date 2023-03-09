@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.subscription.v1.proto.AuthenticationServiceGrpc;
 import com.subscription.v1.proto.SubscriptionServiceGrpc;
-import com.subscription.v1.proto.UserServiceGrpc;
+import com.subscription.v1.proto.UserSubscriptionServiceGrpc;
 import com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.CreateSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.CreateUserRequest;
@@ -24,7 +24,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
@@ -34,7 +33,7 @@ public class UserTest {
   private static ManagedChannel channel;
   private static AuthenticationServiceGrpc.AuthenticationServiceBlockingStub
       authenticationServiceStub;
-  private static UserServiceGrpc.UserServiceBlockingStub userServiceStub;
+  private static UserSubscriptionServiceGrpc.UserSubscriptionServiceBlockingStub userServiceStub;
   private static SubscriptionServiceGrpc.SubscriptionServiceBlockingStub subscriptionServiceStub;
 
   @BeforeAll
@@ -42,7 +41,7 @@ public class UserTest {
     channel = ManagedChannelBuilder.forAddress("localhost", 9000).usePlaintext().build();
 
     authenticationServiceStub = AuthenticationServiceGrpc.newBlockingStub(channel);
-    userServiceStub = UserServiceGrpc.newBlockingStub(channel);
+    userServiceStub = UserSubscriptionServiceGrpc.newBlockingStub(channel);
     subscriptionServiceStub = SubscriptionServiceGrpc.newBlockingStub(channel);
   }
 

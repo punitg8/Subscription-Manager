@@ -20,7 +20,7 @@ service AuthenticationService{
   //Request for creation of new user
   rpc createUser(CreateUserRequest) returns (User){
     option(google.api.http) = {
-      post: "/v1/users:create"
+      post: "/v1/users"
       body: "user"
     };
     option (google.api.method_signature) = "user";
@@ -32,7 +32,7 @@ service NewsService{
   //Request for creation of new news
   rpc createNews(CreateNewsRequest) returns (News){
     option (google.api.http) = {
-      post: "/v1/{parent=genres/*}/news:create"
+      post: "/v1/{parent=genres/*}/news"
       body: "news"
     };
     option (google.api.method_signature) = "parent,news";
@@ -44,7 +44,7 @@ service GenreService{
   //Request for creation of new genre
   rpc createGenre(CreateGenreRequest) returns (Genre){
     option (google.api.http) = {
-      post: "/v1/{parent=subscriptions/*}/genre:create"
+      post: "/v1/{parent=subscriptions/*}/genre"
       body: "genre"
     };
     option (google.api.method_signature) = "parent,genre";
@@ -56,7 +56,7 @@ service SubscriptionService{
   //Request for creation of new subscription
   rpc createSubscription(CreateSubscriptionRequest) returns (Subscription){
     option(google.api.http) = {
-      post: "/v1/subscriptions:create"
+      post: "/v1/subscriptions"
       body: "subscription"
     };
     option (google.api.method_signature) = "subscription";
@@ -64,7 +64,7 @@ service SubscriptionService{
 }
 
 //Service for user related functionalities
-service UserService{
+service UserSubscriptionService{
   //Request to list a subscription from user
   rpc ListUserSubscriptions(ListUserSubscriptionsRequest) returns (ListUserSubscriptionsResponse){
     option(google.api.http) = {
@@ -100,5 +100,3 @@ service UserService{
   };
 
 }
-
-//users/hujghjk/sub/bjhbhj

@@ -44,10 +44,12 @@ public class NewsController extends NewsServiceGrpc.NewsServiceImplBase {
               .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for news ").concat(request.getNews().toString()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for news ")
+                  .concat(request.getNews().toString()))
           .asRuntimeException());
     }
   }

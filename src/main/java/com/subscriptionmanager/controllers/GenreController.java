@@ -44,10 +44,12 @@ public class GenreController extends GenreServiceGrpc.GenreServiceImplBase {
               .asRuntimeException()
       );
     } catch (Exception exception) {
-      log.error(exception.getMessage());
-
+      log.error(exception.getMessage().concat(" for genre ").concat(request.getGenre().toString()));
       responseObserver.onError(Status.UNKNOWN
-          .withDescription(exception.getMessage())
+          .withDescription(
+              exception.getMessage()
+                  .concat(" for genre ")
+                  .concat(request.getGenre().toString()))
           .asRuntimeException());
     }
   }

@@ -15,7 +15,7 @@ import com.subscriptionmanager.model.UserSubscription;
 import com.subscriptionmanager.repository.UserSubscriptionRepository;
 import com.subscriptionmanager.service.SubscriptionRepositoryService;
 import com.subscriptionmanager.service.UserRepositoryService;
-import com.subscriptionmanager.service.UserService;
+import com.subscriptionmanager.service.UserSubscriptionService;
 import com.subscriptionmanager.v1.proto.AddUserSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.AddUserSubscriptionResponse;
 import com.subscriptionmanager.v1.proto.ListUserSubscriptionsRequest;
@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional
 @Service
-public class UserServiceImpl implements UserService {
+public class UserSubscriptionServiceImpl implements UserSubscriptionService {
 
   private final UserRepositoryService userRepositoryService;
   private final SubscriptionRepositoryService subscriptionRepositoryService;
@@ -173,14 +173,14 @@ public class UserServiceImpl implements UserService {
   public RemoveUserSubscriptionResponse removeUserSubscription(
       final RemoveUserSubscriptionRequest request) {
 
-    final Map<String, String> variableValueMap =
+    final Map<String, String> resourseValueMap =
         validationService.validateAndExtractResourceValueMap(request.getName(), USERS,
             SUBSCRIPTIONS);
 
-    final User user = userRepositoryService.findById(variableValueMap.get(USERS));
+    final User user = userRepositoryService.findById(resourseValueMap.get(USERS));
 
     final Subscription subscription =
-        subscriptionRepositoryService.findById(variableValueMap.get(SUBSCRIPTIONS));
+        subscriptionRepositoryService.findById(resourseValueMap.get(SUBSCRIPTIONS));
 
     final UserSubscription userSubscription = userSubscriptionRepository
         .findByUserAndSubscription(user, subscription)

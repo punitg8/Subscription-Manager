@@ -25,10 +25,10 @@ public class Audit implements Serializable {
   private String id;
 
   @CreationTimestamp
-  private Timestamp createDateTime;
+  private Timestamp createdAt;
 
   @UpdateTimestamp
-  private Timestamp updateDateTime;
+  private Timestamp updatedAt;
 
   private boolean deleted;
 

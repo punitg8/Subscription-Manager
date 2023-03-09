@@ -49,29 +49,29 @@ public final class ServiceProto {
       "criptionRequest\032*.subscriptionmanager.v1" +
       ".proto.Subscription\"=\202\323\344\223\002(\"\030/v1/subscri" +
       "ptions:create:\014subscription\332A\014subscripti" +
-      "on2\302\006\n\013UserService\022\305\001\n\025ListUserSubscript" +
-      "ions\022:.subscriptionmanager.v1.proto.List" +
-      "UserSubscriptionsRequest\032;.subscriptionm" +
-      "anager.v1.proto.ListUserSubscriptionsRes" +
-      "ponse\"3\202\323\344\223\002$\022\"/v1/{parent=users/*}/subs" +
-      "criptions\332A\006parent\022\313\001\n\023AddUserSubscripti" +
-      "on\0228.subscriptionmanager.v1.proto.AddUse" +
-      "rSubscriptionRequest\0329.subscriptionmanag" +
-      "er.v1.proto.AddUserSubscriptionResponse\"" +
-      "?\202\323\344\223\002+\"&/v1/{parent=users/*}/subscripti" +
-      "ons:add:\001*\332A\013parent,name\022\323\001\n\025RenewUserSu" +
-      "bscription\022:.subscriptionmanager.v1.prot" +
-      "o.RenewUserSubscriptionRequest\032;.subscri" +
-      "ptionmanager.v1.proto.RenewUserSubscript" +
-      "ionResponse\"A\202\323\344\223\002-2(/v1/{parent=users/*" +
-      "}/subscriptions:renew:\001*\332A\013parent,name\022\306" +
-      "\001\n\026RemoveUserSubscription\022;.subscription" +
-      "manager.v1.proto.RemoveUserSubscriptionR" +
-      "equest\032<.subscriptionmanager.v1.proto.Re" +
-      "moveUserSubscriptionResponse\"1\202\323\344\223\002$*\"/v" +
-      "1/{name=users/*/subscriptions/*}\332A\004nameB" +
-      "+\n\031com.subscription.v1.protoB\014ServicePro" +
-      "toP\001b\006proto3"
+      "on2\316\006\n\027UserSubscriptionService\022\305\001\n\025ListU" +
+      "serSubscriptions\022:.subscriptionmanager.v" +
+      "1.proto.ListUserSubscriptionsRequest\032;.s" +
+      "ubscriptionmanager.v1.proto.ListUserSubs" +
+      "criptionsResponse\"3\202\323\344\223\002$\022\"/v1/{parent=u" +
+      "sers/*}/subscriptions\332A\006parent\022\313\001\n\023AddUs" +
+      "erSubscription\0228.subscriptionmanager.v1." +
+      "proto.AddUserSubscriptionRequest\0329.subsc" +
+      "riptionmanager.v1.proto.AddUserSubscript" +
+      "ionResponse\"?\202\323\344\223\002+\"&/v1/{parent=users/*" +
+      "}/subscriptions:add:\001*\332A\013parent,name\022\323\001\n" +
+      "\025RenewUserSubscription\022:.subscriptionman" +
+      "ager.v1.proto.RenewUserSubscriptionReque" +
+      "st\032;.subscriptionmanager.v1.proto.RenewU" +
+      "serSubscriptionResponse\"A\202\323\344\223\002-2(/v1/{pa" +
+      "rent=users/*}/subscriptions:renew:\001*\332A\013p" +
+      "arent,name\022\306\001\n\026RemoveUserSubscription\022;." +
+      "subscriptionmanager.v1.proto.RemoveUserS" +
+      "ubscriptionRequest\032<.subscriptionmanager" +
+      ".v1.proto.RemoveUserSubscriptionResponse" +
+      "\"1\202\323\344\223\002$*\"/v1/{name=users/*/subscription" +
+      "s/*}\332A\004nameB+\n\031com.subscription.v1.proto" +
+      "B\014ServiceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

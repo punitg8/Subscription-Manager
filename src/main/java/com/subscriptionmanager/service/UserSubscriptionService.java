@@ -9,7 +9,7 @@ import com.subscriptionmanager.v1.proto.RemoveUserSubscriptionResponse;
 import com.subscriptionmanager.v1.proto.RenewUserSubscriptionRequest;
 import com.subscriptionmanager.v1.proto.RenewUserSubscriptionResponse;
 
-public interface UserService {
+public interface UserSubscriptionService {
 
   ListUserSubscriptionsResponse listUserSubscriptions(ListUserSubscriptionsRequest request);
 
