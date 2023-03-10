@@ -27,7 +27,7 @@ public class GenreController extends GenreServiceGrpc.GenreServiceImplBase {
       responseObserver.onNext(genreService.createGenre(request));
       responseObserver.onCompleted();
 
-    } catch (ResourceNotFoundException exception) {
+    } catch (final ResourceNotFoundException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -35,7 +35,7 @@ public class GenreController extends GenreServiceGrpc.GenreServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -43,7 +43,7 @@ public class GenreController extends GenreServiceGrpc.GenreServiceImplBase {
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.error(exception.getMessage().concat(" for genre ").concat(request.getGenre().toString()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(

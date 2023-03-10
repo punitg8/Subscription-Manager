@@ -26,14 +26,14 @@ public class SubscriptionController extends SubscriptionServiceGrpc.Subscription
       responseObserver.onNext(subscriptionService.createSubscription(request));
       responseObserver.onCompleted();
 
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(Status.INVALID_ARGUMENT
           .withDescription(exception.getMessage())
           .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.error(exception.getMessage().concat(" for subscription ").concat(request.getSubscription().toString()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(

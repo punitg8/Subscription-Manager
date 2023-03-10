@@ -33,7 +33,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
       responseObserver.onNext(userSubscriptionService.listUserSubscriptions(request));
       responseObserver.onCompleted();
 
-    } catch (ResourceNotFoundException exception) {
+    } catch (final ResourceNotFoundException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -41,7 +41,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -49,7 +49,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.error(exception.getMessage().concat(" for user ").concat(request.getParent()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(
@@ -68,7 +68,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
       responseObserver.onNext(userSubscriptionService.addUserSubscription(request));
       responseObserver.onCompleted();
 
-    } catch (ResourceNotFoundException exception) {
+    } catch (final ResourceNotFoundException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -76,7 +76,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -84,7 +84,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.error(exception.getMessage().concat(" for user ").concat(request.getParent()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(
@@ -103,7 +103,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
       responseObserver.onNext(userSubscriptionService.renewUserSubscription(request));
       responseObserver.onCompleted();
 
-    } catch (ResourceNotFoundException exception) {
+    } catch (final ResourceNotFoundException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -111,7 +111,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -119,7 +119,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.error(exception.getMessage().concat(" for user ").concat(request.getParent()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(
@@ -140,7 +140,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
       responseObserver.onNext(userSubscriptionService.removeUserSubscription(request));
       responseObserver.onCompleted();
 
-    } catch (ResourceNotFoundException exception) {
+    } catch (final ResourceNotFoundException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -148,7 +148,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(
@@ -156,7 +156,7 @@ public class UserSubscriptionController extends UserSubscriptionServiceGrpc.User
               .withDescription(exception.getMessage())
               .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       exception.printStackTrace();
       log.error(exception.getMessage().concat(" for user subscription ").concat(request.getName()));
       responseObserver.onError(Status.UNKNOWN

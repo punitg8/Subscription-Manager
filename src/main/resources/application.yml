@@ -36,4 +36,4 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: com.subscriptionmanager.kafka.serializer.NewsletterMailInfoSerializer
     topic:
-      name: newsletter_mail_info
+      name: Newsletter_Mail_Info

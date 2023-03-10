@@ -27,14 +27,14 @@ public class AuthenticationController
       responseObserver.onNext(authenticationService.createUser(request));
       responseObserver.onCompleted();
 
-    } catch (InvalidArgumentException exception) {
+    } catch (final InvalidArgumentException exception) {
       log.error(exception.getMessage());
 
       responseObserver.onError(Status.INVALID_ARGUMENT
           .withDescription(exception.getMessage())
           .asRuntimeException()
       );
-    } catch (Exception exception) {
+    } catch (final Exception exception) {
       log.error(exception.getMessage().concat(" for user ").concat(request.getUser().toString()));
       responseObserver.onError(Status.UNKNOWN
           .withDescription(
