@@ -348,3 +348,4 @@ gradle-app.setting
 
 # Ignore files of db
 *.ser
+*.rdb
